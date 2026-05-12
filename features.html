@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Features | ChefOS</title>
+  <meta name="description" content="Explore ChefOS features for production import, station work, shortages, dashboards, plating, and role-based access.">
+  <meta property="og:title" content="ChefOS Features">
+  <meta property="og:description" content="Every ChefOS feature is built to save time, reduce errors, and keep kitchens moving.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .inner-hero {
+      padding: 160px 0 120px;
+      color: #f5f5f7;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% 90%, rgba(15,110,86,0.36) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 30% at 50% 14%, rgba(255,255,255,0.06) 0%, transparent 60%),
+        #000;
+      text-align: center;
+    }
+    .inner-hero .eyebrow-teal { color: #35d4a9; font-size: 17px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 20px; }
+    .inner-hero h1 {
+      margin: 0;
+      font-size: clamp(52px, 7vw, 96px);
+      font-weight: 800;
+      line-height: 0.94;
+      letter-spacing: -0.01em;
+      color: #fff;
+    }
+    .inner-hero .hero-sub {
+      font-size: clamp(20px, 2.5vw, 28px);
+      color: rgba(245,245,247,0.72);
+      font-weight: 500;
+      max-width: 680px;
+      margin: 20px auto 0;
+    }
+
+    /* ---- Feature grid ---- */
+    .features-section { padding: 120px 0; background: #000; }
+    .feature-card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 20px;
+    }
+
+    /* Dark feature card */
+    .fc {
+      border-radius: 28px;
+      background: radial-gradient(circle at 68% 76%, rgba(15,110,86,0.42), transparent 34%), linear-gradient(150deg, #2b2b2f, #080808 58%);
+      border: 1px solid rgba(255,255,255,0.10);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      color: #fff;
+    }
+
+    /* Mockup zone at top of card */
+    .fc-mockup {
+      height: 170px;
+      background: rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 16px 20px;
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .fc-body {
+      padding: 26px 28px 30px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .fc-number {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #35d4a9;
+      margin: 0 0 10px;
+    }
+
+    .fc-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      margin: 0 0 12px;
+      line-height: 1.1;
+    }
+
+    .fc-desc {
+      font-size: 15px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.58);
+      line-height: 1.5;
+      margin: 0 0 14px;
+    }
+
+    .fc-meaning {
+      font-size: 14px;
+      font-weight: 700;
+      color: #35d4a9;
+      font-style: italic;
+      margin: auto 0 0;
+    }
+
+    /* --- Mockup: Production Import --- */
+    .mock-upload-zone {
+      border: 1.5px dashed rgba(53,212,169,0.4);
+      border-radius: 10px;
+      padding: 10px 14px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .mock-upload-label {
+      font-size: 11px;
+      color: rgba(255,255,255,0.44);
+      font-weight: 600;
+    }
+    .mock-upload-filename {
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      margin-top: 3px;
+    }
+    .mock-progress-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .mock-progress-track {
+      flex: 1;
+      height: 4px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.10);
+      overflow: hidden;
+    }
+    .mock-progress-fill {
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #0F6E56, #35d4a9);
+    }
+    .mock-progress-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #35d4a9;
+      white-space: nowrap;
+    }
+    .mock-result-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+      padding: 6px 10px;
+      border-radius: 8px;
+      background: rgba(52,199,89,0.12);
+    }
+    .mock-result-icon {
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: rgba(52,199,89,0.25);
+      color: #34C759;
+      font-size: 10px;
+      font-weight: 900;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .mock-result-text { font-size: 12px; font-weight: 700; color: #34C759; }
+
+    /* --- Mockup: Station View --- */
+    .mock-station-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .mock-station-row:last-child { border-bottom: none; }
+    .mock-s-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .mock-s-name { flex: 1; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.80); }
+    .mock-s-badge {
+      padding: 2px 7px;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 800;
+    }
+    .mock-s-complete { background: rgba(52,199,89,0.18); color: #34C759; }
+    .mock-s-progress { background: rgba(255,159,10,0.18); color: #FF9F0A; }
+    .mock-s-waiting  { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.40); }
+
+    /* --- Mockup: Shortage --- */
+    .mock-shortage-card {
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: rgba(255,59,48,0.10);
+      border: 1px solid rgba(255,59,48,0.26);
+      margin-bottom: 8px;
+    }
+    .mock-shortage-row { display: flex; align-items: center; gap: 10px; }
+    .mock-shortage-icon {
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      background: rgba(255,59,48,0.22);
+      color: #FF3B30;
+      font-size: 13px;
+      font-weight: 900;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .mock-shortage-name { flex: 1; font-size: 12px; font-weight: 700; color: #fff; }
+    .mock-shortage-badge {
+      padding: 2px 7px;
+      border-radius: 4px;
+      background: rgba(255,59,48,0.22);
+      color: #FF3B30;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+    }
+    .mock-shortage-qty { font-size: 11px; color: rgba(255,255,255,0.44); margin-top: 3px; }
+    .mock-ok-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 0 0;
+      font-size: 11px;
+      color: rgba(255,255,255,0.38);
+      font-weight: 600;
+    }
+    .mock-ok-dot { width: 6px; height: 6px; border-radius: 50%; background: #34C759; flex-shrink: 0; }
+
+    /* --- Mockup: Dashboard mini bars --- */
+    .mock-dp-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .mock-dp-row:last-child { border-bottom: none; }
+    .mock-dp-label { width: 56px; font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.70); flex-shrink: 0; }
+    .mock-dp-bar-wrap { flex: 1; height: 5px; border-radius: 999px; background: rgba(255,255,255,0.10); overflow: hidden; }
+    .mock-dp-fill { height: 100%; border-radius: inherit; background: linear-gradient(90deg, #0F6E56, #35d4a9); }
+    .mock-dp-fill-alert { background: linear-gradient(90deg, #FF3B30, #FF6B6B); }
+    .mock-dp-pct { width: 36px; text-align: right; font-size: 11px; font-weight: 800; color: rgba(255,255,255,0.60); flex-shrink: 0; }
+    .mock-dp-pct-alert { color: #FF3B30; }
+
+    /* --- Mockup: Plating dots --- */
+    .mock-plate-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .mock-plate-row:last-child { border-bottom: none; }
+    .mock-scoop {
+      width: 13px; height: 13px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .mock-plate-name { flex: 1; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.80); }
+    .mock-plate-qty { font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.44); }
+
+    /* --- Mockup: PIN pad --- */
+    .mock-pin-header {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .mock-pin-role { font-size: 11px; color: rgba(255,255,255,0.44); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+    .mock-pin-label { font-size: 14px; font-weight: 700; color: #fff; margin-top: 3px; }
+    .mock-pin-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin: 8px 0;
+    }
+    .mock-pin-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: #35d4a9;
+    }
+    .mock-pin-dot-empty {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,0.24);
+    }
+    .mock-pin-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5px;
+    }
+    .mock-pin-key {
+      padding: 6px 4px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.07);
+      text-align: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.70);
+    }
+
+    /* ---- Final CTA ---- */
+    .final-cta-section {
+      padding: 140px 0;
+      text-align: center;
+      background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(255,255,255,0.14), transparent 55%), linear-gradient(160deg, #0d7a60, #0F6E56 40%, #0a5c48);
+      color: #fff;
+    }
+    .final-cta-section h2 {
+      margin: 0;
+      font-size: clamp(44px, 6vw, 80px);
+      font-weight: 800;
+      line-height: 0.96;
+      letter-spacing: -0.01em;
+    }
+    .final-cta-section p {
+      margin: 22px auto 40px;
+      max-width: 560px;
+      font-size: clamp(19px, 2.2vw, 26px);
+      font-weight: 500;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.3;
+    }
+
+    @media (max-width: 900px) {
+      .feature-card-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .feature-card-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav" aria-label="Primary navigation">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">ChefOS</a>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+      <div class="nav-links">
+        <a href="index.html">Overview</a>
+        <a class="active" href="features.html">Features</a>
+        <a href="how-it-works.html">How it works</a>
+        <a href="integrations.html">Integrations</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="demo.html">Demo</a>
+        <a class="nav-cta" href="contact.html">Book a Demo</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- HERO -->
+    <section class="inner-hero">
+      <div class="container reveal">
+        <p class="eyebrow-teal">Features</p>
+        <h1>Built for the rush.</h1>
+        <p class="hero-sub">Production import, station work, shortage alerts, manager visibility, and plating — one clean flow from upload to packout.</p>
+      </div>
+    </section>
+
+    <!-- FEATURES GRID -->
+    <section class="features-section">
+      <div class="container">
+        <div class="feature-card-grid">
+
+          <!-- 01 Production Import -->
+          <article class="fc reveal">
+            <div class="fc-mockup">
+              <div class="mock-upload-zone">
+                <div class="mock-upload-label">Drop file to import</div>
+                <div class="mock-upload-filename">Week_23_Production.pdf</div>
+              </div>
+              <div class="mock-progress-row">
+                <div class="mock-progress-track"><div class="mock-progress-fill" style="width:100%"></div></div>
+                <span class="mock-progress-label">100%</span>
+              </div>
+              <div class="mock-result-row">
+                <div class="mock-result-icon">&#10003;</div>
+                <span class="mock-result-text">76 recipes parsed &middot; 48 meals &middot; 0 warnings</span>
+              </div>
+            </div>
+            <div class="fc-body">
+              <p class="fc-number">01</p>
+              <h2 class="fc-title">Production Import</h2>
+              <p class="fc-desc">Upload your recipe software's export PDF and ChefOS reads the prep list in seconds. Prefix-based routing sends every recipe to the right station with a preview before the team starts.</p>
+              <p class="fc-meaning">Less admin before first fire.</p>
+            </div>
+          </article>
+
+          <!-- 02 Station View -->
+          <article class="fc reveal">
+            <div class="fc-mockup">
+              <div class="mock-station-row">
+                <div class="mock-s-dot" style="background:#34C759"></div>
+                <span class="mock-s-name">Herb Chicken Breast &mdash; 2.5 oz</span>
+                <span class="mock-s-badge mock-s-complete">Done</span>
+              </div>
+              <div class="mock-station-row">
+                <div class="mock-s-dot" style="background:#FF9F0A"></div>
+                <span class="mock-s-name">Turkey Meatballs &mdash; 3.0 oz</span>
+                <span class="mock-s-badge mock-s-progress">In Progress</span>
+              </div>
+              <div class="mock-station-row">
+                <div class="mock-s-dot" style="background:#FF9F0A"></div>
+                <span class="mock-s-name">Salmon Fillet &mdash; 4.0 oz</span>
+                <span class="mock-s-badge mock-s-progress">In Progress</span>
+              </div>
+              <div class="mock-station-row">
+                <div class="mock-s-dot" style="background:rgba(255,255,255,0.22)"></div>
+                <span class="mock-s-name">Bison Burger Patty &mdash; 4.0 oz</span>
+                <span class="mock-s-badge mock-s-waiting">Waiting</span>
+              </div>
+            </div>
+            <div class="fc-body">
+              <p class="fc-number">02</p>
+              <h2 class="fc-title">Station View</h2>
+              <p class="fc-desc">Each station gets focused recipe cards with in-progress and complete states. Real-time sync keeps the pass and manager view aligned without shouting across the room.</p>
+              <p class="fc-meaning">Cooks stay in mise, not in menus.</p>
+            </div>
+          </article>
+
+          <!-- 03 Shortage Flagging -->
+          <article class="fc reveal">
+            <div class="fc-mockup">
+              <div class="mock-shortage-card">
+                <div class="mock-shortage-row">
+                  <div class="mock-shortage-icon">!</div>
+                  <span class="mock-shortage-name">Wild Salmon Fillet</span>
+                  <span class="mock-shortage-badge">SHORT</span>
+                </div>
+                <div class="mock-shortage-qty">Need 18 lbs &mdash; Only 11 lbs on hand</div>
+              </div>
+              <div class="mock-shortage-card" style="background:rgba(255,159,10,0.08);border-color:rgba(255,159,10,0.24);margin-bottom:0;">
+                <div class="mock-shortage-row">
+                  <div class="mock-shortage-icon" style="background:rgba(255,159,10,0.22);color:#FF9F0A;">!</div>
+                  <span class="mock-shortage-name">Quinoa (cooked)</span>
+                  <span class="mock-shortage-badge" style="background:rgba(255,159,10,0.22);color:#FF9F0A;">LOW</span>
+                </div>
+                <div class="mock-shortage-qty">Running low &mdash; 4 lbs remaining</div>
+              </div>
+              <div class="mock-ok-row">
+                <div class="mock-ok-dot"></div>
+                <span>All other ingredients confirmed</span>
+              </div>
+            </div>
+            <div class="fc-body">
+              <p class="fc-number">03</p>
+              <h2 class="fc-title">Shortage Flagging</h2>
+              <p class="fc-desc">Staff flag missing ingredients from their station screen. Managers see the alert instantly, resolve it, and keep the all-day count honest before it becomes a late 86.</p>
+              <p class="fc-meaning">Fewer late 86 calls.</p>
+            </div>
+          </article>
+
+          <!-- 04 Manager Dashboard -->
+          <article class="fc reveal">
+            <div class="fc-mockup">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+                <span style="font-size:12px;font-weight:700;color:#fff;">Production Run &mdash; Today</span>
+                <span style="font-size:10px;font-weight:700;color:#34C759;background:rgba(52,199,89,0.16);padding:2px 8px;border-radius:999px;">Live</span>
+              </div>
+              <div class="mock-dp-row">
+                <span class="mock-dp-label">Protein</span>
+                <div class="mock-dp-bar-wrap"><div class="mock-dp-fill" style="width:82%"></div></div>
+                <span class="mock-dp-pct">82%</span>
+              </div>
+              <div class="mock-dp-row">
+                <span class="mock-dp-label">Cold Prep</span>
+                <div class="mock-dp-bar-wrap"><div class="mock-dp-fill" style="width:67%"></div></div>
+                <span class="mock-dp-pct">67%</span>
+              </div>
+              <div class="mock-dp-row">
+                <span class="mock-dp-label">Sauce</span>
+                <div class="mock-dp-bar-wrap"><div class="mock-dp-fill" style="width:100%"></div></div>
+                <span class="mock-dp-pct" style="color:#34C759;">100%</span>
+              </div>
+              <div class="mock-dp-row">
+                <span class="mock-dp-label">Packing</span>
+                <div class="mock-dp-bar-wrap"><div class="mock-dp-fill mock-dp-fill-alert" style="width:18%"></div></div>
+                <span class="mock-dp-pct mock-dp-pct-alert">18%</span>
+              </div>
+            </div>
+            <div class="fc-body">
+              <p class="fc-number">04</p>
+              <h2 class="fc-title">Manager Dashboard</h2>
+              <p class="fc-desc">Progress bars, station drill-down, and shortage alerts show where production is moving and where it is stuck. One glance replaces ten check-ins.</p>
+              <p class="fc-meaning">No clipboard tour required.</p>
+            </div>
+          </article>
+
+          <!-- 05 Plating Screen -->
+          <article class="fc reveal">
+            <div class="fc-mockup">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+                <span style="font-size:12px;font-weight:700;color:#fff;">Herb Chicken Bowl &mdash; Standard</span>
+                <span style="font-size:10px;font-weight:700;color:#35d4a9;background:rgba(15,110,86,0.22);padding:2px 8px;border-radius:999px;">480 cal</span>
+              </div>
+              <div class="mock-plate-row">
+                <div class="mock-scoop" style="background:#34C759"></div>
+                <span class="mock-plate-name">Herb Chicken Breast</span>
+                <span class="mock-plate-qty">2.5 oz</span>
+              </div>
+              <div class="mock-plate-row">
+                <div class="mock-scoop" style="background:#FF9F0A"></div>
+                <span class="mock-plate-name">Roasted Sweet Potato</span>
+                <span class="mock-plate-qty">4.0 oz</span>
+              </div>
+              <div class="mock-plate-row">
+                <div class="mock-scoop" style="background:#007AFF"></div>
+                <span class="mock-plate-name">Steamed Broccolini</span>
+                <span class="mock-plate-qty">3.0 oz</span>
+              </div>
+              <div class="mock-plate-row">
+                <div class="mock-scoop" style="background:#3a3a3c;border:1px solid rgba(255,255,255,0.15)"></div>
+                <span class="mock-plate-name">Herb Chimichurri</span>
+                <span class="mock-plate-qty">1.0 oz</span>
+              </div>
+            </div>
+            <div class="fc-body">
+              <p class="fc-number">05</p>
+              <h2 class="fc-title">Plating Screen</h2>
+              <p class="fc-desc">Side-by-side meal sizes and color-coded scoop cues make packing fast and consistent. Built for busy hands, not dense spec sheets.</p>
+              <p class="fc-meaning">Fewer remake tickets at packout.</p>
+            </div>
+          </article>
+
+          <!-- 06 Role-Based Access -->
+          <article class="fc reveal">
+            <div class="fc-mockup">
+              <div class="mock-pin-header">
+                <div class="mock-pin-role">Staff Login</div>
+                <div class="mock-pin-label">Enter your PIN</div>
+                <div class="mock-pin-dots">
+                  <div class="mock-pin-dot"></div>
+                  <div class="mock-pin-dot"></div>
+                  <div class="mock-pin-dot"></div>
+                  <div class="mock-pin-dot-empty"></div>
+                </div>
+              </div>
+              <div class="mock-pin-grid">
+                <div class="mock-pin-key">1</div>
+                <div class="mock-pin-key">2</div>
+                <div class="mock-pin-key">3</div>
+                <div class="mock-pin-key">4</div>
+                <div class="mock-pin-key">5</div>
+                <div class="mock-pin-key">6</div>
+                <div class="mock-pin-key">7</div>
+                <div class="mock-pin-key">8</div>
+                <div class="mock-pin-key">9</div>
+                <div class="mock-pin-key" style="opacity:0"></div>
+                <div class="mock-pin-key" style="background:rgba(15,110,86,0.22);color:#35d4a9;">0</div>
+                <div class="mock-pin-key" style="opacity:0"></div>
+              </div>
+            </div>
+            <div class="fc-body">
+              <p class="fc-number">06</p>
+              <h2 class="fc-title">Role-Based Access</h2>
+              <p class="fc-desc">Staff log in with a PIN and see only their station. Managers get production controls, cross-station reporting, and shortage resolution. Every person sees what helps them move.</p>
+              <p class="fc-meaning">Right view for every role.</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta-section">
+      <div class="container reveal">
+        <h2>Every feature ships ready for the rush.</h2>
+        <p>See them all in a 30-minute demo on your kind of production day.</p>
+        <a class="button-cta" href="contact.html">Book a Demo</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="animations.js"></script>
+</body>
+</html>

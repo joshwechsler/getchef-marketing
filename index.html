@@ -1,0 +1,742 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ChefOS | Kitchen Production Software</title>
+  <meta name="description" content="ChefOS is production management software built for professional kitchens, prep teams, and packing lines.">
+  <meta property="og:title" content="ChefOS | Your kitchen. Finally in sync.">
+  <meta property="og:description" content="Run production, stations, shortages, and plating from one real-time kitchen system.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="apple-home">
+
+  <!-- Global nav -->
+  <nav class="site-nav" aria-label="Primary navigation">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">ChefOS</a>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+      <div class="nav-links">
+        <a class="active" href="index.html">Overview</a>
+        <a href="features.html">Features</a>
+        <a href="how-it-works.html">How it works</a>
+        <a href="integrations.html">Integrations</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="demo.html">Demo</a>
+        <a class="nav-cta" href="contact.html">Book a Demo</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Product nav -->
+  <nav class="product-nav" aria-label="ChefOS product navigation">
+    <div class="product-nav-inner">
+      <a class="product-title" href="index.html">Kitchen Production Software</a>
+      <div class="product-links">
+        <a href="#highlights">Highlights</a>
+        <a href="#plating">Plating</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="pricing.html">Pricing</a>
+        <a class="product-buy" href="contact.html">Demo</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ================================================
+         HERO
+    ================================================= -->
+    <section id="hero" class="apple-hero">
+      <div class="apple-hero-copy reveal">
+        <p class="apple-product-kicker">Kitchen Production Software</p>
+        <h1>Your kitchen.<br>Finally in sync.</h1>
+        <p class="hero-sub">ChefOS turns prep lists, stations, shortages, and plating into one live production command center.</p>
+        <div class="apple-hero-actions">
+          <a href="contact.html">Request a demo</a>
+          <a href="#highlights">Watch the kitchen move</a>
+        </div>
+      </div>
+
+      <!-- Device mockup -->
+      <div class="product-stage reveal" data-parallax="0.035" aria-label="ChefOS production dashboard mockup">
+        <div class="kps-device">
+          <div class="device-bezel">
+
+            <div class="screen-ui">
+
+              <!-- App top bar -->
+              <div class="app-topbar">
+                <div class="app-logo">ChefOS</div>
+                <div class="app-nav-items">
+                  <span class="app-nav-item">Dashboard</span>
+                  <span class="app-nav-item active">Production</span>
+                  <span class="app-nav-item">Plating</span>
+                  <span class="app-nav-item">Packing</span>
+                </div>
+                <div class="app-topbar-right">
+                  <span class="app-run-badge">Run #47 · Live</span>
+                </div>
+              </div>
+
+              <div class="screen-body">
+
+                <!-- Left sidebar -->
+                <div class="screen-sidebar">
+                  <div class="sidebar-label">Stations</div>
+                  <div class="station-pill active-station">
+                    <span class="station-dot dot-green"></span>
+                    <span class="station-name-text">Protein</span>
+                    <span class="station-pct">82%</span>
+                  </div>
+                  <div class="station-pill">
+                    <span class="station-dot dot-amber"></span>
+                    <span class="station-name-text">Carb</span>
+                    <span class="station-pct">64%</span>
+                  </div>
+                  <div class="station-pill">
+                    <span class="station-dot dot-green"></span>
+                    <span class="station-name-text">Veg</span>
+                    <span class="station-pct">91%</span>
+                  </div>
+                  <div class="station-pill">
+                    <span class="station-dot dot-orange"></span>
+                    <span class="station-name-text">Sauce</span>
+                    <span class="station-pct">47%</span>
+                  </div>
+                  <div class="station-pill">
+                    <span class="station-dot dot-gray"></span>
+                    <span class="station-name-text">Packing</span>
+                    <span class="station-pct">33%</span>
+                  </div>
+                </div>
+
+                <!-- Main content -->
+                <div class="screen-main">
+
+                  <div class="screen-main-header">
+                    <div>
+                      <div class="screen-main-label">Production Run</div>
+                      <div class="screen-main-title">312 meals today</div>
+                    </div>
+                    <div class="screen-main-pct">74% complete</div>
+                  </div>
+
+                  <!-- Recipe cards -->
+                  <div class="recipe-list">
+
+                    <div class="recipe-row">
+                      <div class="recipe-row-left">
+                        <div class="recipe-station-tag tag-protein">Pro</div>
+                        <div class="recipe-info">
+                          <div class="recipe-name">Grilled Chicken Thighs</div>
+                          <div class="recipe-qty">82 portions · Protein station</div>
+                        </div>
+                      </div>
+                      <div class="recipe-row-right">
+                        <div class="recipe-progress-bar"><div class="recipe-progress-fill" style="--rp:82%"></div></div>
+                        <span class="recipe-status status-inprogress" id="hero-badge-1">In Progress</span>
+                      </div>
+                    </div>
+
+                    <div class="recipe-row">
+                      <div class="recipe-row-left">
+                        <div class="recipe-station-tag tag-protein">Pro</div>
+                        <div class="recipe-info">
+                          <div class="recipe-name">Turkey Meatballs</div>
+                          <div class="recipe-qty">64 portions · Protein station</div>
+                        </div>
+                      </div>
+                      <div class="recipe-row-right">
+                        <div class="recipe-progress-bar"><div class="recipe-progress-fill" style="--rp:58%"></div></div>
+                        <span class="recipe-status status-inprogress">In Progress</span>
+                      </div>
+                    </div>
+
+                    <div class="recipe-row">
+                      <div class="recipe-row-left">
+                        <div class="recipe-station-tag tag-carb">Crb</div>
+                        <div class="recipe-info">
+                          <div class="recipe-name">Brown Rice</div>
+                          <div class="recipe-qty">120 portions · Carb station</div>
+                        </div>
+                      </div>
+                      <div class="recipe-row-right">
+                        <div class="recipe-progress-bar"><div class="recipe-progress-fill" style="--rp:64%"></div></div>
+                        <span class="recipe-status status-inprogress">In Progress</span>
+                      </div>
+                    </div>
+
+                    <div class="recipe-row">
+                      <div class="recipe-row-left">
+                        <div class="recipe-station-tag tag-veg">Veg</div>
+                        <div class="recipe-info">
+                          <div class="recipe-name">Roasted Broccoli</div>
+                          <div class="recipe-qty">96 portions · Veg station</div>
+                        </div>
+                      </div>
+                      <div class="recipe-row-right">
+                        <div class="recipe-progress-bar"><div class="recipe-progress-fill" style="--rp:91%"></div></div>
+                        <span class="recipe-status status-complete">Complete</span>
+                      </div>
+                    </div>
+
+                    <div class="recipe-row shortage-recipe-row">
+                      <div class="recipe-row-left">
+                        <div class="recipe-station-tag tag-sauce">Sau</div>
+                        <div class="recipe-info">
+                          <div class="recipe-name">Tahini Sauce <span class="shortage-flag">⚠ Shortage</span></div>
+                          <div class="recipe-qty">48 portions · Sauce station</div>
+                        </div>
+                      </div>
+                      <div class="recipe-row-right">
+                        <div class="recipe-progress-bar"><div class="recipe-progress-fill" style="--rp:47%"></div></div>
+                        <span class="recipe-status status-shortage">Short</span>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <!-- Bottom stat strip -->
+                  <div class="screen-stat-strip">
+                    <div class="screen-stat">
+                      <div class="screen-stat-value" id="hero-stat-stations">5</div>
+                      <div class="screen-stat-label">Stations</div>
+                    </div>
+                    <div class="screen-stat">
+                      <div class="screen-stat-value" id="hero-stat-recipes">23</div>
+                      <div class="screen-stat-label">Recipes</div>
+                    </div>
+                    <div class="screen-stat">
+                      <div class="screen-stat-value">74%</div>
+                      <div class="screen-stat-label">Progress</div>
+                    </div>
+                    <div class="screen-stat screen-stat-alert">
+                      <div class="screen-stat-value stat-red">1</div>
+                      <div class="screen-stat-label">Shortage</div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="device-base"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================
+         STATS / INTRO
+    ================================================= -->
+    <section id="problem" class="apple-intro">
+      <div class="apple-copy-grid container reveal">
+        <h2>Paper doesn't move at kitchen speed.</h2>
+        <p>Production does. ChefOS gives every station the same live truth, so managers stop chasing updates and cooks stop guessing what changed.</p>
+      </div>
+      <div class="apple-stat-row container reveal">
+        <article>
+          <strong class="stat-counter" data-target="3" data-suffix=" hrs">0 hrs</strong>
+          <span>Lost per shift to paper tracking and station check-ins.</span>
+        </article>
+        <article>
+          <strong class="stat-counter" data-target-text="1 in 4">1 in 4</strong>
+          <span>Portion errors avoided when scoop size is visual.</span>
+        </article>
+        <article>
+          <strong>86'd</strong>
+          <span>Caught early, before it reaches the pass.</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================================================
+         HIGHLIGHTS — horizontal scroll
+    ================================================= -->
+    <section id="highlights" class="apple-highlights">
+      <div class="container reveal">
+        <h2>Get the highlights.</h2>
+      </div>
+
+      <div class="apple-highlight-strip" aria-label="ChefOS feature highlights">
+
+        <!-- Card 1: Station View -->
+        <article class="reveal">
+          <div class="highlight-card-top">
+            <h3>Every cook sees exactly what to fire.</h3>
+            <p>Station View</p>
+          </div>
+          <div class="highlight-mockup station-mockup">
+            <div class="hm-header">
+              <span class="hm-title">Protein Station</span>
+              <span class="hm-badge badge-live">Live</span>
+            </div>
+            <div class="hm-recipe-row hm-done">
+              <div class="hm-recipe-left">
+                <span class="hm-check">✓</span>
+                <div>
+                  <div class="hm-recipe-name">Grilled Chicken Thighs</div>
+                  <div class="hm-recipe-meta">82 portions</div>
+                </div>
+              </div>
+              <span class="hm-status s-complete">Complete</span>
+            </div>
+            <div class="hm-recipe-row hm-active">
+              <div class="hm-recipe-left">
+                <span class="hm-dot dot-amber-sm"></span>
+                <div>
+                  <div class="hm-recipe-name">Turkey Meatballs</div>
+                  <div class="hm-recipe-meta">64 portions</div>
+                </div>
+              </div>
+              <span class="hm-status s-inprogress">In Progress</span>
+            </div>
+            <div class="hm-recipe-row">
+              <div class="hm-recipe-left">
+                <span class="hm-dot dot-gray-sm"></span>
+                <div>
+                  <div class="hm-recipe-name">Salmon Fillet</div>
+                  <div class="hm-recipe-meta">48 portions</div>
+                </div>
+              </div>
+              <span class="hm-status s-notstarted">Not Started</span>
+            </div>
+            <div class="hm-recipe-row">
+              <div class="hm-recipe-left">
+                <span class="hm-dot dot-gray-sm"></span>
+                <div>
+                  <div class="hm-recipe-name">Baked Tofu</div>
+                  <div class="hm-recipe-meta">36 portions</div>
+                </div>
+              </div>
+              <span class="hm-status s-notstarted">Not Started</span>
+            </div>
+            <div class="hm-progress-footer">
+              <div class="hm-pfbar"><div class="hm-pfill" style="--hpw:82%"></div></div>
+              <span class="hm-pct">82% complete</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2: Dashboard -->
+        <article class="reveal">
+          <div class="highlight-card-top">
+            <h3>Watch the whole floor from one screen.</h3>
+            <p>Manager Dashboard</p>
+          </div>
+          <div class="highlight-mockup dashboard-mockup">
+            <div class="hm-header">
+              <span class="hm-title">Today's Production</span>
+              <span class="hm-badge badge-live">Live</span>
+            </div>
+            <div class="ring-grid">
+              <div class="ring-item">
+                <div class="ring-wrap">
+                  <svg viewBox="0 0 44 44" class="ring-svg">
+                    <circle cx="22" cy="22" r="18" class="ring-track"/>
+                    <circle cx="22" cy="22" r="18" class="ring-arc" style="--arc-pct:82"/>
+                  </svg>
+                  <span class="ring-pct">82%</span>
+                </div>
+                <div class="ring-label">Protein</div>
+              </div>
+              <div class="ring-item">
+                <div class="ring-wrap">
+                  <svg viewBox="0 0 44 44" class="ring-svg">
+                    <circle cx="22" cy="22" r="18" class="ring-track"/>
+                    <circle cx="22" cy="22" r="18" class="ring-arc" style="--arc-pct:64"/>
+                  </svg>
+                  <span class="ring-pct">64%</span>
+                </div>
+                <div class="ring-label">Carb</div>
+              </div>
+              <div class="ring-item">
+                <div class="ring-wrap">
+                  <svg viewBox="0 0 44 44" class="ring-svg">
+                    <circle cx="22" cy="22" r="18" class="ring-track"/>
+                    <circle cx="22" cy="22" r="18" class="ring-arc" style="--arc-pct:91"/>
+                  </svg>
+                  <span class="ring-pct">91%</span>
+                </div>
+                <div class="ring-label">Veg</div>
+              </div>
+              <div class="ring-item ring-shortage">
+                <div class="ring-wrap">
+                  <svg viewBox="0 0 44 44" class="ring-svg">
+                    <circle cx="22" cy="22" r="18" class="ring-track"/>
+                    <circle cx="22" cy="22" r="18" class="ring-arc ring-arc-red" style="--arc-pct:47"/>
+                  </svg>
+                  <span class="ring-pct ring-pct-red">47%</span>
+                  <span class="ring-alert-dot"></span>
+                </div>
+                <div class="ring-label ring-label-red">Sauce ⚠</div>
+              </div>
+              <div class="ring-item">
+                <div class="ring-wrap">
+                  <svg viewBox="0 0 44 44" class="ring-svg">
+                    <circle cx="22" cy="22" r="18" class="ring-track"/>
+                    <circle cx="22" cy="22" r="18" class="ring-arc ring-arc-dim" style="--arc-pct:33"/>
+                  </svg>
+                  <span class="ring-pct">33%</span>
+                </div>
+                <div class="ring-label">Packing</div>
+              </div>
+            </div>
+            <div class="dash-overall-bar">
+              <div class="dash-overall-label">Overall <span>74%</span></div>
+              <div class="dash-overall-track"><div class="dash-overall-fill" style="--dp:74%"></div></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3: Shortages -->
+        <article class="reveal">
+          <div class="highlight-card-top">
+            <h3>Shortages surface before the line stalls.</h3>
+            <p>Shortage Flagging</p>
+          </div>
+          <div class="highlight-mockup shortage-mockup">
+            <div class="hm-header">
+              <span class="hm-title">Shortage Alerts</span>
+              <span class="hm-badge badge-red">2 Active</span>
+            </div>
+            <div class="shortage-card">
+              <div class="shortage-top">
+                <div class="shortage-icon">!</div>
+                <div class="shortage-text">
+                  <div class="shortage-item-name">Chicken Breast</div>
+                  <div class="shortage-item-qty">15 lbs short of target</div>
+                </div>
+                <span class="shortage-label">SHORTAGE</span>
+              </div>
+              <div class="shortage-actions">
+                <button class="sh-btn sh-btn-primary">Resolve</button>
+                <button class="sh-btn sh-btn-ghost">Flag Manager</button>
+              </div>
+            </div>
+            <div class="shortage-card shortage-card-minor">
+              <div class="shortage-top">
+                <div class="shortage-icon shortage-icon-warn">!</div>
+                <div class="shortage-text">
+                  <div class="shortage-item-name">Tahini Paste</div>
+                  <div class="shortage-item-qty">2 qt short of target</div>
+                </div>
+                <span class="shortage-label shortage-label-warn">SHORT</span>
+              </div>
+              <div class="shortage-actions">
+                <button class="sh-btn sh-btn-primary">Resolve</button>
+                <button class="sh-btn sh-btn-ghost">Flag Manager</button>
+              </div>
+            </div>
+            <div class="shortage-ok-row">
+              <span class="ok-dot"></span>
+              All other items fully stocked
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 4: Plating -->
+        <article class="reveal">
+          <div class="highlight-card-top">
+            <h3>Color-coded scoops make plating obvious.</h3>
+            <p>Plating Screen</p>
+          </div>
+          <div class="highlight-mockup plating-mockup">
+            <div class="hm-header">
+              <span class="hm-title">Chicken Power Bowl</span>
+              <span class="hm-badge badge-teal">48 all day</span>
+            </div>
+            <div class="plating-row plating-row-reveal" style="--delay:0.1s">
+              <span class="scoop-dot sdot-red"></span>
+              <span class="plating-ingredient">Pickled Onion</span>
+              <span class="plating-amount">1/4 cup</span>
+            </div>
+            <div class="plating-row plating-row-reveal" style="--delay:0.25s">
+              <span class="scoop-dot sdot-green"></span>
+              <span class="plating-ingredient">Brown Rice</span>
+              <span class="plating-amount">1/2 cup</span>
+            </div>
+            <div class="plating-row plating-row-reveal" style="--delay:0.4s">
+              <span class="scoop-dot sdot-black"></span>
+              <span class="plating-ingredient">Roasted Squash</span>
+              <span class="plating-amount">3/4 cup</span>
+            </div>
+            <div class="plating-row plating-row-reveal" style="--delay:0.55s">
+              <span class="scoop-dot sdot-blue"></span>
+              <span class="plating-ingredient">Grilled Chicken</span>
+              <span class="plating-amount">1 cup</span>
+            </div>
+            <div class="plating-legend">
+              <span><span class="scoop-dot sdot-red sdot-sm"></span> 1/4</span>
+              <span><span class="scoop-dot sdot-green sdot-sm"></span> 1/2</span>
+              <span><span class="scoop-dot sdot-black sdot-sm"></span> 3/4</span>
+              <span><span class="scoop-dot sdot-blue sdot-sm"></span> 1 cup</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 5: Parsley Import -->
+        <article class="reveal">
+          <div class="highlight-card-top">
+            <h3>Upload Parsley. Start production in 30 seconds.</h3>
+            <p>Parsley Import</p>
+          </div>
+          <div class="highlight-mockup import-mockup">
+            <div class="hm-header">
+              <span class="hm-title">Recipe Import</span>
+              <span class="hm-badge badge-teal">PDF Import</span>
+            </div>
+            <div class="import-state import-state-loading" id="import-loading">
+              <div class="import-spinner"></div>
+              <div class="import-status-text">Reading your production file...</div>
+              <div class="import-sub">Parsing recipes and meal types</div>
+              <div class="import-progress-wrap">
+                <div class="import-progress-track"><div class="import-progress-bar" id="import-bar"></div></div>
+                <span class="import-progress-pct" id="import-pct">0%</span>
+              </div>
+            </div>
+            <div class="import-state import-state-done" id="import-done">
+              <div class="import-check">✓</div>
+              <div class="import-status-text import-text-done">Import Complete</div>
+              <div class="import-count"><span class="import-count-num" id="import-counter">0</span> recipes synced</div>
+              <div class="import-updated">25 updated · 12 new</div>
+              <div class="import-detail-rows">
+                <div class="idr"><span class="idr-dot dot-green"></span> Protein station: 8 recipes</div>
+                <div class="idr"><span class="idr-dot dot-amber"></span> Carb station: 6 recipes</div>
+                <div class="idr"><span class="idr-dot dot-blue"></span> Veg station: 11 recipes</div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ================================================
+         PLATING FEATURE — light
+    ================================================= -->
+    <section id="plating" class="apple-feature light-feature">
+      <div class="container">
+        <div class="feature-lockup reveal">
+          <p class="eyebrow-teal">Plating</p>
+          <h2>The right scoop.<br>Every time.</h2>
+          <span>Color-coded portions mean your packing team doesn't have to read a spec sheet during packout. They just see the scoop.</span>
+        </div>
+        <div class="cinema-card plating-cinema reveal">
+          <!-- Plating card -->
+          <div class="plating-card-xl">
+            <div class="plating-title-row">
+              <div>
+                <div class="plating-card-meal">Chicken Power Bowl</div>
+                <div class="plating-card-sub">48 portions all day</div>
+              </div>
+              <div class="plating-card-meta">
+                <span class="plating-meta-badge">Run #47</span>
+              </div>
+            </div>
+            <div class="plate-row-xl reveal-row" style="--delay:0s">
+              <span class="scoop scoop-red"></span>
+              <b>Pickled Onion</b>
+              <span class="plate-amount">1/4 cup</span>
+            </div>
+            <div class="plate-row-xl reveal-row" style="--delay:0.15s">
+              <span class="scoop scoop-green"></span>
+              <b>Brown Rice</b>
+              <span class="plate-amount">1/2 cup</span>
+            </div>
+            <div class="plate-row-xl reveal-row" style="--delay:0.3s">
+              <span class="scoop scoop-black"></span>
+              <b>Roasted Squash</b>
+              <span class="plate-amount">3/4 cup</span>
+            </div>
+            <div class="plate-row-xl reveal-row" style="--delay:0.45s">
+              <span class="scoop scoop-blue"></span>
+              <b>Grilled Chicken</b>
+              <span class="plate-amount">1 cup</span>
+            </div>
+            <div class="plate-row-xl reveal-row" style="--delay:0.6s">
+              <span class="scoop scoop-red"></span>
+              <b>House Salsa</b>
+              <span class="plate-amount">1/4 cup</span>
+            </div>
+          </div>
+          <!-- Legend -->
+          <div class="plating-legend-row">
+            <span class="legend-item"><span class="scoop scoop-red"></span> 1/4 cup</span>
+            <span class="legend-item"><span class="scoop scoop-green"></span> 1/2 cup</span>
+            <span class="legend-item"><span class="scoop scoop-black"></span> 3/4 cup</span>
+            <span class="legend-item"><span class="scoop scoop-blue"></span> 1 cup</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================
+         DASHBOARD FEATURE — dark
+    ================================================= -->
+    <section id="dashboard" class="apple-feature dark-feature">
+      <div class="container">
+        <div class="feature-lockup reveal">
+          <p class="eyebrow-light">Manager Dashboard</p>
+          <h2>Every station.<br>One screen.</h2>
+          <span>Progress bars. Shortage alerts. Who's on what. ChefOS turns production into a live board your managers can actually trust.</span>
+        </div>
+        <div class="dashboard-cinema reveal">
+          <!-- Dashboard panel -->
+          <div class="dashboard-panel">
+            <div class="dp-header">
+              <div class="dp-header-left">
+                <div class="dp-label">Today · Run #47</div>
+                <div class="dp-title">Production is 74% complete</div>
+              </div>
+              <div class="dp-header-right">
+                <span class="dp-live-pill">● Live</span>
+              </div>
+            </div>
+            <div class="dp-row">
+              <div class="dp-station">Protein</div>
+              <div class="dp-bar-wrap"><div class="dp-bar" data-progress="82"><div class="dp-fill"></div></div></div>
+              <div class="dp-pct">82%</div>
+              <div class="dp-meta dp-meta-ok">On track</div>
+            </div>
+            <div class="dp-row">
+              <div class="dp-station">Carb</div>
+              <div class="dp-bar-wrap"><div class="dp-bar" data-progress="64"><div class="dp-fill"></div></div></div>
+              <div class="dp-pct">64%</div>
+              <div class="dp-meta dp-meta-ok">On track</div>
+            </div>
+            <div class="dp-row">
+              <div class="dp-station">Veg</div>
+              <div class="dp-bar-wrap"><div class="dp-bar" data-progress="91"><div class="dp-fill"></div></div></div>
+              <div class="dp-pct">91%</div>
+              <div class="dp-meta dp-meta-done">Done</div>
+            </div>
+            <div class="dp-row dp-row-alert">
+              <div class="dp-station">Sauce</div>
+              <div class="dp-bar-wrap"><div class="dp-bar dp-bar-alert" data-progress="47"><div class="dp-fill dp-fill-alert"></div></div></div>
+              <div class="dp-pct dp-pct-alert">47%</div>
+              <div class="dp-meta dp-meta-short">⚠ Short 2 qt</div>
+            </div>
+            <div class="dp-row">
+              <div class="dp-station">Packing</div>
+              <div class="dp-bar-wrap"><div class="dp-bar" data-progress="33"><div class="dp-fill dp-fill-dim"></div></div></div>
+              <div class="dp-pct">33%</div>
+              <div class="dp-meta dp-meta-ok">Waiting</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================
+         PARSLEY INTEGRATION — light
+    ================================================= -->
+    <section id="software" class="apple-feature light-feature">
+      <div class="container">
+        <div class="feature-lockup reveal">
+          <p class="eyebrow-teal">Integrations</p>
+          <h2>Plug in.<br>Don't start over.</h2>
+          <span>Already using Parsley? Upload your Sub-Recipe Summary PDF and ChefOS turns it into station-ready production in about 30 seconds.</span>
+        </div>
+        <!-- Parsley sync animation block -->
+        <div class="parsley-cinema reveal">
+          <div class="parsley-panel">
+            <div class="parsley-panel-header">
+              <div class="pp-logo">Parsley × ChefOS</div>
+              <div class="parsley-sync-status" id="pp-status">
+                <span class="pp-spinner"></span>
+                <span id="pp-status-text">Connecting to Parsley...</span>
+              </div>
+            </div>
+            <div class="parsley-file-card">
+              <div class="pf-icon">PDF</div>
+              <div class="pf-info">
+                <div class="pf-name">Sub-Recipe Summary — Week 22.pdf</div>
+                <div class="pf-meta">Uploaded · 2.4 MB</div>
+              </div>
+              <div class="pf-done-check" id="pf-check">✓</div>
+            </div>
+            <div class="parsley-count-row">
+              <div class="pc-item">
+                <div class="pc-value" id="pp-total">2,398</div>
+                <div class="pc-label">Recipes parsed</div>
+              </div>
+              <div class="pc-item">
+                <div class="pc-value pc-value-green" id="pp-updated">25</div>
+                <div class="pc-label">Updated</div>
+              </div>
+              <div class="pc-item">
+                <div class="pc-value pc-value-blue" id="pp-new">12</div>
+                <div class="pc-label">New recipes</div>
+              </div>
+            </div>
+            <div class="parsley-station-map">
+              <div class="ps-row">
+                <span class="ps-station-tag tag-protein">Protein</span>
+                <span class="ps-count">8 recipes mapped</span>
+                <span class="ps-check">✓</span>
+              </div>
+              <div class="ps-row">
+                <span class="ps-station-tag tag-carb">Carb</span>
+                <span class="ps-count">6 recipes mapped</span>
+                <span class="ps-check">✓</span>
+              </div>
+              <div class="ps-row">
+                <span class="ps-station-tag tag-veg">Veg</span>
+                <span class="ps-count">11 recipes mapped</span>
+                <span class="ps-check">✓</span>
+              </div>
+              <div class="ps-row">
+                <span class="ps-station-tag tag-sauce">Sauce</span>
+                <span class="ps-count">4 recipes mapped</span>
+                <span class="ps-check">✓</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================
+         OPERATORS
+    ================================================= -->
+    <section id="operators" class="operator-section">
+      <div class="container reveal">
+        <h2>Built for kitchens where every minute has an owner.</h2>
+        <div class="operator-grid">
+          <article>
+            <div class="op-icon op-icon-mealpre">🥡</div>
+            <h3>Meal prep</h3>
+            <p>Scale production without scaling management overhead. Every station briefed. Every portion tracked. Real-time, all day.</p>
+          </article>
+          <article>
+            <div class="op-icon op-icon-catering">🍽</div>
+            <h3>Catering</h3>
+            <p>Every station briefed. Every portion tracked. Every event tighter. ChefOS makes your team look like they've run this a hundred times.</p>
+          </article>
+          <article>
+            <div class="op-icon op-icon-mfg">🏭</div>
+            <h3>Food manufacturing</h3>
+            <p>Bring line-level precision to the kitchen floor. Track recipes, stations, and packing runs in one live command center.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================
+         FINAL CTA
+    ================================================= -->
+    <section id="cta" class="apple-final-cta">
+      <div class="container center reveal">
+        <h2>Ready to run a smarter kitchen?</h2>
+        <p>See ChefOS in action with a free 30-minute demo. No paperwork, no commitment.</p>
+        <a class="button-cta" href="contact.html">Book a Demo</a>
+      </div>
+    </section>
+
+  </main>
+  <script src="animations.js"></script>
+</body>
+</html>

@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Integrations | ChefOS</title>
+  <meta name="description" content="ChefOS works with Parsley, ChefTec, and recipe software workflows for production import.">
+  <meta property="og:title" content="ChefOS Integrations">
+  <meta property="og:description" content="Built to work with what your kitchen already uses.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .inner-hero {
+      padding: 160px 0 120px;
+      color: #f5f5f7;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% 90%, rgba(15,110,86,0.36) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 30% at 50% 14%, rgba(255,255,255,0.06) 0%, transparent 60%),
+        #000;
+      text-align: center;
+    }
+    .inner-hero .eyebrow-teal { color: #35d4a9; font-size: 17px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 20px; }
+    .inner-hero h1 {
+      margin: 0;
+      font-size: clamp(52px, 7vw, 96px);
+      font-weight: 800;
+      line-height: 0.94;
+      letter-spacing: -0.01em;
+      color: #fff;
+    }
+    .inner-hero .hero-sub {
+      font-size: clamp(20px, 2.5vw, 28px);
+      color: rgba(245,245,247,0.72);
+      font-weight: 500;
+      max-width: 680px;
+      margin: 20px auto 0;
+    }
+
+    /* ---- Integrations section ---- */
+    .integrations-section { padding: 120px 0; background: #000; }
+
+    .int-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    /* Base dark card */
+    .int-card {
+      border-radius: 28px;
+      background: radial-gradient(circle at 68% 76%, rgba(15,110,86,0.42), transparent 34%), linear-gradient(150deg, #2b2b2f, #080808 58%);
+      border: 1px solid rgba(255,255,255,0.10);
+      color: #fff;
+      overflow: hidden;
+    }
+
+    /* Featured Parsley card spans full width */
+    .int-card-featured {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 360px;
+      background: radial-gradient(circle at 80% 20%, rgba(15,110,86,0.55), transparent 40%), linear-gradient(150deg, #0d3a2e, #040e0a);
+      border-color: rgba(53,212,169,0.20);
+    }
+
+    .int-card-body {
+      padding: 36px 38px 38px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .int-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .int-badge-live   { background: rgba(52,199,89,0.18); color: #34C759; }
+    .int-badge-soon   { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.50); }
+    .int-badge-custom { background: rgba(15,110,86,0.28); color: #35d4a9; }
+
+    .int-card-glyph {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 900;
+      color: rgba(255,255,255,0.60);
+      margin-bottom: 20px;
+    }
+    .int-card-featured .int-card-glyph {
+      background: rgba(53,212,169,0.14);
+      border-color: rgba(53,212,169,0.24);
+      color: #35d4a9;
+      font-size: 24px;
+    }
+
+    .int-card-title {
+      font-size: 30px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1;
+      margin: 0 0 14px;
+    }
+
+    .int-card-desc {
+      font-size: 16px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.58);
+      line-height: 1.55;
+      margin: 0 0 20px;
+    }
+
+    .int-card-meaning {
+      font-size: 14px;
+      font-weight: 700;
+      color: #35d4a9;
+      font-style: italic;
+      margin: auto 0 0;
+    }
+
+    /* Parsley mockup pane */
+    .parsley-mockup-pane {
+      border-left: 1px solid rgba(255,255,255,0.08);
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .pm-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 16px;
+    }
+    .pm-logo {
+      font-size: 15px;
+      font-weight: 800;
+      color: #35d4a9;
+    }
+    .pm-status {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 12px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.50);
+    }
+    .pm-spinner {
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      border: 2px solid rgba(53,212,169,0.20);
+      border-top-color: #35d4a9;
+      animation: spin 0.9s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .pm-file-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.09);
+      margin-bottom: 12px;
+    }
+    .pm-file-icon {
+      width: 38px; height: 38px;
+      border-radius: 8px;
+      background: rgba(255,59,48,0.14);
+      color: #FF3B30;
+      font-size: 10px;
+      font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .pm-file-name { font-size: 13px; font-weight: 700; color: #fff; }
+    .pm-file-meta { font-size: 11px; color: rgba(255,255,255,0.38); margin-top: 2px; font-weight: 500; }
+    .pm-file-check {
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      background: rgba(52,199,89,0.16);
+      color: #34C759;
+      font-size: 12px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      margin-left: auto;
+    }
+
+    .pm-sync-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .pm-sync-row:last-child { border-bottom: none; }
+    .pm-sync-label { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.44); }
+    .pm-sync-value { font-size: 12px; font-weight: 800; color: #fff; }
+    .pm-sync-value-green { color: #34C759; }
+
+    .pm-progress-section { margin-top: 14px; }
+    .pm-progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.40);
+      margin-bottom: 6px;
+    }
+    .pm-progress-label span { color: #35d4a9; }
+    .pm-progress-track {
+      height: 5px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.10);
+      overflow: hidden;
+    }
+    .pm-progress-fill {
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #0F6E56, #35d4a9);
+    }
+
+    /* Other integration cards (smaller) */
+    .int-card-small {
+      padding: 34px 34px 34px;
+    }
+
+    .int-card-small .int-card-title { font-size: 22px; }
+    .int-card-small .int-card-desc  { font-size: 15px; }
+
+    /* ---- Final CTA ---- */
+    .final-cta-section {
+      padding: 140px 0;
+      text-align: center;
+      background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(255,255,255,0.14), transparent 55%), linear-gradient(160deg, #0d7a60, #0F6E56 40%, #0a5c48);
+      color: #fff;
+    }
+    .final-cta-section h2 {
+      margin: 0;
+      font-size: clamp(44px, 6vw, 80px);
+      font-weight: 800;
+      line-height: 0.96;
+      letter-spacing: -0.01em;
+    }
+    .final-cta-section p {
+      margin: 22px auto 40px;
+      max-width: 560px;
+      font-size: clamp(19px, 2.2vw, 26px);
+      font-weight: 500;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.3;
+    }
+
+    @media (max-width: 900px) {
+      .int-card-featured { grid-template-columns: 1fr; }
+      .parsley-mockup-pane { border-left: none; border-top: 1px solid rgba(255,255,255,0.08); }
+      .int-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav" aria-label="Primary navigation">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">ChefOS</a>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+      <div class="nav-links">
+        <a href="index.html">Overview</a>
+        <a href="features.html">Features</a>
+        <a href="how-it-works.html">How it works</a>
+        <a class="active" href="integrations.html">Integrations</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="demo.html">Demo</a>
+        <a class="nav-cta" href="contact.html">Book a Demo</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- HERO -->
+    <section class="inner-hero">
+      <div class="container reveal">
+        <p class="eyebrow-teal">Integrations</p>
+        <h1>Built to work with<br>what you already use.</h1>
+        <p class="hero-sub">Keep your recipe system. Add the production layer your kitchen has been missing.</p>
+      </div>
+    </section>
+
+    <!-- INTEGRATION CARDS -->
+    <section class="integrations-section">
+      <div class="container">
+        <div class="int-grid">
+
+          <!-- Parsley — featured, full width -->
+          <article class="int-card int-card-featured reveal">
+            <div class="int-card-body">
+              <span class="int-badge int-badge-live">Live Now</span>
+              <div class="int-card-glyph">P</div>
+              <h2 class="int-card-title">Parsley</h2>
+              <p class="int-card-desc">Export your Sub-Recipe Summary PDF, upload it to ChefOS, and review the parsed production run in under a minute. ChefOS reads recipe names, categories, quantities, and station cues — then turns that file into live station work and plating data your team can act on immediately.</p>
+              <p class="int-card-meaning">Ready now. The fastest path from Parsley to the floor.</p>
+            </div>
+            <div class="parsley-mockup-pane">
+              <div class="pm-header">
+                <span class="pm-logo">Parsley Sync</span>
+                <span class="pm-status">
+                  <span class="pm-spinner"></span>
+                  Syncing
+                </span>
+              </div>
+              <div class="pm-file-card">
+                <div class="pm-file-icon">PDF</div>
+                <div>
+                  <div class="pm-file-name">Week_23_Production.pdf</div>
+                  <div class="pm-file-meta">Honeyplate Kitchen &mdash; May 11, 2026</div>
+                </div>
+                <div class="pm-file-check">&#10003;</div>
+              </div>
+              <div class="pm-sync-row">
+                <span class="pm-sync-label">Recipes synced</span>
+                <span class="pm-sync-value pm-sync-value-green">2,398</span>
+              </div>
+              <div class="pm-sync-row">
+                <span class="pm-sync-label">Updated this run</span>
+                <span class="pm-sync-value">25</span>
+              </div>
+              <div class="pm-sync-row">
+                <span class="pm-sync-label">Warnings</span>
+                <span class="pm-sync-value">0</span>
+              </div>
+              <div class="pm-progress-section">
+                <div class="pm-progress-label">
+                  <span>Parsing progress</span>
+                  <span>100%</span>
+                </div>
+                <div class="pm-progress-track">
+                  <div class="pm-progress-fill" style="width:100%"></div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- ChefTec -->
+          <article class="int-card reveal">
+            <div class="int-card-small">
+              <span class="int-badge int-badge-soon">Coming Soon</span>
+              <div class="int-card-glyph">C</div>
+              <h2 class="int-card-title">ChefTec</h2>
+              <p class="int-card-desc">ChefOS can map ChefTec production exports into station-ready work. Contact us to share your current export format and we will scope the connection.</p>
+              <p class="int-card-meaning">In development. Request your platform to move it up the queue.</p>
+            </div>
+          </article>
+
+          <!-- Recipe Software -->
+          <article class="int-card reveal">
+            <div class="int-card-small">
+              <span class="int-badge int-badge-soon">Coming Soon</span>
+              <div class="int-card-glyph" style="font-size:24px;">+</div>
+              <h2 class="int-card-title">Your Recipe Software</h2>
+              <p class="int-card-desc">ChefOS can ingest structured exports from most recipe management platforms. If your software exports a consistent PDF, CSV, or data format, we can map it into the production flow.</p>
+              <p class="int-card-meaning">Send us your export and we will tell you the path in.</p>
+            </div>
+          </article>
+
+          <!-- Menu Tools -->
+          <article class="int-card reveal">
+            <div class="int-card-small">
+              <span class="int-badge int-badge-soon">Coming Soon</span>
+              <div class="int-card-glyph" style="font-size:22px;">M</div>
+              <h2 class="int-card-title">Menu Tools</h2>
+              <p class="int-card-desc">Send menus and sub-recipes through the same production flow. Nutritional data, allergen flags, and meal-size variants carry through to the station and plating screens.</p>
+              <p class="int-card-meaning">One source of truth from menu to packout.</p>
+            </div>
+          </article>
+
+          <!-- Custom -->
+          <article class="int-card reveal">
+            <div class="int-card-small">
+              <span class="int-badge int-badge-custom">Custom</span>
+              <div class="int-card-glyph" style="font-size:20px;color:#35d4a9;background:rgba(53,212,169,0.10);border-color:rgba(53,212,169,0.20);">&lt;/&gt;</div>
+              <h2 class="int-card-title">Custom Imports</h2>
+              <p class="int-card-desc">CSV, PDF, or system-specific exports can be scoped and built during your onboarding. If you can export the data, ChefOS can ingest it. We handle the mapping and routing logic for you.</p>
+              <p class="int-card-meaning">Bring your format. We will build the bridge.</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta-section">
+      <div class="container reveal">
+        <h2>Don't see your software?<br>We can build it.</h2>
+        <p>Show us the export. We will show you the path into ChefOS.</p>
+        <a class="button-cta" href="contact.html">Request an Integration</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="animations.js"></script>
+</body>
+</html>

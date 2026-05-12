@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact | ChefOS</title>
+  <meta name="description" content="Request a ChefOS demo for your kitchen production team.">
+  <meta property="og:title" content="Book a ChefOS Demo">
+  <meta property="og:description" content="See ChefOS in action with a focused 30-minute demo.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ---- Contact hero — light, 2-col layout ---- */
+    .contact-hero {
+      padding: 140px 0 100px;
+      background: #f5f5f7;
+      color: #1d1d1f;
+    }
+
+    .contact-hero-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .contact-hero-text { padding-top: 20px; }
+
+    .contact-eyebrow {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--color-teal);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin: 0 0 20px;
+    }
+
+    .contact-h1 {
+      margin: 0;
+      font-size: clamp(40px, 5.5vw, 76px);
+      font-weight: 800;
+      line-height: 0.96;
+      letter-spacing: -0.01em;
+      color: #000;
+    }
+
+    .contact-sub {
+      margin: 24px 0 0;
+      font-size: clamp(17px, 2vw, 22px);
+      font-weight: 500;
+      color: #6e6e73;
+      line-height: 1.45;
+      max-width: 480px;
+    }
+
+    .contact-email-link {
+      display: inline-block;
+      margin-top: 28px;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--color-teal);
+    }
+    .contact-email-link:hover { text-decoration: underline; }
+
+    /* ---- Form card ---- */
+    .contact-form-card {
+      padding: 40px;
+      border-radius: 28px;
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.07);
+      box-shadow: 0 24px 80px rgba(0,0,0,0.09);
+    }
+
+    .form-card-head {
+      margin: 0 0 30px;
+      font-size: 22px;
+      font-weight: 800;
+      color: #000;
+    }
+
+    .form-row { margin-bottom: 18px; }
+
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #1d1d1f;
+    }
+
+    .form-label-muted {
+      font-weight: 500;
+      color: #6e6e73;
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      min-height: 50px;
+      padding: 13px 16px;
+      border: 1.5px solid rgba(0,0,0,0.14);
+      border-radius: 12px;
+      color: #000;
+      background: #fff;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 500;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      appearance: none;
+    }
+
+    .form-textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--color-teal);
+      box-shadow: 0 0 0 4px rgba(15,110,86,0.12);
+    }
+
+    .form-select-wrap { position: relative; }
+    .form-select-wrap::after {
+      content: "&#8964;";
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #6e6e73;
+      font-size: 16px;
+      pointer-events: none;
+    }
+
+    .form-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .form-submit-btn {
+      width: 100%;
+      padding: 16px 24px;
+      border: none;
+      border-radius: 999px;
+      background: #000;
+      color: #fff;
+      font-family: inherit;
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.2s;
+      margin-top: 6px;
+    }
+    .form-submit-btn:hover { opacity: 0.84; transform: translateY(-1px); }
+
+    .form-message {
+      margin-top: 14px;
+      min-height: 24px;
+      color: var(--color-teal);
+      font-size: 15px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    /* ---- Trust cards ---- */
+    .trust-section {
+      padding: 100px 0;
+      background: #fff;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .trust-card-new {
+      padding: 36px;
+      border-radius: 28px;
+      min-height: 220px;
+      background: radial-gradient(circle at 68% 76%, rgba(15,110,86,0.35), transparent 34%), linear-gradient(150deg, #2b2b2f, #080808 58%);
+      border: 1px solid rgba(255,255,255,0.10);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .trust-card-value {
+      font-size: clamp(30px, 3.5vw, 44px);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1;
+      margin: 0 0 14px;
+    }
+
+    .trust-card-label {
+      font-size: 16px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.56);
+      line-height: 1.45;
+      margin: 0;
+    }
+
+    .trust-card-accent {
+      display: block;
+      width: 28px;
+      height: 3px;
+      border-radius: 999px;
+      background: #35d4a9;
+      margin: auto 0 0;
+    }
+
+    @media (max-width: 900px) {
+      .contact-hero-layout { grid-template-columns: 1fr; gap: 40px; }
+      .form-2col { grid-template-columns: 1fr; }
+      .trust-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .contact-form-card { padding: 26px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav" aria-label="Primary navigation">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">ChefOS</a>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+      <div class="nav-links">
+        <a href="index.html">Overview</a>
+        <a href="features.html">Features</a>
+        <a href="how-it-works.html">How it works</a>
+        <a href="integrations.html">Integrations</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="demo.html">Demo</a>
+        <a class="nav-cta active" href="contact.html">Book a Demo</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- HERO + FORM -->
+    <section class="contact-hero">
+      <div class="container">
+        <div class="contact-hero-layout">
+
+          <div class="contact-hero-text reveal">
+            <p class="contact-eyebrow">Contact</p>
+            <h1 class="contact-h1">See ChefOS on your kind of production day.</h1>
+            <p class="contact-sub">Tell us how your kitchen runs now. We will show where ChefOS removes paper, missed updates, and plating mistakes — in 30 minutes, with a real production import.</p>
+            <a class="contact-email-link" href="mailto:reach@yourdomain.com">reach@yourdomain.com</a>
+          </div>
+
+          <div class="reveal">
+            <form class="contact-form-card" data-contact-form novalidate>
+              <h2 class="form-card-head">Book a 30-min demo</h2>
+
+              <div class="form-2col">
+                <div class="form-row">
+                  <label class="form-label" for="name">Name</label>
+                  <input class="form-input" id="name" name="name" autocomplete="name" required placeholder="Your name">
+                </div>
+                <div class="form-row">
+                  <label class="form-label" for="company">Company</label>
+                  <input class="form-input" id="company" name="company" autocomplete="organization" required placeholder="Kitchen name">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <label class="form-label" for="email">Email</label>
+                <input class="form-input" id="email" name="email" type="email" autocomplete="email" required placeholder="you@kitchen.com">
+              </div>
+
+              <div class="form-2col">
+                <div class="form-row">
+                  <label class="form-label" for="role">Operation type</label>
+                  <div class="form-select-wrap">
+                    <select class="form-select" id="role" name="role" required>
+                      <option value="">Select one</option>
+                      <option>Meal Prep</option>
+                      <option>Catering</option>
+                      <option>Food Manufacturing</option>
+                      <option>Commissary</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <label class="form-label" for="phone">Phone <span class="form-label-muted">(optional)</span></label>
+                  <input class="form-input" id="phone" name="phone" type="tel" autocomplete="tel" placeholder="555-000-0000">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <label class="form-label" for="message">How does your kitchen run production today?</label>
+                <textarea class="form-textarea" id="message" name="message" required placeholder="Current tools, team size, what's most painful..."></textarea>
+              </div>
+
+              <button class="form-submit-btn" type="submit">Book a Demo</button>
+              <div class="form-message" data-form-message role="status" aria-live="polite"></div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST CARDS -->
+    <section class="trust-section">
+      <div class="container">
+        <div class="trust-grid">
+          <div class="trust-card-new reveal">
+            <div class="trust-card-value">30 min</div>
+            <p class="trust-card-label">See a real production import, station routing, and the manager dashboard before the demo ends.</p>
+            <span class="trust-card-accent"></span>
+          </div>
+          <div class="trust-card-new reveal">
+            <div class="trust-card-value">No contract</div>
+            <p class="trust-card-label">Start with one team, one shift, one production run. Expand as your kitchen grows into it.</p>
+            <span class="trust-card-accent"></span>
+          </div>
+          <div class="trust-card-new reveal">
+            <div class="trust-card-value">Built for kitchens</div>
+            <p class="trust-card-label">Meal prep, catering, commissary, and food manufacturing workflows. Not adapted from a warehouse tool.</p>
+            <span class="trust-card-accent"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="animations.js"></script>
+</body>
+</html>

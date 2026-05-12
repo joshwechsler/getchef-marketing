@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How It Works | ChefOS</title>
+  <meta name="description" content="See how ChefOS turns recipe exports into station work, manager visibility, and plating screens.">
+  <meta property="og:title" content="How ChefOS Works">
+  <meta property="og:description" content="From Parsley export to packout, ChefOS keeps kitchen production in sync.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .inner-hero {
+      padding: 160px 0 120px;
+      color: #f5f5f7;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% 90%, rgba(15,110,86,0.36) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 30% at 50% 14%, rgba(255,255,255,0.06) 0%, transparent 60%),
+        #000;
+      text-align: center;
+    }
+    .inner-hero .eyebrow-teal { color: #35d4a9; font-size: 17px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 20px; }
+    .inner-hero h1 {
+      margin: 0;
+      font-size: clamp(52px, 7vw, 96px);
+      font-weight: 800;
+      line-height: 0.94;
+      letter-spacing: -0.01em;
+      color: #fff;
+    }
+    .inner-hero .hero-sub {
+      font-size: clamp(20px, 2.5vw, 28px);
+      color: rgba(245,245,247,0.72);
+      font-weight: 500;
+      max-width: 680px;
+      margin: 20px auto 0;
+    }
+
+    /* ---- Step sections ---- */
+    .step-section {
+      padding: 120px 0;
+    }
+    .step-section.bg-dark  { background: #000; color: #f5f5f7; }
+    .step-section.bg-light { background: #f5f5f7; color: #1d1d1f; }
+    .step-section.bg-white { background: #fff; color: #1d1d1f; }
+    .step-section.bg-teal  {
+      background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(255,255,255,0.14), transparent 55%), linear-gradient(160deg, #0d7a60, #0F6E56 40%, #0a5c48);
+      color: #fff;
+    }
+
+    .step-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+
+    .step-text { }
+
+    .step-num {
+      font-size: clamp(80px, 12vw, 140px);
+      font-weight: 800;
+      line-height: 0.82;
+      color: var(--color-teal);
+      margin: 0 0 12px;
+    }
+    .step-section.bg-dark .step-num { color: rgba(53,212,169,0.70); }
+    .step-section.bg-teal .step-num { color: rgba(255,255,255,0.30); }
+
+    .step-h2 {
+      margin: 0 0 18px;
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 800;
+      line-height: 1.02;
+      letter-spacing: -0.01em;
+    }
+
+    .step-body {
+      font-size: clamp(17px, 2vw, 22px);
+      font-weight: 500;
+      line-height: 1.45;
+      color: #6e6e73;
+    }
+    .step-section.bg-dark .step-body { color: rgba(245,245,247,0.60); }
+    .step-section.bg-teal .step-body { color: rgba(255,255,255,0.72); }
+
+    /* ---- Cinema mockup panel ---- */
+    .step-mockup {
+      min-height: 400px;
+      border-radius: 34px;
+      background: radial-gradient(circle at 72% 24%, rgba(15,110,86,0.42), transparent 30%), linear-gradient(145deg, #1e1e21, #050505);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .step-section.bg-light .step-mockup,
+    .step-section.bg-white .step-mockup {
+      box-shadow: 0 40px 100px rgba(0,0,0,0.18);
+    }
+
+    /* Mockup header bar */
+    .sm-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 16px;
+    }
+    .sm-title { font-size: 13px; font-weight: 700; color: #fff; }
+    .sm-badge {
+      padding: 3px 9px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .sm-badge-teal { background: rgba(15,110,86,0.28); color: #35d4a9; }
+    .sm-badge-green { background: rgba(52,199,89,0.18); color: #34C759; }
+    .sm-badge-red   { background: rgba(255,59,48,0.18); color: #FF3B30; }
+
+    /* doc icon */
+    .sm-doc-icon {
+      width: 52px; height: 64px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.14);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+      position: relative;
+    }
+    .sm-doc-icon::after {
+      content: "";
+      position: absolute;
+      top: 0; right: 0;
+      width: 14px; height: 14px;
+      border-radius: 0 8px 0 8px;
+      background: rgba(255,255,255,0.14);
+    }
+    .sm-doc-inner { font-size: 11px; font-weight: 800; color: rgba(255,255,255,0.44); letter-spacing: 0.04em; }
+
+    /* row helpers */
+    .sm-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.04);
+      margin-bottom: 6px;
+    }
+    .sm-row-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+    .sm-row-name { flex: 1; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.72); }
+    .sm-row-val { font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.40); }
+
+    .sm-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 4px;
+    }
+    .sm-pill {
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .sm-pill-green { background: rgba(52,199,89,0.18); color: #34C759; }
+    .sm-pill-amber { background: rgba(255,159,10,0.18); color: #FF9F0A; }
+    .sm-pill-blue  { background: rgba(0,122,255,0.18); color: #007AFF; }
+    .sm-pill-purple{ background: rgba(175,82,222,0.18); color: #AF52DE; }
+    .sm-pill-gray  { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.48); }
+
+    /* progress bar */
+    .sm-progress-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 6px;
+    }
+    .sm-progress-label { font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.44); flex-shrink: 0; }
+    .sm-progress-track { flex: 1; height: 5px; border-radius: 999px; background: rgba(255,255,255,0.10); overflow: hidden; }
+    .sm-progress-fill  { height: 100%; border-radius: inherit; background: linear-gradient(90deg, #0F6E56, #35d4a9); }
+    .sm-progress-pct { font-size: 11px; font-weight: 800; color: #35d4a9; flex-shrink: 0; }
+
+    /* ---- scoop dot mini ---- */
+    .sm-scoop { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+
+    /* ---- station pill sidebar ---- */
+    .sm-sidebar-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 10px;
+      border-radius: 8px;
+      margin-bottom: 4px;
+    }
+    .sm-sidebar-row.active { background: rgba(15,110,86,0.22); }
+    .sm-sidebar-label { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.55); flex: 1; }
+    .sm-sidebar-row.active .sm-sidebar-label { color: #fff; }
+    .sm-sidebar-count { font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.30); }
+    .sm-sidebar-row.active .sm-sidebar-count { color: #35d4a9; }
+
+    /* ---- dp bars ---- */
+    .sm-dp-row { display: flex; align-items: center; gap: 8px; padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .sm-dp-row:last-child { border-bottom: none; }
+    .sm-dp-name { width: 70px; font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.70); flex-shrink: 0; }
+    .sm-dp-bar-wrap { flex: 1; height: 6px; border-radius: 999px; background: rgba(255,255,255,0.10); overflow: hidden; }
+    .sm-dp-fill { height: 100%; border-radius: inherit; background: linear-gradient(90deg, #0F6E56, #35d4a9); }
+    .sm-dp-fill-alert { background: linear-gradient(90deg, #FF3B30, #FF6B6B); }
+    .sm-dp-pct { width: 38px; text-align: right; font-size: 12px; font-weight: 800; color: rgba(255,255,255,0.60); flex-shrink: 0; }
+    .sm-dp-pct-alert { color: #FF3B30; }
+
+    /* ---- pin pad ---- */
+    .sm-pin-header { text-align: center; margin-bottom: 14px; }
+    .sm-pin-sub { font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.40); text-transform: uppercase; letter-spacing: 0.06em; }
+    .sm-pin-name { font-size: 16px; font-weight: 700; color: #fff; margin-top: 4px; }
+    .sm-pin-dots { display: flex; justify-content: center; gap: 8px; margin: 10px 0; }
+    .sm-pin-dot { width: 11px; height: 11px; border-radius: 50%; background: #35d4a9; }
+    .sm-pin-dot-empty { width: 11px; height: 11px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.24); }
+    .sm-pin-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+    .sm-pin-key {
+      padding: 8px 4px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.07);
+      text-align: center;
+      font-size: 14px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.70);
+    }
+
+    /* ---- drag-drop zone ---- */
+    .sm-drop-zone {
+      border: 1.5px dashed rgba(53,212,169,0.40);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+      margin-bottom: 14px;
+    }
+    .sm-drop-icon {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(15,110,86,0.22);
+      color: #35d4a9;
+      font-size: 18px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 8px;
+    }
+    .sm-drop-label { font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.60); }
+    .sm-drop-sub { font-size: 11px; color: rgba(255,255,255,0.35); margin-top: 3px; }
+
+    @media (max-width: 900px) {
+      .step-layout { grid-template-columns: 1fr; gap: 40px; }
+      .step-mockup { min-height: 300px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav" aria-label="Primary navigation">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">ChefOS</a>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+      <div class="nav-links">
+        <a href="index.html">Overview</a>
+        <a href="features.html">Features</a>
+        <a class="active" href="how-it-works.html">How it works</a>
+        <a href="integrations.html">Integrations</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="demo.html">Demo</a>
+        <a class="nav-cta" href="contact.html">Book a Demo</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- HERO -->
+    <section class="inner-hero">
+      <div class="container reveal">
+        <p class="eyebrow-teal">How it works</p>
+        <h1>From prep list<br>to packout.</h1>
+        <p class="hero-sub">Six steps. No new kitchen language. No extra chaos.</p>
+      </div>
+    </section>
+
+    <!-- STEP 01 -->
+    <section class="step-section bg-white">
+      <div class="container">
+        <div class="step-layout reveal">
+          <div class="step-text">
+            <div class="step-num">01</div>
+            <h2 class="step-h2">Upload from your recipe software.</h2>
+            <p class="step-body">Export the Sub-Recipe Summary PDF your team already generates — from Parsley, ChefTec, or any recipe platform. No new files, no re-formatting. The workflow you have is the one ChefOS reads.</p>
+          </div>
+          <div class="step-mockup">
+            <div class="sm-header">
+              <span class="sm-title">Recipe Summary PDF</span>
+              <span class="sm-badge sm-badge-teal">PDF</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:14px;margin-bottom:14px;">
+              <div class="sm-doc-icon">
+                <span class="sm-doc-inner">PDF</span>
+              </div>
+              <div>
+                <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px;">Week_23_Production.pdf</div>
+                <div style="font-size:12px;color:rgba(255,255,255,0.44);font-weight:500;">Honeyplate Kitchen &mdash; 2.4 MB &mdash; May 11</div>
+              </div>
+            </div>
+            <div class="sm-row">
+              <div class="sm-row-dot" style="background:#34C759"></div>
+              <span class="sm-row-name">Herb Chicken Breast</span>
+              <span class="sm-row-val">Protein &mdash; 2.5 oz</span>
+            </div>
+            <div class="sm-row">
+              <div class="sm-row-dot" style="background:#34C759"></div>
+              <span class="sm-row-name">Turkey Meatballs</span>
+              <span class="sm-row-val">Protein &mdash; 3.0 oz</span>
+            </div>
+            <div class="sm-row">
+              <div class="sm-row-dot" style="background:#FF9F0A"></div>
+              <span class="sm-row-name">Roasted Sweet Potato</span>
+              <span class="sm-row-val">Carb &mdash; 4.0 oz</span>
+            </div>
+            <div class="sm-row">
+              <div class="sm-row-dot" style="background:#007AFF"></div>
+              <span class="sm-row-name">Steamed Broccolini</span>
+              <span class="sm-row-val">Veg &mdash; 3.0 oz</span>
+            </div>
+            <div class="sm-row">
+              <div class="sm-row-dot" style="background:#AF52DE"></div>
+              <span class="sm-row-name">Herb Chimichurri Sauce</span>
+              <span class="sm-row-val">Sauce &mdash; 1.0 oz</span>
+            </div>
+            <div style="margin-top:auto;padding-top:14px;font-size:11px;color:rgba(255,255,255,0.30);font-weight:600;">76 recipes across 12 meal types &mdash; ready to import</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 02 -->
+    <section class="step-section bg-light">
+      <div class="container">
+        <div class="step-layout reveal">
+          <div class="step-mockup">
+            <div class="sm-header">
+              <span class="sm-title">Import Production Run</span>
+              <span class="sm-badge sm-badge-green">&#10003; Ready</span>
+            </div>
+            <div class="sm-drop-zone">
+              <div class="sm-drop-icon">&#8593;</div>
+              <div class="sm-drop-label">Week_23_Production.pdf</div>
+              <div class="sm-drop-sub">Dropped &mdash; parsing now</div>
+            </div>
+            <div class="sm-progress-row" style="margin-bottom:14px;">
+              <span class="sm-progress-label">Parsing</span>
+              <div class="sm-progress-track"><div class="sm-progress-fill" style="width:100%"></div></div>
+              <span class="sm-progress-pct">100%</span>
+            </div>
+            <div class="sm-row" style="background:rgba(52,199,89,0.10);border:1px solid rgba(52,199,89,0.20);">
+              <div class="sm-row-dot" style="background:#34C759"></div>
+              <span class="sm-row-name" style="color:#34C759;font-weight:700;">76 recipes parsed successfully</span>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px;">
+              <div style="padding:10px;border-radius:10px;background:rgba(255,255,255,0.05);text-align:center;">
+                <div style="font-size:22px;font-weight:800;color:#fff;">76</div>
+                <div style="font-size:11px;color:rgba(255,255,255,0.40);font-weight:600;margin-top:3px;">Recipes</div>
+              </div>
+              <div style="padding:10px;border-radius:10px;background:rgba(255,255,255,0.05);text-align:center;">
+                <div style="font-size:22px;font-weight:800;color:#35d4a9;">48</div>
+                <div style="font-size:11px;color:rgba(255,255,255,0.40);font-weight:600;margin-top:3px;">Meals</div>
+              </div>
+              <div style="padding:10px;border-radius:10px;background:rgba(255,255,255,0.05);text-align:center;">
+                <div style="font-size:22px;font-weight:800;color:#fff;">0</div>
+                <div style="font-size:11px;color:rgba(255,255,255,0.40);font-weight:600;margin-top:3px;">Warnings</div>
+              </div>
+            </div>
+          </div>
+          <div class="step-text">
+            <div class="step-num">02</div>
+            <h2 class="step-h2">Upload the PDF to ChefOS.</h2>
+            <p class="step-body">Drop in the file and let ChefOS parse it in about 30 seconds. Review the import — recipe count, meal count, any flagged rows — before sending work to stations. Nothing fires until you confirm.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 03 -->
+    <section class="step-section bg-dark">
+      <div class="container">
+        <div class="step-layout reveal">
+          <div class="step-text">
+            <div class="step-num">03</div>
+            <h2 class="step-h2">Recipes auto-sort to stations.</h2>
+            <p class="step-body">Category and prefix rules route work to Protein, Cold Prep, Sauce, Packing, and more. Every cook sees only their list. Nobody hunts for their page or cross-checks another station's column.</p>
+          </div>
+          <div class="step-mockup">
+            <div class="sm-header">
+              <span class="sm-title">Station Routing &mdash; Week 23</span>
+              <span class="sm-badge sm-badge-teal">Auto-sorted</span>
+            </div>
+            <div style="margin-bottom:10px;font-size:11px;color:rgba(255,255,255,0.36);font-weight:600;text-transform:uppercase;letter-spacing:0.07em;">Stations assigned</div>
+            <div class="sm-sidebar-row active">
+              <div class="sm-row-dot" style="background:#34C759"></div>
+              <span class="sm-sidebar-label">Protein</span>
+              <span class="sm-sidebar-count">22 recipes</span>
+            </div>
+            <div class="sm-sidebar-row">
+              <div class="sm-row-dot" style="background:#FF9F0A"></div>
+              <span class="sm-sidebar-label">Cold Prep</span>
+              <span class="sm-sidebar-count">18 recipes</span>
+            </div>
+            <div class="sm-sidebar-row">
+              <div class="sm-row-dot" style="background:#AF52DE"></div>
+              <span class="sm-sidebar-label">Sauce</span>
+              <span class="sm-sidebar-count">12 recipes</span>
+            </div>
+            <div class="sm-sidebar-row">
+              <div class="sm-row-dot" style="background:#007AFF"></div>
+              <span class="sm-sidebar-label">Veg &amp; Grain</span>
+              <span class="sm-sidebar-count">14 recipes</span>
+            </div>
+            <div class="sm-sidebar-row">
+              <div class="sm-row-dot" style="background:rgba(255,255,255,0.28)"></div>
+              <span class="sm-sidebar-label">Packing</span>
+              <span class="sm-sidebar-count">10 recipes</span>
+            </div>
+            <div style="margin-top:12px;">
+              <div style="font-size:11px;color:rgba(255,255,255,0.36);font-weight:600;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:8px;">Routing rules active</div>
+              <div class="sm-pill-row">
+                <span class="sm-pill sm-pill-green">P_ Protein</span>
+                <span class="sm-pill sm-pill-amber">C_ Cold Prep</span>
+                <span class="sm-pill sm-pill-purple">S_ Sauce</span>
+                <span class="sm-pill sm-pill-blue">V_ Veg</span>
+                <span class="sm-pill sm-pill-gray">PK_ Packing</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 04 -->
+    <section class="step-section bg-white">
+      <div class="container">
+        <div class="step-layout reveal">
+          <div class="step-mockup">
+            <div class="sm-header">
+              <span class="sm-title">Staff Login</span>
+              <span class="sm-badge sm-badge-teal">PIN Entry</span>
+            </div>
+            <div class="sm-pin-header">
+              <div class="sm-pin-sub">Select station after login</div>
+              <div class="sm-pin-name">Enter your PIN</div>
+              <div class="sm-pin-dots">
+                <div class="sm-pin-dot"></div>
+                <div class="sm-pin-dot"></div>
+                <div class="sm-pin-dot"></div>
+                <div class="sm-pin-dot-empty"></div>
+              </div>
+            </div>
+            <div class="sm-pin-grid" style="margin-bottom:14px;">
+              <div class="sm-pin-key">1</div>
+              <div class="sm-pin-key">2</div>
+              <div class="sm-pin-key">3</div>
+              <div class="sm-pin-key">4</div>
+              <div class="sm-pin-key">5</div>
+              <div class="sm-pin-key">6</div>
+              <div class="sm-pin-key">7</div>
+              <div class="sm-pin-key">8</div>
+              <div class="sm-pin-key">9</div>
+              <div class="sm-pin-key" style="opacity:0.3">C</div>
+              <div class="sm-pin-key">0</div>
+              <div class="sm-pin-key" style="background:rgba(15,110,86,0.22);color:#35d4a9;">&#10003;</div>
+            </div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.30);font-weight:600;text-align:center;">Staff see only their station &mdash; managers see all</div>
+          </div>
+          <div class="step-text">
+            <div class="step-num">04</div>
+            <h2 class="step-h2">Staff log in and get to work.</h2>
+            <p class="step-body">PIN login gets each cook into the right station view in seconds. Recipes move from not started to in progress to complete. No shared logins, no wrong views, no time lost navigating.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 05 -->
+    <section class="step-section bg-light">
+      <div class="container">
+        <div class="step-layout reveal">
+          <div class="step-text">
+            <div class="step-num">05</div>
+            <h2 class="step-h2">Managers watch production move.</h2>
+            <p class="step-body">Progress bars, shortage alerts, and station status update live on the manager dashboard. The floor is visible without leaving the screen. One glance replaces ten check-in laps.</p>
+          </div>
+          <div class="step-mockup">
+            <div class="sm-header">
+              <span class="sm-title">Production Dashboard &mdash; Today</span>
+              <span class="sm-badge sm-badge-green">Live</span>
+            </div>
+            <div class="sm-dp-row">
+              <span class="sm-dp-name">Protein</span>
+              <div class="sm-dp-bar-wrap"><div class="sm-dp-fill" style="width:84%"></div></div>
+              <span class="sm-dp-pct">84%</span>
+            </div>
+            <div class="sm-dp-row">
+              <span class="sm-dp-name">Cold Prep</span>
+              <div class="sm-dp-bar-wrap"><div class="sm-dp-fill" style="width:72%"></div></div>
+              <span class="sm-dp-pct">72%</span>
+            </div>
+            <div class="sm-dp-row">
+              <span class="sm-dp-name">Sauce</span>
+              <div class="sm-dp-bar-wrap"><div class="sm-dp-fill" style="width:100%"></div></div>
+              <span class="sm-dp-pct" style="color:#34C759;">Done</span>
+            </div>
+            <div class="sm-dp-row">
+              <span class="sm-dp-name">Veg</span>
+              <div class="sm-dp-bar-wrap"><div class="sm-dp-fill" style="width:91%"></div></div>
+              <span class="sm-dp-pct">91%</span>
+            </div>
+            <div class="sm-dp-row">
+              <span class="sm-dp-name">Packing</span>
+              <div class="sm-dp-bar-wrap"><div class="sm-dp-fill sm-dp-fill-alert" style="width:14%"></div></div>
+              <span class="sm-dp-pct sm-dp-pct-alert">14%</span>
+            </div>
+            <div style="margin-top:14px;padding:10px 14px;border-radius:10px;background:rgba(255,59,48,0.10);border:1px solid rgba(255,59,48,0.22);display:flex;align-items:center;gap:10px;">
+              <div style="width:22px;height:22px;border-radius:50%;background:rgba(255,59,48,0.22);color:#FF3B30;font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;">!</div>
+              <div>
+                <div style="font-size:12px;font-weight:700;color:#fff;">Wild Salmon Fillet &mdash; SHORT</div>
+                <div style="font-size:11px;color:rgba(255,255,255,0.44);margin-top:2px;">Flagged by Protein station &mdash; 2 min ago</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 06 -->
+    <section class="step-section bg-teal">
+      <div class="container">
+        <div class="step-layout reveal">
+          <div class="step-mockup">
+            <div class="sm-header">
+              <span class="sm-title">Plating &mdash; Herb Chicken Bowl</span>
+              <span class="sm-badge" style="background:rgba(255,255,255,0.18);color:#fff;">Standard</span>
+            </div>
+            <div style="margin-bottom:10px;">
+              <div style="font-size:11px;color:rgba(255,255,255,0.40);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;">Scoop order</div>
+              <div class="sm-row" style="margin-bottom:5px;">
+                <div class="sm-scoop" style="background:#34C759"></div>
+                <span class="sm-row-name">Herb Chicken Breast</span>
+                <span class="sm-row-val">2.5 oz</span>
+              </div>
+              <div class="sm-row" style="margin-bottom:5px;">
+                <div class="sm-scoop" style="background:#FF9F0A"></div>
+                <span class="sm-row-name">Roasted Sweet Potato</span>
+                <span class="sm-row-val">4.0 oz</span>
+              </div>
+              <div class="sm-row" style="margin-bottom:5px;">
+                <div class="sm-scoop" style="background:#007AFF"></div>
+                <span class="sm-row-name">Steamed Broccolini</span>
+                <span class="sm-row-val">3.0 oz</span>
+              </div>
+              <div class="sm-row" style="margin-bottom:5px;">
+                <div class="sm-scoop" style="background:#3a3a3c;border:1px solid rgba(255,255,255,0.18)"></div>
+                <span class="sm-row-name">Herb Chimichurri</span>
+                <span class="sm-row-val">1.0 oz</span>
+              </div>
+            </div>
+            <div style="margin-top:auto;padding-top:14px;border-top:1px solid rgba(255,255,255,0.10);display:flex;gap:8px;flex-wrap:wrap;">
+              <span style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.50);">480 cal</span>
+              <span style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.30);">&middot;</span>
+              <span style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.50);">38g protein</span>
+              <span style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.30);">&middot;</span>
+              <span style="font-size:11px;font-weight:700;color:#35d4a9;">GF &middot; DF</span>
+            </div>
+          </div>
+          <div class="step-text">
+            <div class="step-num" style="color:rgba(255,255,255,0.25);">06</div>
+            <h2 class="step-h2">Pack with confidence.</h2>
+            <p class="step-body">Meal sizes sit side by side. Color-coded scoop cues guide the line. Every meal gets checked off before it leaves the pass. No more reading off a laminated spec sheet mid-rush.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="animations.js"></script>
+</body>
+</html>

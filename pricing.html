@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pricing | ChefOS</title>
+  <meta name="description" content="ChefOS pricing tiers for starter, professional, and enterprise kitchen production teams.">
+  <meta property="og:title" content="ChefOS Pricing">
+  <meta property="og:description" content="Simple pricing for kitchens that need control without extra admin.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ---- Inner hero ---- */
+    .inner-hero {
+      padding: 160px 0 120px;
+      color: #f5f5f7;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% 90%, rgba(15,110,86,0.36) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 30% at 50% 14%, rgba(255,255,255,0.06) 0%, transparent 60%),
+        #000;
+      text-align: center;
+    }
+    .inner-hero .eyebrow-teal { color: #35d4a9; font-size: 17px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 20px; }
+    .inner-hero h1 {
+      margin: 0;
+      font-size: clamp(52px, 7vw, 96px);
+      font-weight: 800;
+      line-height: 0.94;
+      letter-spacing: -0.01em;
+      color: #fff;
+    }
+    .inner-hero .hero-sub {
+      font-size: clamp(20px, 2.5vw, 28px);
+      color: rgba(245,245,247,0.72);
+      font-weight: 500;
+      max-width: 680px;
+      margin: 20px auto 0;
+    }
+
+    /* ---- Plans grid ---- */
+    .plans-section { padding: 120px 0; background: #f5f5f7; }
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      align-items: start;
+    }
+
+    /* ---- Plan card base ---- */
+    .plan-card {
+      min-height: 620px;
+      border-radius: 28px;
+      padding: 40px 36px 36px;
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.08);
+      box-shadow: 0 22px 70px rgba(0,0,0,0.08);
+    }
+
+    .plan-card-popular {
+      background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(15,110,86,0.28), transparent 55%), linear-gradient(160deg, #1a1a1e, #040404);
+      border: 1px solid rgba(53,212,169,0.24);
+      box-shadow: 0 36px 100px rgba(0,0,0,0.7), 0 0 0 1px rgba(53,212,169,0.12);
+      color: #fff;
+      transform: translateY(-18px);
+    }
+
+    .popular-badge {
+      display: inline-block;
+      padding: 5px 14px;
+      border-radius: 999px;
+      background: rgba(53,212,169,0.18);
+      color: #35d4a9;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .plan-name {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.44);
+      margin: 0 0 10px;
+    }
+    .plan-card-popular .plan-name { color: rgba(255,255,255,0.48); }
+
+    .plan-headline {
+      font-size: clamp(34px, 3.5vw, 44px);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.01em;
+      color: #000;
+      margin: 0 0 8px;
+    }
+    .plan-card-popular .plan-headline { color: #fff; }
+
+    .plan-price-note {
+      font-size: 16px;
+      font-weight: 600;
+      color: #6e6e73;
+      margin: 0 0 28px;
+    }
+    .plan-card-popular .plan-price-note { color: rgba(255,255,255,0.52); }
+
+    .plan-divider {
+      height: 1px;
+      background: rgba(0,0,0,0.08);
+      margin-bottom: 28px;
+    }
+    .plan-card-popular .plan-divider { background: rgba(255,255,255,0.10); }
+
+    .plan-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .plan-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 13px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      font-size: 16px;
+      font-weight: 500;
+      color: #1d1d1f;
+      line-height: 1.3;
+    }
+    .plan-card-popular .plan-features li {
+      color: rgba(255,255,255,0.80);
+      border-bottom-color: rgba(255,255,255,0.07);
+    }
+    .plan-features li:last-child { border-bottom: none; }
+
+    .plan-check {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(15,110,86,0.12);
+      color: #0F6E56;
+      font-size: 11px;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .plan-card-popular .plan-check {
+      background: rgba(53,212,169,0.18);
+      color: #35d4a9;
+    }
+
+    .plan-cta {
+      display: block;
+      text-align: center;
+      margin-top: 32px;
+      padding: 16px 24px;
+      border-radius: 999px;
+      font-size: 17px;
+      font-weight: 700;
+      background: #000;
+      color: #fff;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .plan-cta:hover { opacity: 0.84; transform: translateY(-2px); }
+    .plan-cta-light {
+      background: rgba(255,255,255,0.10);
+      color: rgba(255,255,255,0.72);
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+    .plan-cta-primary {
+      background: #fff;
+      color: #000;
+    }
+    .plan-cta-primary:hover { opacity: 0.88; transform: translateY(-2px); }
+
+    /* ---- FAQ ---- */
+    .faq-section { padding: 120px 0; background: #fff; }
+    .faq-section-head { text-align: center; margin-bottom: 72px; }
+    .faq-section-head h2 {
+      margin: 0;
+      font-size: clamp(40px, 5vw, 72px);
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      line-height: 0.96;
+    }
+    .faq-section-head p {
+      margin: 18px auto 0;
+      max-width: 540px;
+      font-size: 20px;
+      font-weight: 500;
+      color: #6e6e73;
+    }
+    .faq-cols {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .faq-card {
+      padding: 34px;
+      border-radius: 22px;
+      background: #f5f5f7;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+    .faq-card h3 {
+      margin: 0 0 12px;
+      font-size: 19px;
+      font-weight: 700;
+      color: #000;
+      line-height: 1.2;
+    }
+    .faq-card p {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 500;
+      color: #6e6e73;
+      line-height: 1.5;
+    }
+
+    /* ---- Final CTA ---- */
+    .final-cta-section {
+      padding: 140px 0;
+      text-align: center;
+      background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(255,255,255,0.14), transparent 55%), linear-gradient(160deg, #0d7a60, #0F6E56 40%, #0a5c48);
+      color: #fff;
+    }
+    .final-cta-section h2 {
+      margin: 0;
+      font-size: clamp(44px, 6vw, 80px);
+      font-weight: 800;
+      line-height: 0.96;
+      letter-spacing: -0.01em;
+    }
+    .final-cta-section p {
+      margin: 22px auto 40px;
+      max-width: 560px;
+      font-size: clamp(19px, 2.2vw, 26px);
+      font-weight: 500;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.3;
+    }
+
+    @media (max-width: 900px) {
+      .plans-grid { grid-template-columns: 1fr; }
+      .plan-card-popular { transform: none; }
+      .faq-cols { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav" aria-label="Primary navigation">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">ChefOS</a>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+      <div class="nav-links">
+        <a href="index.html">Overview</a>
+        <a href="features.html">Features</a>
+        <a href="how-it-works.html">How it works</a>
+        <a href="integrations.html">Integrations</a>
+        <a class="active" href="pricing.html">Pricing</a>
+        <a href="demo.html">Demo</a>
+        <a class="nav-cta" href="contact.html">Book a Demo</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- HERO -->
+    <section class="inner-hero">
+      <div class="container reveal">
+        <p class="eyebrow-teal">Pricing</p>
+        <h1>Start with the stations<br>you run today.</h1>
+        <p class="hero-sub">Add more as production grows. No shelfware. No ceremony.</p>
+      </div>
+    </section>
+
+    <!-- PLANS -->
+    <section class="plans-section">
+      <div class="container">
+        <div class="plans-grid">
+
+          <!-- Starter -->
+          <article class="plan-card reveal">
+            <p class="plan-name">Starter</p>
+            <h2 class="plan-headline">Small team.<br>Big clarity.</h2>
+            <p class="plan-price-note">Contact for pricing</p>
+            <div class="plan-divider"></div>
+            <ul class="plan-features">
+              <li><span class="plan-check">&#10003;</span>Up to 3 stations</li>
+              <li><span class="plan-check">&#10003;</span>1 manager account</li>
+              <li><span class="plan-check">&#10003;</span>Parsley PDF import</li>
+              <li><span class="plan-check">&#10003;</span>Station view + plating screen</li>
+              <li><span class="plan-check">&#10003;</span>PIN-based staff login</li>
+              <li><span class="plan-check">&#10003;</span>Browser-based, no install</li>
+            </ul>
+            <a class="plan-cta plan-cta-light" style="background:#000;color:#fff;" href="contact.html">Talk to Sales</a>
+          </article>
+
+          <!-- Professional -->
+          <article class="plan-card plan-card-popular reveal">
+            <span class="popular-badge">Most Popular</span>
+            <p class="plan-name">Professional</p>
+            <h2 class="plan-headline">Built for production<br>volume.</h2>
+            <p class="plan-price-note">Contact for pricing</p>
+            <div class="plan-divider"></div>
+            <ul class="plan-features">
+              <li><span class="plan-check">&#10003;</span>Up to 6 stations</li>
+              <li><span class="plan-check">&#10003;</span>3 manager accounts</li>
+              <li><span class="plan-check">&#10003;</span>All Parsley integrations</li>
+              <li><span class="plan-check">&#10003;</span>Real-time manager dashboard</li>
+              <li><span class="plan-check">&#10003;</span>Shortage flagging + alerts</li>
+              <li><span class="plan-check">&#10003;</span>Cross-station progress view</li>
+              <li><span class="plan-check">&#10003;</span>Priority onboarding support</li>
+            </ul>
+            <a class="plan-cta plan-cta-primary" href="contact.html">Book a Demo</a>
+          </article>
+
+          <!-- Enterprise -->
+          <article class="plan-card reveal">
+            <p class="plan-name">Enterprise</p>
+            <h2 class="plan-headline">Custom scale.<br>Full control.</h2>
+            <p class="plan-price-note">Contact for pricing</p>
+            <div class="plan-divider"></div>
+            <ul class="plan-features">
+              <li><span class="plan-check">&#10003;</span>Unlimited stations</li>
+              <li><span class="plan-check">&#10003;</span>Unlimited manager accounts</li>
+              <li><span class="plan-check">&#10003;</span>Custom integrations</li>
+              <li><span class="plan-check">&#10003;</span>Dedicated onboarding</li>
+              <li><span class="plan-check">&#10003;</span>Custom import formats</li>
+              <li><span class="plan-check">&#10003;</span>Multi-site deployment</li>
+            </ul>
+            <a class="plan-cta" style="background:#000;color:#fff;" href="contact.html">Contact Us</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+      <div class="container">
+        <div class="faq-section-head reveal">
+          <h2>Questions kitchens ask first.</h2>
+          <p>Everything you need to know before the demo call.</p>
+        </div>
+        <div class="faq-cols">
+          <article class="faq-card reveal">
+            <h3>How long does setup take?</h3>
+            <p>Most teams review a first production import in 30 minutes. Station routing and prefix rules are tuned during onboarding so work goes to the right station from day one.</p>
+          </article>
+          <article class="faq-card reveal">
+            <h3>Do we need special tablets?</h3>
+            <p>No. ChefOS runs in a modern browser on common kitchen tablets, laptops, and manager screens. No app install, no special hardware.</p>
+          </article>
+          <article class="faq-card reveal">
+            <h3>Does it work with Parsley?</h3>
+            <p>Yes. ChefOS supports Parsley Sub-Recipe Summary PDF import out of the box. Export from Parsley, upload to ChefOS, and your station work is ready to review in under a minute.</p>
+          </article>
+          <article class="faq-card reveal">
+            <h3>Can staff use PIN login?</h3>
+            <p>Yes. Staff PINs keep login fast during a busy shift while preserving role-based access. Cooks see only their station. Managers see everything.</p>
+          </article>
+          <article class="faq-card reveal">
+            <h3>Is our production data secure?</h3>
+            <p>ChefOS is designed around role-based access with controlled production data visibility. Each user sees only the data their role requires.</p>
+          </article>
+          <article class="faq-card reveal">
+            <h3>Can you build our integration?</h3>
+            <p>Yes. Share your export format or API details and we can scope a custom integration during the onboarding process. ChefTec and others are in development.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta-section">
+      <div class="container reveal">
+        <h2>Ready to run a smarter kitchen?</h2>
+        <p>One import. All stations in sync. No more clipboard rounds.</p>
+        <a class="button-cta" href="contact.html">Book a 30-min demo</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="animations.js"></script>
+</body>
+</html>

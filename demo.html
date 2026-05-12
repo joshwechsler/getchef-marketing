@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interactive Demo | ChefOS</title>
+  <meta name="description" content="Try ChefOS on a real production run. Mark recipes, watch the dashboard update, check plating cues.">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .demo-hero {
+      padding: 140px 0 80px;
+      background: radial-gradient(ellipse 80% 50% at 50% 90%, rgba(15,110,86,0.36) 0%, transparent 70%), #000;
+      text-align: center;
+      color: #f5f5f7;
+    }
+    .demo-hero .eyebrow-teal { color: #35d4a9; font-size: 17px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 20px; }
+    .demo-hero h1 { margin: 0; font-size: clamp(48px, 6vw, 84px); font-weight: 800; line-height: 0.96; letter-spacing: -0.01em; color: #fff; }
+    .demo-hero .hero-sub { font-size: clamp(17px, 2vw, 22px); color: rgba(245,245,247,0.68); font-weight: 500; max-width: 560px; margin: 20px auto 0; line-height: 1.45; }
+
+    .demo-section { padding: 56px 0 120px; background: #0a0a0a; }
+
+    .demo-hint { text-align: center; margin-bottom: 24px; }
+    .demo-hint span {
+      display: inline-flex; align-items: center; gap: 9px;
+      padding: 8px 18px; border-radius: 999px;
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.10);
+      font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.44);
+    }
+    .hint-dot { width: 7px; height: 7px; border-radius: 50%; background: #35d4a9; animation: hint-pulse 2s infinite; }
+    @keyframes hint-pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+    /* App shell */
+    .app-shell {
+      max-width: 1100px; margin: 0 auto;
+      border-radius: 22px; overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: 0 40px 120px rgba(0,0,0,0.70);
+      background: #111213;
+    }
+
+    /* Topbar */
+    .app-topbar {
+      height: 54px; background: rgba(255,255,255,0.03);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      display: flex; align-items: center; padding: 0 20px; gap: 16px;
+    }
+    .app-logo { font-size: 16px; font-weight: 900; color: #fff; letter-spacing: -0.02em; flex-shrink: 0; }
+    .app-run-info { flex: 1; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.38); }
+    .app-run-info strong { color: rgba(255,255,255,0.70); font-weight: 700; }
+    .app-view-tabs { display: flex; gap: 3px; background: rgba(255,255,255,0.05); border-radius: 10px; padding: 4px; }
+    .avt {
+      padding: 6px 15px; border-radius: 7px; border: none;
+      background: transparent; color: rgba(255,255,255,0.42);
+      font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer; transition: all 0.18s;
+    }
+    .avt.active { background: rgba(255,255,255,0.10); color: #fff; }
+    .avt:hover:not(.active) { color: rgba(255,255,255,0.72); }
+
+    /* Body */
+    .app-body { display: flex; height: 540px; }
+    .app-view { display: none; width: 100%; }
+    .app-view.active { display: flex; }
+
+    /* Sidebar */
+    .app-sidebar {
+      width: 196px; flex-shrink: 0;
+      background: rgba(0,0,0,0.28);
+      border-right: 1px solid rgba(255,255,255,0.07);
+      padding: 14px 10px; overflow-y: auto;
+    }
+    .sb-label { font-size: 10px; font-weight: 800; color: rgba(255,255,255,0.26); letter-spacing: 0.10em; text-transform: uppercase; padding: 0 8px; margin: 0 0 8px; }
+    .sb-item { display: flex; align-items: center; gap: 9px; padding: 9px 10px; border-radius: 9px; cursor: pointer; margin-bottom: 3px; transition: background 0.15s; }
+    .sb-item:hover { background: rgba(255,255,255,0.05); }
+    .sb-item.active { background: rgba(15,110,86,0.22); }
+    .sb-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .sb-name { flex: 1; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.52); }
+    .sb-item.active .sb-name { color: #fff; }
+    .sb-badge { font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.26); background: rgba(255,255,255,0.07); padding: 2px 7px; border-radius: 999px; }
+    .sb-item.active .sb-badge { color: #35d4a9; background: rgba(53,212,169,0.14); }
+
+    /* Station main */
+    .station-main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+    .station-hd { padding: 14px 20px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .station-hd-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+    .station-title { font-size: 17px; font-weight: 800; color: #fff; }
+    .station-meta { font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.38); background: rgba(255,255,255,0.06); padding: 4px 12px; border-radius: 999px; }
+    .filter-tabs { display: flex; gap: 5px; padding-bottom: 12px; }
+    .flt {
+      padding: 5px 13px; border-radius: 999px; border: 1px solid transparent;
+      background: transparent; color: rgba(255,255,255,0.36);
+      font-family: inherit; font-size: 12px; font-weight: 700; cursor: pointer; transition: all 0.15s;
+    }
+    .flt:hover { color: rgba(255,255,255,0.68); }
+    .flt.active { background: rgba(255,255,255,0.08); color: #fff; border-color: rgba(255,255,255,0.12); }
+
+    /* Recipe list */
+    .recipe-list { flex: 1; overflow-y: auto; padding: 6px 0; }
+    .recipe-list::-webkit-scrollbar { width: 4px; }
+    .recipe-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.10); border-radius: 999px; }
+
+    .rr {
+      display: flex; align-items: center; gap: 13px;
+      padding: 12px 20px; cursor: pointer;
+      transition: background 0.15s;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      user-select: none;
+    }
+    .rr:hover { background: rgba(255,255,255,0.04); }
+    .rr:last-child { border-bottom: none; }
+
+    .rr-icon {
+      width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 900; transition: all 0.2s;
+    }
+    .s-ns .rr-icon { background: transparent; border: 1.5px dashed rgba(255,255,255,0.20); color: transparent; }
+    .s-ip .rr-icon { background: rgba(53,212,169,0.15); border: 1.5px solid #35d4a9; color: #35d4a9; animation: ip-glow 1.6s ease-in-out infinite; }
+    @keyframes ip-glow { 0%,100%{box-shadow:0 0 0 0 rgba(53,212,169,0.4)} 50%{box-shadow:0 0 0 5px rgba(53,212,169,0)} }
+    .s-done .rr-icon { background: rgba(52,199,89,0.18); border: 1.5px solid #34C759; color: #34C759; }
+
+    .rr-name { flex: 1; font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.80); transition: color 0.2s; }
+    .s-done .rr-name { color: rgba(255,255,255,0.32); text-decoration: line-through; text-decoration-color: rgba(255,255,255,0.18); }
+
+    .rr-amount { font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.28); min-width: 48px; text-align: right; }
+
+    .rr-badge { font-size: 10px; font-weight: 800; padding: 3px 9px; border-radius: 999px; }
+    .s-ns .rr-badge { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.28); }
+    .s-ip .rr-badge { background: rgba(53,212,169,0.15); color: #35d4a9; }
+    .s-done .rr-badge { background: rgba(52,199,89,0.15); color: #34C759; }
+
+    /* Manager dashboard */
+    .mgr-inner {
+      flex: 1; padding: 24px; overflow-y: auto;
+      display: grid; grid-template-columns: 1fr 300px; gap: 18px; align-content: start;
+    }
+    .mgr-panel {
+      background: rgba(255,255,255,0.03); border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.07); padding: 20px;
+    }
+    .mgr-panel-title { font-size: 11px; font-weight: 800; color: rgba(255,255,255,0.32); text-transform: uppercase; letter-spacing: 0.09em; margin: 0 0 16px; }
+    .ds-row { display: flex; align-items: center; gap: 11px; padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .ds-row:last-child { border-bottom: none; }
+    .ds-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .ds-name { width: 80px; font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.62); flex-shrink: 0; }
+    .ds-bar-wrap { flex: 1; height: 6px; border-radius: 999px; background: rgba(255,255,255,0.08); overflow: hidden; }
+    .ds-fill { height: 100%; border-radius: inherit; background: linear-gradient(90deg,#0F6E56,#35d4a9); transition: width 0.55s cubic-bezier(0.4,0,0.2,1); }
+    .ds-pct { width: 40px; text-align: right; font-size: 13px; font-weight: 800; color: rgba(255,255,255,0.52); flex-shrink: 0; transition: color 0.3s; }
+    .ds-pct.done { color: #34C759; }
+    .ds-overall {
+      text-align: center; padding: 16px; margin-top: 14px;
+      background: rgba(15,110,86,0.10); border-radius: 12px; border: 1px solid rgba(53,212,169,0.15);
+    }
+    .ds-overall-num { font-size: 38px; font-weight: 800; color: #35d4a9; line-height: 1; transition: all 0.4s; }
+    .ds-overall-lbl { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.38); margin-top: 5px; }
+
+    .mgr-right { display: flex; flex-direction: column; gap: 14px; }
+    .alert-panel { background: rgba(255,59,48,0.08); border: 1px solid rgba(255,59,48,0.20); border-radius: 16px; padding: 18px; }
+    .alert-hd { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .alert-ic { width: 24px; height: 24px; border-radius: 50%; background: rgba(255,59,48,0.20); color: #FF3B30; font-size: 12px; font-weight: 900; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .alert-title { font-size: 13px; font-weight: 800; color: #fff; }
+    .alert-row { display: flex; align-items: center; gap: 8px; padding: 8px 10px; border-radius: 8px; background: rgba(255,59,48,0.10); margin-top: 8px; }
+    .alert-row-name { flex: 1; font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.80); }
+    .alert-tag { font-size: 10px; font-weight: 800; color: #FF3B30; background: rgba(255,59,48,0.18); padding: 2px 8px; border-radius: 999px; }
+    .alert-sub { font-size: 11px; color: rgba(255,255,255,0.38); margin-top: 8px; }
+
+    .activity-panel { background: rgba(255,255,255,0.03); border-radius: 16px; border: 1px solid rgba(255,255,255,0.07); padding: 18px; flex: 1; }
+    .act-item { display: flex; align-items: flex-start; gap: 9px; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 12px; }
+    .act-item:last-child { border-bottom: none; }
+    .act-dot { width: 6px; height: 6px; border-radius: 50%; margin-top: 4px; flex-shrink: 0; }
+    .act-text { flex: 1; color: rgba(255,255,255,0.50); line-height: 1.4; }
+    .act-text strong { color: rgba(255,255,255,0.78); font-weight: 700; }
+    .act-empty { font-size: 12px; color: rgba(255,255,255,0.24); padding: 10px 0; }
+
+    /* Plating */
+    .plating-inner { flex: 1; padding: 24px; overflow-y: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-content: start; }
+    .meal-selector-lbl { font-size: 11px; font-weight: 800; color: rgba(255,255,255,0.28); text-transform: uppercase; letter-spacing: 0.09em; margin: 0 0 10px; }
+    .meal-tabs { display: flex; flex-direction: column; gap: 6px; }
+    .meal-tab {
+      display: flex; align-items: center; gap: 12px;
+      padding: 12px 14px; border-radius: 12px; cursor: pointer;
+      transition: all 0.18s; border: 1px solid transparent;
+      background: rgba(255,255,255,0.03);
+    }
+    .meal-tab:hover { background: rgba(255,255,255,0.06); }
+    .meal-tab.active { background: rgba(15,110,86,0.18); border-color: rgba(53,212,169,0.22); }
+    .meal-tab-name { flex: 1; font-size: 14px; font-weight: 700; color: rgba(255,255,255,0.62); }
+    .meal-tab.active .meal-tab-name { color: #fff; }
+    .meal-tab-type { font-size: 10px; font-weight: 800; color: rgba(255,255,255,0.28); background: rgba(255,255,255,0.06); padding: 3px 9px; border-radius: 999px; }
+    .meal-tab.active .meal-tab-type { color: #35d4a9; background: rgba(53,212,169,0.12); }
+
+    .plating-card { background: rgba(255,255,255,0.03); border-radius: 16px; border: 1px solid rgba(255,255,255,0.07); padding: 22px; }
+    .pc-hd { padding-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,0.07); margin-bottom: 16px; }
+    .pc-title { font-size: 17px; font-weight: 800; color: #fff; margin: 0 0 4px; }
+    .pc-sub { font-size: 12px; color: rgba(255,255,255,0.38); font-weight: 600; }
+    .scoop-lbl { font-size: 10px; font-weight: 800; color: rgba(255,255,255,0.28); text-transform: uppercase; letter-spacing: 0.09em; margin: 0 0 10px; }
+    .scoop-row { display: flex; align-items: center; gap: 11px; padding: 10px 12px; border-radius: 10px; background: rgba(255,255,255,0.04); margin-bottom: 7px; }
+    .scoop-dot { width: 11px; height: 11px; border-radius: 50%; flex-shrink: 0; }
+    .scoop-num { font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.28); min-width: 14px; }
+    .scoop-name { flex: 1; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.75); }
+    .scoop-amt { font-size: 12px; font-weight: 800; color: rgba(255,255,255,0.38); }
+    .pc-nutrition { display: flex; gap: 18px; align-items: center; margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.07); }
+    .nut-val { font-size: 20px; font-weight: 800; color: #fff; }
+    .nut-lbl { font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.34); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 2px; }
+    .nut-tags { display: flex; gap: 6px; margin-left: auto; }
+    .nut-tag { font-size: 10px; font-weight: 800; color: #35d4a9; background: rgba(53,212,169,0.12); border: 1px solid rgba(53,212,169,0.22); padding: 3px 9px; border-radius: 999px; }
+
+    /* Demo CTA */
+    .demo-cta { padding: 120px 0; text-align: center; background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(255,255,255,0.14), transparent 55%), linear-gradient(160deg,#0d7a60,#0F6E56 40%,#0a5c48); color: #fff; }
+    .demo-cta h2 { margin: 0; font-size: clamp(40px, 5.5vw, 72px); font-weight: 800; line-height: 0.96; letter-spacing: -0.01em; }
+    .demo-cta p { margin: 20px auto 36px; max-width: 480px; font-size: clamp(17px, 2vw, 22px); font-weight: 500; color: rgba(255,255,255,0.76); line-height: 1.35; }
+
+    .empty-state { padding: 36px 20px; text-align: center; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.24); }
+
+    @media (max-width: 900px) {
+      .app-body { height: auto; }
+      .app-view.active { flex-direction: column; }
+      .app-sidebar { width: 100%; display: flex; flex-wrap: wrap; gap: 5px; padding: 10px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+      .sb-label { width: 100%; }
+      .mgr-inner { grid-template-columns: 1fr; }
+      .plating-inner { grid-template-columns: 1fr; }
+      .app-topbar { flex-wrap: wrap; height: auto; padding: 10px 14px; gap: 10px; }
+      .app-run-info { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav" aria-label="Primary navigation">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">ChefOS</a>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+      <div class="nav-links">
+        <a href="index.html">Overview</a>
+        <a href="features.html">Features</a>
+        <a href="how-it-works.html">How it works</a>
+        <a href="integrations.html">Integrations</a>
+        <a href="pricing.html">Pricing</a>
+        <a class="active" href="demo.html">Demo</a>
+        <a class="nav-cta" href="contact.html">Book a Demo</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="demo-hero">
+      <div class="container reveal">
+        <p class="eyebrow-teal">Interactive Demo</p>
+        <h1>Try ChefOS on a real<br>production run.</h1>
+        <p class="hero-sub">Click recipes to update their status. Switch to Dashboard to see your stations move. Open Plating for scoop order and nutrition.</p>
+      </div>
+    </section>
+
+    <section class="demo-section">
+      <div class="container">
+        <div class="demo-hint">
+          <span><div class="hint-dot"></div>Click any recipe row to update its status</span>
+        </div>
+
+        <div class="app-shell">
+          <div class="app-topbar">
+            <div class="app-logo">ChefOS</div>
+            <div class="app-run-info"><strong>Week 23 Production</strong> &nbsp;·&nbsp; 32 recipes &nbsp;·&nbsp; 5 stations</div>
+            <div class="app-view-tabs">
+              <button class="avt active" data-view="station">Station View</button>
+              <button class="avt" data-view="manager">Dashboard</button>
+              <button class="avt" data-view="plating">Plating</button>
+            </div>
+          </div>
+
+          <div class="app-body">
+            <!-- Station View -->
+            <div class="app-view active" id="view-station">
+              <div class="app-sidebar" id="sidebar"></div>
+              <div class="station-main">
+                <div class="station-hd">
+                  <div class="station-hd-top">
+                    <span class="station-title" id="station-title">Protein Station</span>
+                    <span class="station-meta" id="station-meta">8 recipes</span>
+                  </div>
+                  <div class="filter-tabs">
+                    <button class="flt active" data-filter="all">All</button>
+                    <button class="flt" data-filter="not_started">Not Started</button>
+                    <button class="flt" data-filter="in_progress">In Progress</button>
+                    <button class="flt" data-filter="complete">Complete</button>
+                  </div>
+                </div>
+                <div class="recipe-list" id="recipe-list"></div>
+              </div>
+            </div>
+
+            <!-- Manager Dashboard -->
+            <div class="app-view" id="view-manager">
+              <div class="mgr-inner">
+                <div class="mgr-panel">
+                  <div class="mgr-panel-title">Station Progress</div>
+                  <div id="dash-rows"></div>
+                  <div class="ds-overall">
+                    <div class="ds-overall-num" id="overall-pct">0%</div>
+                    <div class="ds-overall-lbl">overall production complete</div>
+                  </div>
+                </div>
+                <div class="mgr-right">
+                  <div class="alert-panel">
+                    <div class="mgr-panel-title" style="color:rgba(255,90,80,0.70);">Shortage Alert</div>
+                    <div class="alert-hd">
+                      <div class="alert-ic">!</div>
+                      <span class="alert-title">Wild Salmon Fillet</span>
+                    </div>
+                    <div class="alert-row">
+                      <span class="alert-row-name">Protein Station</span>
+                      <span class="alert-tag">SHORT</span>
+                    </div>
+                    <div class="alert-sub">Flagged 4 min ago</div>
+                  </div>
+                  <div class="activity-panel">
+                    <div class="mgr-panel-title">Live Activity</div>
+                    <div id="activity-feed"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Plating -->
+            <div class="app-view" id="view-plating">
+              <div class="plating-inner">
+                <div>
+                  <div class="meal-selector-lbl">Select meal</div>
+                  <div class="meal-tabs" id="meal-tabs"></div>
+                </div>
+                <div class="plating-card" id="plating-card"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="demo-cta">
+      <div class="container reveal">
+        <h2>Ready to run this on your kitchen?</h2>
+        <p>30 minutes. A real import from your production file. No slides.</p>
+        <a class="button-cta" href="contact.html">Book a Demo</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="animations.js"></script>
+  <script>
+    const stations = [
+      { id: 'protein', name: 'Protein', color: '#34C759', recipes: [
+        { id: 'p1', name: 'Herb Chicken Breast', amount: '2.5 oz', status: 'in_progress' },
+        { id: 'p2', name: 'Turkey Meatballs', amount: '3.0 oz', status: 'complete' },
+        { id: 'p3', name: 'Grilled Salmon', amount: '4.0 oz', status: 'not_started' },
+        { id: 'p4', name: 'Beef Brisket', amount: '3.5 oz', status: 'not_started' },
+        { id: 'p5', name: 'Pulled Chicken', amount: '4.0 oz', status: 'not_started' },
+        { id: 'p6', name: 'Turkey Bacon Crumble', amount: '1.0 oz', status: 'in_progress' },
+        { id: 'p7', name: 'Egg White Frittata', amount: '3.0 oz', status: 'not_started' },
+        { id: 'p8', name: 'Spiced Lamb Kofta', amount: '3.5 oz', status: 'not_started' },
+      ]},
+      { id: 'cold', name: 'Cold Prep', color: '#FF9F0A', recipes: [
+        { id: 'c1', name: 'Mixed Green Salad', amount: '3.0 oz', status: 'complete' },
+        { id: 'c2', name: 'Cucumber Tzatziki', amount: '2.0 oz', status: 'complete' },
+        { id: 'c3', name: 'Lemon Hummus', amount: '2.0 oz', status: 'in_progress' },
+        { id: 'c4', name: 'Coleslaw Mix', amount: '3.0 oz', status: 'not_started' },
+        { id: 'c5', name: 'Greek Salad', amount: '3.5 oz', status: 'not_started' },
+        { id: 'c6', name: 'Overnight Oats', amount: '6.0 oz', status: 'not_started' },
+      ]},
+      { id: 'sauce', name: 'Sauce', color: '#AF52DE', recipes: [
+        { id: 's1', name: 'Herb Chimichurri', amount: '1.0 oz', status: 'complete' },
+        { id: 's2', name: 'BBQ Glaze', amount: '1.5 oz', status: 'complete' },
+        { id: 's3', name: 'Lemon Tahini', amount: '1.0 oz', status: 'complete' },
+        { id: 's4', name: 'Mango Salsa', amount: '2.0 oz', status: 'in_progress' },
+        { id: 's5', name: 'Pesto Aioli', amount: '1.0 oz', status: 'not_started' },
+      ]},
+      { id: 'veg', name: 'Veg & Grain', color: '#007AFF', recipes: [
+        { id: 'v1', name: 'Steamed Broccolini', amount: '3.0 oz', status: 'complete' },
+        { id: 'v2', name: 'Roasted Sweet Potato', amount: '4.0 oz', status: 'in_progress' },
+        { id: 'v3', name: 'Sautéed Spinach', amount: '2.0 oz', status: 'not_started' },
+        { id: 'v4', name: 'Roasted Bell Peppers', amount: '2.5 oz', status: 'not_started' },
+        { id: 'v5', name: 'Cauliflower Rice', amount: '5.0 oz', status: 'not_started' },
+      ]},
+      { id: 'packing', name: 'Packing', color: '#8E8E93', recipes: [
+        { id: 'pk1', name: 'Standard Pack Line', amount: '—', status: 'not_started' },
+        { id: 'pk2', name: 'Family Bundle', amount: '—', status: 'not_started' },
+        { id: 'pk3', name: 'Athlete Pack', amount: '—', status: 'not_started' },
+        { id: 'pk4', name: 'Vegan Pack', amount: '—', status: 'not_started' },
+      ]},
+    ];
+
+    const meals = [
+      { id: 'm1', name: 'Herb Chicken Bowl', type: 'Standard',
+        scoops: [
+          { name: 'Herb Chicken Breast', amount: '2.5 oz', color: '#34C759' },
+          { name: 'Roasted Sweet Potato', amount: '4.0 oz', color: '#FF9F0A' },
+          { name: 'Steamed Broccolini', amount: '3.0 oz', color: '#007AFF' },
+          { name: 'Herb Chimichurri', amount: '1.0 oz', color: '#AF52DE' },
+        ], cal: 480, protein: 38, tags: ['GF', 'DF'] },
+      { id: 'm2', name: 'Salmon Power Bowl', type: 'Athlete',
+        scoops: [
+          { name: 'Grilled Salmon', amount: '4.0 oz', color: '#FF6B35' },
+          { name: 'Cauliflower Rice', amount: '5.0 oz', color: '#007AFF' },
+          { name: 'Sautéed Spinach', amount: '2.0 oz', color: '#34C759' },
+          { name: 'Lemon Tahini', amount: '1.0 oz', color: '#FF9F0A' },
+        ], cal: 520, protein: 44, tags: ['GF', 'DF'] },
+      { id: 'm3', name: 'Turkey Meatball Bowl', type: 'Standard',
+        scoops: [
+          { name: 'Turkey Meatballs', amount: '3.0 oz', color: '#34C759' },
+          { name: 'Mixed Green Salad', amount: '3.0 oz', color: '#30D158' },
+          { name: 'Roasted Bell Peppers', amount: '2.5 oz', color: '#FF3B30' },
+          { name: 'Pesto Aioli', amount: '1.0 oz', color: '#AF52DE' },
+        ], cal: 410, protein: 32, tags: ['GF'] },
+      { id: 'm4', name: 'Lamb Kofta Bowl', type: 'Premium',
+        scoops: [
+          { name: 'Spiced Lamb Kofta', amount: '3.5 oz', color: '#FF9F0A' },
+          { name: 'Greek Salad', amount: '3.5 oz', color: '#30D158' },
+          { name: 'Lemon Hummus', amount: '2.0 oz', color: '#FFD60A' },
+          { name: 'Cucumber Tzatziki', amount: '2.0 oz', color: '#007AFF' },
+        ], cal: 560, protein: 36, tags: ['GF'] },
+    ];
+
+    let currentStation = 'protein';
+    let currentFilter = 'all';
+    let currentMeal = 'm1';
+    let activityLog = [];
+
+    const statusClass = { not_started: 's-ns', in_progress: 's-ip', complete: 's-done' };
+    const statusLabel = { not_started: 'Not Started', in_progress: 'In Progress', complete: 'Complete' };
+    const statusIcon  = { not_started: '', in_progress: '●', complete: '✓' };
+
+    function renderSidebar() {
+      const sb = document.getElementById('sidebar');
+      sb.innerHTML = '<div class="sb-label">Stations</div>';
+      stations.forEach(s => {
+        const done = s.recipes.filter(r => r.status === 'complete').length;
+        const el = document.createElement('div');
+        el.className = 'sb-item' + (s.id === currentStation ? ' active' : '');
+        el.innerHTML = `<div class="sb-dot" style="background:${s.color}"></div><span class="sb-name">${s.name}</span><span class="sb-badge">${done}/${s.recipes.length}</span>`;
+        el.addEventListener('click', () => { currentStation = s.id; currentFilter = 'all'; document.querySelectorAll('.flt').forEach(b => b.classList.toggle('active', b.dataset.filter === 'all')); renderSidebar(); renderRecipeList(); });
+        sb.appendChild(el);
+      });
+    }
+
+    function renderRecipeList() {
+      const s = stations.find(s => s.id === currentStation);
+      document.getElementById('station-title').textContent = s.name + ' Station';
+      document.getElementById('station-meta').textContent = s.recipes.length + ' recipes';
+      const list = document.getElementById('recipe-list');
+      const filtered = s.recipes.filter(r => currentFilter === 'all' || r.status === currentFilter);
+      if (!filtered.length) { list.innerHTML = '<div class="empty-state">No recipes match this filter</div>'; return; }
+      list.innerHTML = filtered.map(r => `
+        <div class="rr ${statusClass[r.status]}" data-station="${s.id}" data-recipe="${r.id}">
+          <div class="rr-icon">${statusIcon[r.status]}</div>
+          <span class="rr-name">${r.name}</span>
+          <span class="rr-amount">${r.amount}</span>
+          <span class="rr-badge">${statusLabel[r.status]}</span>
+        </div>
+      `).join('');
+      list.querySelectorAll('.rr').forEach(el => {
+        el.addEventListener('click', () => cycleStatus(el.dataset.station, el.dataset.recipe));
+      });
+    }
+
+    function cycleStatus(stationId, recipeId) {
+      const s = stations.find(s => s.id === stationId);
+      const r = s.recipes.find(r => r.id === recipeId);
+      const next = { not_started: 'in_progress', in_progress: 'complete', complete: 'not_started' };
+      r.status = next[r.status];
+      if (r.status !== 'not_started') addActivity(r.name, s.name, r.status, s.color);
+      renderSidebar();
+      renderRecipeList();
+      updateDashboard();
+    }
+
+    function addActivity(name, station, status, color) {
+      activityLog.unshift({ name, station, status, color });
+      if (activityLog.length > 7) activityLog.pop();
+      renderActivity();
+    }
+
+    function renderActivity() {
+      const feed = document.getElementById('activity-feed');
+      if (!activityLog.length) { feed.innerHTML = '<div class="act-empty">No activity yet — mark recipes above</div>'; return; }
+      feed.innerHTML = activityLog.map(a => `
+        <div class="act-item">
+          <div class="act-dot" style="background:${a.color}"></div>
+          <div class="act-text"><strong>${a.name}</strong> ${a.status === 'complete' ? 'completed' : 'started'} — ${a.station}</div>
+        </div>
+      `).join('');
+    }
+
+    function updateDashboard() {
+      let totalAll = 0, doneAll = 0;
+      document.getElementById('dash-rows').innerHTML = stations.map(s => {
+        const done = s.recipes.filter(r => r.status === 'complete').length;
+        const total = s.recipes.length;
+        totalAll += total; doneAll += done;
+        const pct = total ? Math.round((done / total) * 100) : 0;
+        return `<div class="ds-row">
+          <div class="ds-dot" style="background:${s.color}"></div>
+          <span class="ds-name">${s.name}</span>
+          <div class="ds-bar-wrap"><div class="ds-fill" style="width:${pct}%"></div></div>
+          <span class="ds-pct ${pct===100?'done':''}">${pct===100?'Done':pct+'%'}</span>
+        </div>`;
+      }).join('');
+      const overall = totalAll ? Math.round((doneAll / totalAll) * 100) : 0;
+      const el = document.getElementById('overall-pct');
+      if (el) el.textContent = overall + '%';
+    }
+
+    function renderMealTabs() {
+      document.getElementById('meal-tabs').innerHTML = meals.map(m => `
+        <div class="meal-tab ${m.id === currentMeal ? 'active' : ''}" data-meal="${m.id}">
+          <span class="meal-tab-name">${m.name}</span>
+          <span class="meal-tab-type">${m.type}</span>
+        </div>
+      `).join('');
+      document.querySelectorAll('.meal-tab').forEach(tab => {
+        tab.addEventListener('click', () => { currentMeal = tab.dataset.meal; renderMealTabs(); renderPlatingCard(); });
+      });
+    }
+
+    function renderPlatingCard() {
+      const m = meals.find(m => m.id === currentMeal);
+      document.getElementById('plating-card').innerHTML = `
+        <div class="pc-hd">
+          <div class="pc-title">${m.name}</div>
+          <div class="pc-sub">${m.type} · ${m.scoops.length} components</div>
+        </div>
+        <div class="scoop-lbl">Scoop order</div>
+        ${m.scoops.map((s, i) => `
+          <div class="scoop-row">
+            <div class="scoop-dot" style="background:${s.color}"></div>
+            <span class="scoop-num">${i+1}</span>
+            <span class="scoop-name">${s.name}</span>
+            <span class="scoop-amt">${s.amount}</span>
+          </div>
+        `).join('')}
+        <div class="pc-nutrition">
+          <div><div class="nut-val">${m.cal}</div><div class="nut-lbl">Cal</div></div>
+          <div><div class="nut-val">${m.protein}g</div><div class="nut-lbl">Protein</div></div>
+          <div class="nut-tags">${m.tags.map(t => `<span class="nut-tag">${t}</span>`).join('')}</div>
+        </div>
+      `;
+    }
+
+    // View switcher
+    document.querySelectorAll('.avt').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.avt').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.querySelectorAll('.app-view').forEach(v => v.classList.remove('active'));
+        document.getElementById('view-' + btn.dataset.view).classList.add('active');
+        if (btn.dataset.view === 'manager') updateDashboard();
+      });
+    });
+
+    // Filter tabs
+    document.querySelectorAll('.flt').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.flt').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.dataset.filter;
+        renderRecipeList();
+      });
+    });
+
+    // Init
+    renderSidebar();
+    renderRecipeList();
+    updateDashboard();
+    renderMealTabs();
+    renderPlatingCard();
+    renderActivity();
+  </script>
+</body>
+</html>
