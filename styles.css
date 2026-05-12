@@ -1988,10 +1988,9 @@ input:focus,select:focus,textarea:focus { outline: none; border-color: var(--col
 
   .nav-cta { justify-self: start; margin-top: 18px; padding: 12px 18px !important; font-size: 16px !important; }
 
-  .product-links a:not(.product-buy) { display: none; }
-  .product-title { font-size: 15px; }
+  .product-nav { display: none; }
 
-  .apple-hero { padding-top: 106px; min-height: 104svh; }
+  .apple-hero { padding-top: 54px; min-height: 104svh; }
   .apple-hero h1 { font-size: clamp(46px, 8vw, 76px); }
   .hero-sub { font-size: 22px; }
 
@@ -2028,12 +2027,12 @@ input:focus,select:focus,textarea:focus { outline: none; border-color: var(--col
   .product-title { font-size: 14px; }
 
   /* --- Sub-page inner hero (features, pricing, contact, etc.) --- */
-  .inner-hero { padding: 110px 0 72px !important; }
+  .inner-hero { padding: 60px 0 72px !important; }
   .inner-hero h1 { font-size: clamp(38px, 8vw, 64px) !important; }
   .inner-hero .hero-sub { font-size: clamp(17px, 3vw, 22px) !important; }
 
   /* --- Contact page 2-col → 1-col --- */
-  .contact-hero { padding: 110px 0 72px !important; }
+  .contact-hero { padding: 60px 0 72px !important; }
   .contact-hero-layout { grid-template-columns: 1fr !important; gap: 40px !important; }
   .contact-h1 { font-size: clamp(34px, 7vw, 56px) !important; }
 
@@ -2146,7 +2145,7 @@ input:focus,select:focus,textarea:focus { outline: none; border-color: var(--col
 
   /* --- Other-page utilities --- */
   .section { padding: 80px 0; }
-  .page-hero { padding: 120px 0 72px; }
+  .page-hero { padding: 68px 0 72px; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
   .logo-grid { grid-template-columns: repeat(3, 1fr); }
   .quote-grid { grid-template-columns: 1fr; }
@@ -2166,13 +2165,10 @@ input:focus,select:focus,textarea:focus { outline: none; border-color: var(--col
 @media (max-width: 560px) {
   /* --- Layout containers --- */
   .nav-inner,.container,.narrow { width: calc(100% - 28px); }
-  .product-nav-inner,.apple-hero-copy { width: calc(100% - 28px); }
-
-  /* --- Nav --- */
-  .product-title { font-size: 13px; max-width: 50vw; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .apple-hero-copy { width: calc(100% - 28px); }
 
   /* --- Hero --- */
-  .apple-hero { padding-top: 96px; }
+  .apple-hero { padding-top: 54px; }
   .apple-hero h1 { font-size: clamp(34px, 10vw, 48px); line-height: 1.02; }
   .apple-product-kicker { font-size: 15px; margin-bottom: 12px; }
   .hero-sub { font-size: clamp(16px, 4.5vw, 20px); margin-top: 16px; }
@@ -2287,7 +2283,7 @@ input:focus,select:focus,textarea:focus { outline: none; border-color: var(--col
 
   /* --- Other page utilities --- */
   .section { padding: 64px 0; }
-  .page-hero { padding: 100px 0 56px; }
+  .page-hero { padding: 56px 0 56px; }
   .stats-grid { grid-template-columns: 1fr; }
   .logo-grid { grid-template-columns: repeat(2, 1fr); }
   .pricing-grid,.faq-grid,.integration-grid,.feature-detail-grid { grid-template-columns: 1fr; }
@@ -2300,12 +2296,12 @@ input:focus,select:focus,textarea:focus { outline: none; border-color: var(--col
   .headline-md { font-size: clamp(26px, 7vw, 38px); }
 
   /* --- Sub-page inner hero (features, pricing, contact, etc.) --- */
-  .inner-hero { padding: 88px 0 48px !important; }
+  .inner-hero { padding: 56px 0 48px !important; }
   .inner-hero h1 { font-size: clamp(32px, 10vw, 52px) !important; }
   .inner-hero .hero-sub { font-size: clamp(16px, 4.5vw, 20px) !important; }
 
   /* --- Contact page --- */
-  .contact-hero { padding: 88px 0 48px !important; }
+  .contact-hero { padding: 56px 0 48px !important; }
   .contact-hero-layout { grid-template-columns: 1fr !important; gap: 28px !important; }
   .contact-h1 { font-size: clamp(28px, 9vw, 44px) !important; }
   .contact-sub { font-size: 16px !important; }
