@@ -105,17 +105,40 @@ button { cursor: pointer; font-family: inherit; }
 
 .nav-toggle {
   display: none;
-  width: 36px; height: 36px;
+  width: 44px; height: 44px;
   border: 0;
+  cursor: pointer;
   color: #fff;
   background: transparent;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  padding: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border-radius: 8px;
 }
 
 .nav-toggle span {
   display: block;
-  width: 18px; height: 1px;
-  margin: 5px auto;
-  background: currentColor;
+  width: 22px; height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.2s ease, width 0.25s ease;
+  transform-origin: center;
+}
+
+/* × close state when menu is open */
+.nav-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+  width: 0;
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 
@@ -1941,7 +1964,7 @@ input:focus,select:focus,textarea:focus { outline: none; border-color: var(--col
    RESPONSIVE — 900px
    ============================================================ */
 @media (max-width: 900px) {
-  .nav-toggle { display: block; }
+  .nav-toggle { display: flex; }
 
   .nav-links {
     position: fixed;
