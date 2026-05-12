@@ -90,6 +90,19 @@ button { cursor: pointer; font-family: inherit; }
   font-weight: 600;
 }
 
+.nav-login {
+  padding: 7px 14px;
+  color: rgba(255,255,255,0.72) !important;
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 999px;
+  font-weight: 500;
+  transition: color 0.2s, border-color 0.2s;
+}
+.nav-login:hover {
+  color: #fff !important;
+  border-color: rgba(255,255,255,0.6);
+}
+
 .nav-toggle {
   display: none;
   width: 36px; height: 36px;
