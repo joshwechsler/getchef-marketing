@@ -339,8 +339,8 @@ button { cursor: pointer; font-family: inherit; }
 .screen-ui {
   overflow: hidden;
   border-radius: 20px;
-  background: #0e0f10;
-  border: 1px solid rgba(255,255,255,0.10);
+  background: var(--color-gray-apple);
+  border: 1px solid #E3DDD4;
   display: flex;
   flex-direction: column;
 }
@@ -352,15 +352,15 @@ button { cursor: pointer; font-family: inherit; }
   gap: 0;
   padding: 0 20px;
   height: 48px;
-  background: #141517;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  background: #fff;
+  border-bottom: 1px solid #EDE9E1;
   flex-shrink: 0;
 }
 
 .app-logo {
   font-size: 16px;
   font-weight: 800;
-  color: #fff;
+  color: var(--color-teal);
   letter-spacing: 0.03em;
   margin-right: 28px;
 }
@@ -376,14 +376,14 @@ button { cursor: pointer; font-family: inherit; }
   border-radius: 8px;
   font-size: 13px;
   font-weight: 500;
-  color: rgba(255,255,255,0.52);
+  color: var(--color-text-soft);
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .app-nav-item.active {
-  background: rgba(13,92,70,0.28);
-  color: #35d4a9;
+  background: var(--color-teal-light);
+  color: var(--color-teal);
 }
 
 .app-topbar-right {
@@ -393,8 +393,8 @@ button { cursor: pointer; font-family: inherit; }
 .app-run-badge {
   padding: 4px 10px;
   border-radius: 999px;
-  background: rgba(52,199,89,0.16);
-  color: #34C759;
+  background: rgba(45,125,42,0.12);
+  color: #2D7D2A;
   font-size: 12px;
   font-weight: 700;
 }
@@ -409,14 +409,14 @@ button { cursor: pointer; font-family: inherit; }
 /* Sidebar */
 .screen-sidebar {
   padding: 22px 14px;
-  background: rgba(255,255,255,0.04);
-  border-right: 1px solid rgba(255,255,255,0.07);
+  background: #fff;
+  border-right: 1px solid #EDE9E1;
 }
 
 .sidebar-label {
   padding: 0 10px;
   margin-bottom: 10px;
-  color: rgba(255,255,255,0.36);
+  color: var(--color-text-soft);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -432,13 +432,13 @@ button { cursor: pointer; font-family: inherit; }
   margin-bottom: 4px;
   font-size: 13px;
   font-weight: 500;
-  color: rgba(255,255,255,0.60);
+  color: var(--color-text-muted);
   transition: background 0.2s;
 }
 
 .active-station {
-  background: rgba(13,92,70,0.22);
-  color: #fff;
+  background: var(--color-teal-light);
+  color: var(--color-ink);
 }
 
 .station-dot {
@@ -450,13 +450,13 @@ button { cursor: pointer; font-family: inherit; }
 .dot-green { background: #34C759; }
 .dot-amber { background: #FF9F0A; }
 .dot-orange { background: #FF6B00; }
-.dot-gray { background: rgba(255,255,255,0.28); }
+.dot-gray { background: #B8B0A0; }
 .dot-blue { background: #007AFF; }
 .dot-red { background: #FF3B30; }
 
 .station-name-text { flex: 1; font-size: 13px; }
-.station-pct { font-size: 11px; color: rgba(255,255,255,0.42); font-weight: 600; }
-.active-station .station-pct { color: #35d4a9; }
+.station-pct { font-size: 11px; color: var(--color-text-soft); font-weight: 600; }
+.active-station .station-pct { color: var(--color-teal); }
 
 /* Main screen area */
 .screen-main {
@@ -473,7 +473,7 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 .screen-main-label {
-  color: rgba(255,255,255,0.46);
+  color: var(--color-text-soft);
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
@@ -482,7 +482,7 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 .screen-main-title {
-  color: #fff;
+  color: var(--color-ink);
   font-size: clamp(20px, 3vw, 28px);
   font-weight: 700;
   line-height: 1;
@@ -490,10 +490,10 @@ button { cursor: pointer; font-family: inherit; }
 
 .screen-main-pct {
   padding: 6px 14px;
-  background: rgba(13,92,70,0.22);
-  border: 1px solid rgba(53,212,169,0.3);
+  background: var(--color-teal-light);
+  border: 1px solid #C2E0D6;
   border-radius: 999px;
-  color: #35d4a9;
+  color: var(--color-teal);
   font-size: 13px;
   font-weight: 700;
 }
@@ -513,14 +513,14 @@ button { cursor: pointer; font-family: inherit; }
   gap: 16px;
   padding: 12px 16px;
   border-radius: 12px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.07);
+  background: #fff;
+  border: 1px solid #EDE9E1;
   transition: background 0.2s;
 }
 
 .shortage-recipe-row {
-  background: rgba(255,59,48,0.08);
-  border-color: rgba(255,59,48,0.22);
+  background: rgba(192,57,43,0.06);
+  border-color: rgba(192,57,43,0.20);
 }
 
 .recipe-row-left {
@@ -539,16 +539,16 @@ button { cursor: pointer; font-family: inherit; }
   letter-spacing: 0.03em;
 }
 
-.tag-protein { background: rgba(52,199,89,0.2); color: #34C759; }
-.tag-carb    { background: rgba(255,159,10,0.2); color: #FF9F0A; }
-.tag-veg     { background: rgba(0,122,255,0.2);  color: #007AFF; }
-.tag-sauce   { background: rgba(175,82,222,0.2); color: #AF52DE; }
-.tag-pack    { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.6); }
+.tag-protein { background: rgba(45,125,42,0.14); color: #2D7D2A; }
+.tag-carb    { background: rgba(180,83,9,0.14); color: #B45309; }
+.tag-veg     { background: rgba(29,78,216,0.12);  color: #1D4ED8; }
+.tag-sauce   { background: rgba(124,58,237,0.12); color: #7C3AED; }
+.tag-pack    { background: #EDE9E1; color: var(--color-text-soft); }
 
 .recipe-info { min-width: 0; }
 
 .recipe-name {
-  color: #fff;
+  color: var(--color-ink);
   font-size: 14px;
   font-weight: 600;
   white-space: nowrap;
@@ -557,13 +557,13 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 .recipe-qty {
-  color: rgba(255,255,255,0.44);
+  color: var(--color-text-soft);
   font-size: 12px;
   margin-top: 2px;
 }
 
 .shortage-flag {
-  color: #FF3B30;
+  color: #C0392B;
   font-size: 12px;
   font-weight: 700;
   margin-left: 8px;
@@ -580,7 +580,7 @@ button { cursor: pointer; font-family: inherit; }
   width: 100px;
   height: 5px;
   border-radius: 999px;
-  background: rgba(255,255,255,0.12);
+  background: #EDE9E1;
   overflow: hidden;
 }
 
@@ -588,7 +588,7 @@ button { cursor: pointer; font-family: inherit; }
   height: 100%;
   width: var(--rp, 0%);
   border-radius: inherit;
-  background: linear-gradient(90deg, #0D5C46, #35d4a9);
+  background: linear-gradient(90deg, #0D5C46, #117256);
   transition: width 1.4s ease;
 }
 
@@ -600,10 +600,10 @@ button { cursor: pointer; font-family: inherit; }
   white-space: nowrap;
 }
 
-.status-complete   { background: rgba(52,199,89,0.2);   color: #34C759; }
-.status-inprogress { background: rgba(255,159,10,0.2);  color: #FF9F0A; }
-.status-notstarted { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.44); }
-.status-shortage   { background: rgba(255,59,48,0.2);   color: #FF3B30; }
+.status-complete   { background: rgba(45,125,42,0.14);  color: #2D7D2A; }
+.status-inprogress { background: rgba(180,83,9,0.14);   color: #B45309; }
+.status-notstarted { background: #EDE9E1;               color: var(--color-text-soft); }
+.status-shortage   { background: rgba(192,57,43,0.14);  color: #C0392B; }
 
 /* Bottom stat strip */
 .screen-stat-strip {
@@ -611,14 +611,14 @@ button { cursor: pointer; font-family: inherit; }
   gap: 0;
   margin-top: 14px;
   padding: 14px 0 4px;
-  border-top: 1px solid rgba(255,255,255,0.08);
+  border-top: 1px solid #EDE9E1;
 }
 
 .screen-stat {
   flex: 1;
   text-align: center;
   padding: 0 8px;
-  border-right: 1px solid rgba(255,255,255,0.08);
+  border-right: 1px solid #EDE9E1;
 }
 
 .screen-stat:last-child { border-right: none; }
@@ -626,15 +626,15 @@ button { cursor: pointer; font-family: inherit; }
 .screen-stat-value {
   font-size: clamp(18px, 2.2vw, 26px);
   font-weight: 800;
-  color: #fff;
+  color: var(--color-ink);
   line-height: 1;
 }
 
-.stat-red { color: #FF3B30; }
+.stat-red { color: #C0392B; }
 
 .screen-stat-label {
   font-size: 11px;
-  color: rgba(255,255,255,0.4);
+  color: var(--color-text-soft);
   margin-top: 4px;
   font-weight: 600;
 }
