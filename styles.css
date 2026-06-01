@@ -10,6 +10,8 @@
   --color-teal-light: #D6EAE2;
   --color-gray-apple: #F7F5F0;
   --color-ink: #1C1A14;
+  --color-text-muted: #4A4639;
+  --color-text-soft: #6E6658;
   --scoop-red: #FF3B30;
   --scoop-green: #34C759;
   --scoop-black: #1C1C1E;
@@ -31,7 +33,7 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-body.apple-home { background: #000; }
+body.apple-home { background: var(--color-gray-apple); }
 
 body.menu-open { overflow: hidden; }
 a { color: inherit; text-decoration: none; }
@@ -46,16 +48,18 @@ button { cursor: pointer; font-family: inherit; }
   top: 0; left: 0; right: 0;
   z-index: 100;
   height: 44px;
-  color: rgba(255,255,255,0.86);
-  background: rgba(0,0,0,0.82);
+  color: var(--color-text-muted);
+  background: rgba(247,245,240,0.82);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
   transition: background 0.3s var(--ease), border-color 0.3s var(--ease);
 }
 
 .site-nav.scrolled {
-  background: rgba(22,22,23,0.76);
+  background: rgba(255,255,255,0.78);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   backdrop-filter: saturate(180%) blur(20px);
-  border-bottom: 1px solid rgba(255,255,255,0.12);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
 }
 
 .nav-inner {
@@ -70,39 +74,39 @@ button { cursor: pointer; font-family: inherit; }
 .brand {
   font-size: 20px;
   font-weight: 700;
-  color: #fff;
+  color: var(--color-teal);
 }
 
 .nav-links {
   display: flex;
   align-items: center;
   gap: 26px;
-  color: rgba(255,255,255,0.72);
+  color: var(--color-text-soft);
   font-size: 12px;
 }
 
 .nav-links a { transition: color 0.2s; }
-.nav-links a:hover, .nav-links a.active { color: #fff; }
+.nav-links a:hover, .nav-links a.active { color: var(--color-teal); }
 
 .nav-cta {
   padding: 7px 14px;
-  color: #000 !important;
-  background: #fff;
+  color: #fff !important;
+  background: var(--color-teal);
   border-radius: 999px;
   font-weight: 600;
 }
 
 .nav-login {
   padding: 7px 14px;
-  color: rgba(255,255,255,0.72) !important;
-  border: 1px solid rgba(255,255,255,0.25);
+  color: var(--color-text-muted) !important;
+  border: 1px solid #E3DDD4;
   border-radius: 999px;
   font-weight: 500;
   transition: color 0.2s, border-color 0.2s;
 }
 .nav-login:hover {
-  color: #fff !important;
-  border-color: rgba(255,255,255,0.6);
+  color: var(--color-teal) !important;
+  border-color: var(--color-teal);
 }
 
 .nav-toggle {
@@ -110,7 +114,7 @@ button { cursor: pointer; font-family: inherit; }
   width: 44px; height: 44px;
   border: 0;
   cursor: pointer;
-  color: #fff;
+  color: var(--color-ink);
   background: transparent;
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
@@ -125,7 +129,7 @@ button { cursor: pointer; font-family: inherit; }
 .nav-toggle span {
   display: block;
   width: 22px; height: 2px;
-  background: #fff;
+  background: var(--color-ink);
   border-radius: 2px;
   transition: transform 0.25s ease, opacity 0.2s ease, width 0.25s ease;
   transform-origin: center;
@@ -152,11 +156,11 @@ button { cursor: pointer; font-family: inherit; }
   top: 44px; left: 0; right: 0;
   z-index: 90;
   height: 52px;
-  color: rgba(255,255,255,0.88);
-  background: rgba(22,22,23,0.72);
+  color: var(--color-text-muted);
+  background: rgba(255,255,255,0.72);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   backdrop-filter: saturate(180%) blur(20px);
-  border-bottom: 1px solid rgba(255,255,255,0.14);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
 }
 
 .product-nav-inner {
@@ -229,11 +233,10 @@ button { cursor: pointer; font-family: inherit; }
 .apple-hero {
   padding-top: 130px;
   padding-bottom: 0;
-  color: #f5f5f7;
+  color: var(--color-ink);
   background:
-    radial-gradient(ellipse 80% 50% at 50% 90%, rgba(13,92,70,0.46) 0%, transparent 70%),
-    radial-gradient(ellipse 60% 30% at 50% 14%, rgba(255,255,255,0.07) 0%, transparent 60%),
-    #000;
+    radial-gradient(ellipse 80% 50% at 50% 92%, rgba(13,92,70,0.08) 0%, transparent 68%),
+    var(--color-gray-apple);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -248,7 +251,7 @@ button { cursor: pointer; font-family: inherit; }
 
 .apple-product-kicker {
   margin: 0 0 18px;
-  color: rgba(245,245,247,0.68);
+  color: var(--color-teal);
   font-size: 21px;
   font-weight: 700;
   letter-spacing: 0.01em;
@@ -260,13 +263,13 @@ button { cursor: pointer; font-family: inherit; }
   line-height: 0.92;
   font-weight: 800;
   letter-spacing: -0.02em;
-  color: #fff;
+  color: var(--color-ink);
 }
 
 .hero-sub {
   max-width: 800px;
   margin: 28px auto 0;
-  color: rgba(245,245,247,0.80);
+  color: var(--color-text-muted, #4A4639);
   font-size: clamp(22px, 2.8vw, 32px);
   line-height: 1.18;
   font-weight: 400;
@@ -283,7 +286,7 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 .apple-hero-actions a {
-  color: #2997ff;
+  color: var(--color-teal);
   transition: opacity 0.2s;
 }
 
@@ -717,8 +720,8 @@ button { cursor: pointer; font-family: inherit; }
    ============================================================ */
 .apple-highlights {
   padding: 130px 0 120px;
-  color: #f5f5f7;
-  background: #000;
+  color: var(--color-ink);
+  background: var(--color-white);
 }
 
 .apple-highlights h2 {
@@ -1319,8 +1322,8 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 .dark-feature {
-  color: #f5f5f7;
-  background: #000;
+  color: var(--color-ink);
+  background: var(--color-white);
 }
 
 .feature-lockup {
@@ -1865,11 +1868,12 @@ button { cursor: pointer; font-family: inherit; }
   align-items: center;
   justify-content: center;
   padding: 16px 34px;
-  background: #fff;
-  color: #000;
+  background: var(--color-teal);
+  color: #fff;
   border-radius: 999px;
   font-size: 19px;
   font-weight: 700;
+  box-shadow: 0 1px 2px rgba(13,92,70,0.18);
   transition: opacity 0.2s, transform 0.2s;
 }
 
@@ -1901,7 +1905,7 @@ button { cursor: pointer; font-family: inherit; }
    OTHER PAGE UTILITIES (unchanged, kept for features.html etc.)
    ============================================================ */
 .section { position: relative; overflow: hidden; padding: 128px 0; }
-.section.dark { color: #fff; background: #000; }
+.section.dark { color: var(--color-ink); background: var(--color-gray-apple); }
 .section.light { color: var(--color-ink); background: #fff; }
 .section.soft { background: var(--color-gray-apple); }
 .eyebrow { margin: 0 0 14px; color: var(--color-teal); font-size: 19px; font-weight: 700; }
@@ -1932,9 +1936,9 @@ button { cursor: pointer; font-family: inherit; }
 .step-number { color: var(--color-teal); font-size: clamp(86px, 13vw, 160px); line-height: 0.82; font-weight: 700; }
 .integration-card.featured { grid-column: span 2; background: var(--color-teal-light); }
 .pricing-card { display: flex; flex-direction: column; }
-.pricing-card.popular { color: #fff; background: #000; transform: translateY(-18px); }
-.pricing-card.popular li,.pricing-card.popular p { color: rgba(255,255,255,0.72); }
-.popular-label { align-self: flex-start; padding: 8px 12px; border-radius: 999px; color: #000; background: #fff; font-size: 13px; font-weight: 700; }
+.pricing-card.popular { color: #fff; background: var(--color-teal); transform: translateY(-18px); }
+.pricing-card.popular li,.pricing-card.popular p { color: rgba(255,255,255,0.82); }
+.popular-label { align-self: flex-start; padding: 8px 12px; border-radius: 999px; color: var(--color-teal); background: #fff; font-size: 13px; font-weight: 700; }
 .price { margin: 28px 0; font-size: 24px; font-weight: 700; }
 .pricing-card ul { padding: 0; margin: 0 0 30px; list-style: none; }
 .pricing-card li { padding: 12px 0; border-top: 1px solid rgba(136,135,128,0.2); color: #6e6e73; font-size: 18px; line-height: 1.48; }
@@ -1947,7 +1951,7 @@ textarea { min-height: 130px; resize: vertical; }
 input:focus,select:focus,textarea:focus { outline: none; border-color: var(--color-teal); box-shadow: 0 0 0 4px rgba(13,92,70,0.14); }
 .form-message { margin-top: 14px; min-height: 24px; color: var(--color-teal); font-weight: 700; }
 .trust-panel { display: grid; gap: 18px; }
-.trust-card { padding: 30px; border-radius: 28px; color: #fff; background: #000; }
+.trust-card { padding: 30px; border-radius: 28px; color: var(--color-ink); background: var(--color-white); box-shadow: 0 1px 3px rgba(28,26,20,0.06); border: 1px solid var(--color-teal-light); }
 .trust-card strong { display: block; font-size: 30px; }
 .trust-card span { display: block; margin-top: 8px; color: rgba(255,255,255,0.66); }
 .audience-row { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; padding: 88px 0; border-top: 1px solid rgba(0,0,0,0.08); }
