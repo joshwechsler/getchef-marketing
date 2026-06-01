@@ -4,10 +4,12 @@
 :root {
   --color-black: #000000;
   --color-white: #ffffff;
-  --color-teal: #0F6E56;
-  --color-teal-light: #E1F5EE;
-  --color-gray-apple: #f5f5f7;
-  --color-ink: #1d1d1f;
+  /* ChefOS app theme — deep forest-teal brand + warm neutrals.
+     Matches the app's brand-700 / brand-100 / warm-50 / warm-900. */
+  --color-teal: #0D5C46;
+  --color-teal-light: #D6EAE2;
+  --color-gray-apple: #F7F5F0;
+  --color-ink: #1C1A14;
   --scoop-red: #FF3B30;
   --scoop-green: #34C759;
   --scoop-black: #1C1C1E;
@@ -229,7 +231,7 @@ button { cursor: pointer; font-family: inherit; }
   padding-bottom: 0;
   color: #f5f5f7;
   background:
-    radial-gradient(ellipse 80% 50% at 50% 90%, rgba(15,110,86,0.46) 0%, transparent 70%),
+    radial-gradient(ellipse 80% 50% at 50% 90%, rgba(13,92,70,0.46) 0%, transparent 70%),
     radial-gradient(ellipse 60% 30% at 50% 14%, rgba(255,255,255,0.07) 0%, transparent 60%),
     #000;
   overflow: hidden;
@@ -314,7 +316,7 @@ button { cursor: pointer; font-family: inherit; }
   background: linear-gradient(160deg, #58585c 0%, #111 20%, #2a2a2e 80%, #060606 100%);
   box-shadow:
     0 90px 160px rgba(0,0,0,0.85),
-    0 0 130px rgba(15,110,86,0.38),
+    0 0 130px rgba(13,92,70,0.38),
     inset 0 1px 0 rgba(255,255,255,0.15);
 }
 
@@ -377,7 +379,7 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 .app-nav-item.active {
-  background: rgba(15,110,86,0.28);
+  background: rgba(13,92,70,0.28);
   color: #35d4a9;
 }
 
@@ -432,7 +434,7 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 .active-station {
-  background: rgba(15,110,86,0.22);
+  background: rgba(13,92,70,0.22);
   color: #fff;
 }
 
@@ -485,7 +487,7 @@ button { cursor: pointer; font-family: inherit; }
 
 .screen-main-pct {
   padding: 6px 14px;
-  background: rgba(15,110,86,0.22);
+  background: rgba(13,92,70,0.22);
   border: 1px solid rgba(53,212,169,0.3);
   border-radius: 999px;
   color: #35d4a9;
@@ -583,7 +585,7 @@ button { cursor: pointer; font-family: inherit; }
   height: 100%;
   width: var(--rp, 0%);
   border-radius: inherit;
-  background: linear-gradient(90deg, #0F6E56, #35d4a9);
+  background: linear-gradient(90deg, #0D5C46, #35d4a9);
   transition: width 1.4s ease;
 }
 
@@ -812,7 +814,7 @@ button { cursor: pointer; font-family: inherit; }
 
 .badge-live   { background: rgba(52,199,89,0.2);  color: #34C759; }
 .badge-red    { background: rgba(255,59,48,0.2);  color: #FF3B30; }
-.badge-teal   { background: rgba(15,110,86,0.28); color: #35d4a9; }
+.badge-teal   { background: rgba(13,92,70,0.28); color: #35d4a9; }
 
 
 /* ----- Station mockup ----- */
@@ -894,7 +896,7 @@ button { cursor: pointer; font-family: inherit; }
   height: 100%;
   width: var(--hpw, 0%);
   border-radius: inherit;
-  background: linear-gradient(90deg, #0F6E56, #35d4a9);
+  background: linear-gradient(90deg, #0D5C46, #35d4a9);
 }
 
 .hm-pct {
@@ -1008,7 +1010,7 @@ button { cursor: pointer; font-family: inherit; }
   height: 100%;
   width: var(--dp, 0%);
   border-radius: inherit;
-  background: linear-gradient(90deg, #0F6E56, #35d4a9);
+  background: linear-gradient(90deg, #0D5C46, #35d4a9);
 }
 
 
@@ -1245,7 +1247,7 @@ button { cursor: pointer; font-family: inherit; }
   height: 100%;
   width: 0%;
   border-radius: inherit;
-  background: linear-gradient(90deg, #0F6E56, #35d4a9);
+  background: linear-gradient(90deg, #0D5C46, #35d4a9);
   transition: width 0.15s linear;
 }
 
@@ -1372,7 +1374,7 @@ button { cursor: pointer; font-family: inherit; }
   min-height: 640px;
   padding: clamp(32px, 6vw, 80px);
   background:
-    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(15,110,86,0.20), transparent 50%),
+    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(13,92,70,0.20), transparent 50%),
     linear-gradient(160deg, #fff, #e8e8ed);
   display: flex;
   flex-direction: column;
@@ -1488,7 +1490,7 @@ button { cursor: pointer; font-family: inherit; }
   overflow: hidden;
   padding: clamp(32px, 7vw, 88px);
   background:
-    radial-gradient(ellipse 60% 50% at 72% 26%, rgba(15,110,86,0.36), transparent 55%),
+    radial-gradient(ellipse 60% 50% at 72% 26%, rgba(13,92,70,0.36), transparent 55%),
     linear-gradient(160deg, #1a1a1e, #040404);
   border: 1px solid rgba(255,255,255,0.10);
 }
@@ -1567,7 +1569,7 @@ button { cursor: pointer; font-family: inherit; }
   height: 100%;
   width: 0;
   border-radius: inherit;
-  background: linear-gradient(90deg, #0F6E56, #35d4a9);
+  background: linear-gradient(90deg, #0D5C46, #35d4a9);
   transition: width 1.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -1612,7 +1614,7 @@ button { cursor: pointer; font-family: inherit; }
   overflow: hidden;
   padding: clamp(32px, 6vw, 80px);
   background:
-    radial-gradient(ellipse 50% 60% at 20% 30%, rgba(15,110,86,0.12), transparent 55%),
+    radial-gradient(ellipse 50% 60% at 20% 30%, rgba(13,92,70,0.12), transparent 55%),
     linear-gradient(160deg, #fff, #eaeaef);
 }
 
@@ -1653,7 +1655,7 @@ button { cursor: pointer; font-family: inherit; }
 .pp-spinner {
   width: 14px; height: 14px;
   border-radius: 50%;
-  border: 2px solid rgba(15,110,86,0.2);
+  border: 2px solid rgba(13,92,70,0.2);
   border-top-color: var(--color-teal);
   animation: spin 0.9s linear infinite;
 }
@@ -1838,7 +1840,7 @@ button { cursor: pointer; font-family: inherit; }
   color: #fff;
   background:
     radial-gradient(ellipse 70% 50% at 50% 0%, rgba(255,255,255,0.14), transparent 55%),
-    linear-gradient(160deg, #0d7a60, #0F6E56 40%, #0a5c48);
+    linear-gradient(160deg, #117256, #0D5C46 40%, #0A4A38);
 }
 
 .apple-final-cta h2 {
@@ -1942,7 +1944,7 @@ button { cursor: pointer; font-family: inherit; }
 label { display: block; margin-bottom: 8px; font-size: 14px; font-weight: 700; }
 input,select,textarea { width: 100%; min-height: 50px; padding: 12px 14px; border: 1px solid rgba(0,0,0,0.14); border-radius: 14px; color: #000; background: #fff; font: inherit; transition: all 0.3s; }
 textarea { min-height: 130px; resize: vertical; }
-input:focus,select:focus,textarea:focus { outline: none; border-color: var(--color-teal); box-shadow: 0 0 0 4px rgba(15,110,86,0.14); }
+input:focus,select:focus,textarea:focus { outline: none; border-color: var(--color-teal); box-shadow: 0 0 0 4px rgba(13,92,70,0.14); }
 .form-message { margin-top: 14px; min-height: 24px; color: var(--color-teal); font-weight: 700; }
 .trust-panel { display: grid; gap: 18px; }
 .trust-card { padding: 30px; border-radius: 28px; color: #fff; background: #000; }
