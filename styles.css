@@ -2029,6 +2029,16 @@ input:focus,select:focus,textarea:focus { outline: none; border-color: var(--col
   .nav-links a.nav-cta {
     color: #fff !important;
   }
+  /* 'Login' is a bordered pill on desktop — in the stacked dark menu that
+     reads as a stray outlined box. Reset it to a plain divider link like
+     the others. */
+  .nav-links a.nav-login {
+    border: none;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    border-radius: 0;
+    padding: 18px 0;
+    font-weight: inherit;
+  }
 
   .nav-cta { justify-self: start; margin-top: 18px; padding: 12px 18px !important; font-size: 16px !important; }
 
