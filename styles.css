@@ -1975,6 +1975,18 @@ input:focus,select:focus,textarea:focus { outline: none; border-color: var(--col
 @media (max-width: 900px) {
   .nav-toggle { display: flex; }
 
+  /* While the menu is open the header goes solid. Critically, dropping
+     backdrop-filter also stops .site-nav from acting as the containing
+     block for the fixed .nav-links menu (backdrop-filter establishes one
+     in Chrome) — that was resolving the menu's top:44px/bottom:0 against
+     the 44px header instead of the viewport, collapsing it to a strip
+     and letting the page bleed through. */
+  body.menu-open .site-nav {
+    background: #f7f5f0;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
   .nav-links {
     position: fixed;
     top: 44px; left: 0; right: 0; bottom: 0;
