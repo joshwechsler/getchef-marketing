@@ -2022,8 +2022,13 @@ input:focus,select:focus,textarea:focus { outline: none; border-color: var(--col
        dark link colour from the base/desktop styles). */
     color: #fff !important;
   }
-  .nav-links a:hover,
+  /* All menu links stay solid white (incl. the active/current page).
+     Only hover tints, so 'Overview' on its own page doesn't look grayed. */
+  .nav-links a,
   .nav-links a.active {
+    color: #fff !important;
+  }
+  .nav-links a:hover {
     color: var(--color-teal-light) !important;
   }
   /* Keep the filled 'Book a Demo' CTA on brand teal with white text. */
