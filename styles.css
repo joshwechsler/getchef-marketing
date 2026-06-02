@@ -1982,7 +1982,10 @@ input:focus,select:focus,textarea:focus { outline: none; border-color: var(--col
     align-content: start;
     gap: 0;
     padding: 26px;
-    background: rgba(0,0,0,0.97);
+    /* Solid, fully-opaque dark panel so the (now light) page behind the
+       open menu never bleeds through. !important guards against the
+       dark->light theme sweep recolouring it. */
+    background: #0b1a15 !important;
     /* Hide reliably on iOS Safari — visibility+opacity is viewport-independent */
     visibility: hidden;
     opacity: 0;
@@ -2002,6 +2005,17 @@ input:focus,select:focus,textarea:focus { outline: none; border-color: var(--col
     padding: 18px 0;
     font-size: 22px;
     border-bottom: 1px solid rgba(255,255,255,0.12);
+    /* Light links on the dark menu panel (overrides the light-theme
+       dark link colour from the base/desktop styles). */
+    color: #fff !important;
+  }
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: var(--color-teal-light) !important;
+  }
+  /* Keep the filled 'Book a Demo' CTA on brand teal with white text. */
+  .nav-links a.nav-cta {
+    color: #fff !important;
   }
 
   .nav-cta { justify-self: start; margin-top: 18px; padding: 12px 18px !important; font-size: 16px !important; }
