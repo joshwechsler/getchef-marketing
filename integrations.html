@@ -12,32 +12,31 @@
   <style>
     .inner-hero {
       padding: 160px 0 120px;
-      color: #f5f5f7;
+      color: var(--color-ink);
       background:
-        radial-gradient(ellipse 80% 50% at 50% 90%, rgba(13,92,70,0.36) 0%, transparent 70%),
-        radial-gradient(ellipse 60% 30% at 50% 14%, rgba(255,255,255,0.06) 0%, transparent 60%),
-        #000;
+        radial-gradient(ellipse 80% 50% at 50% 90%, rgba(13,92,70,0.06) 0%, transparent 70%),
+        var(--color-gray-apple);
       text-align: center;
     }
-    .inner-hero .eyebrow-teal { color: #35d4a9; font-size: 17px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 20px; }
+    .inner-hero .eyebrow-teal { color: var(--color-teal); font-size: 17px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 20px; }
     .inner-hero h1 {
       margin: 0;
       font-size: clamp(52px, 7vw, 96px);
       font-weight: 800;
       line-height: 0.94;
       letter-spacing: -0.01em;
-      color: #fff;
+      color: var(--color-ink);
     }
     .inner-hero .hero-sub {
       font-size: clamp(20px, 2.5vw, 28px);
-      color: rgba(245,245,247,0.72);
+      color: var(--color-text-muted);
       font-weight: 500;
       max-width: 680px;
       margin: 20px auto 0;
     }
 
     /* ---- Integrations section ---- */
-    .integrations-section { padding: 120px 0; background: #000; }
+    .integrations-section { padding: 120px 0; background: var(--color-gray-apple); }
 
     .int-grid {
       display: grid;
@@ -45,12 +44,12 @@
       gap: 22px;
     }
 
-    /* Base dark card */
+    /* Base card */
     .int-card {
       border-radius: 28px;
-      background: radial-gradient(circle at 68% 76%, rgba(13,92,70,0.42), transparent 34%), linear-gradient(150deg, #2b2b2f, #080808 58%);
-      border: 1px solid rgba(255,255,255,0.10);
-      color: #fff;
+      background: var(--color-white);
+      border: 1px solid #E3DDD4;
+      color: var(--color-ink);
       overflow: hidden;
     }
 
@@ -60,8 +59,8 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       min-height: 360px;
-      background: radial-gradient(circle at 80% 20%, rgba(13,92,70,0.55), transparent 40%), linear-gradient(150deg, #0d3a2e, #040e0a);
-      border-color: rgba(53,212,169,0.20);
+      background: radial-gradient(circle at 80% 20%, rgba(13,92,70,0.06), transparent 40%), var(--color-white);
+      border-color: rgba(13,92,70,0.20);
     }
 
     .int-card-body {
@@ -80,34 +79,34 @@
       text-transform: uppercase;
       margin-bottom: 20px;
     }
-    .int-badge-live   { background: rgba(52,199,89,0.18); color: #34C759; }
-    .int-badge-soon   { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.50); }
-    .int-badge-custom { background: rgba(13,92,70,0.28); color: #35d4a9; }
+    .int-badge-live   { background: rgba(45,125,42,0.14); color: #2D7D2A; }
+    .int-badge-soon   { background: #F7F5F0; color: var(--color-text-soft); }
+    .int-badge-custom { background: var(--color-teal-light); color: var(--color-teal); }
 
     .int-card-glyph {
       width: 52px; height: 52px;
       border-radius: 14px;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.12);
+      background: #F7F5F0;
+      border: 1px solid #E3DDD4;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 20px;
       font-weight: 900;
-      color: rgba(255,255,255,0.60);
+      color: var(--color-text-soft);
       margin-bottom: 20px;
     }
     .int-card-featured .int-card-glyph {
-      background: rgba(53,212,169,0.14);
-      border-color: rgba(53,212,169,0.24);
-      color: #35d4a9;
+      background: var(--color-teal-light);
+      border-color: rgba(13,92,70,0.24);
+      color: var(--color-teal);
       font-size: 24px;
     }
 
     .int-card-title {
       font-size: 30px;
       font-weight: 800;
-      color: #fff;
+      color: var(--color-ink);
       line-height: 1;
       margin: 0 0 14px;
     }
@@ -115,7 +114,7 @@
     .int-card-desc {
       font-size: 16px;
       font-weight: 500;
-      color: rgba(255,255,255,0.58);
+      color: var(--color-text-muted);
       line-height: 1.55;
       margin: 0 0 20px;
     }
@@ -123,18 +122,18 @@
     .int-card-meaning {
       font-size: 14px;
       font-weight: 700;
-      color: #35d4a9;
+      color: var(--color-teal);
       font-style: italic;
       margin: auto 0 0;
     }
 
     /* Parsley mockup pane */
     .parsley-mockup-pane {
-      border-left: 1px solid rgba(255,255,255,0.08);
+      border-left: 1px solid #EDE9E1;
       padding: 32px 28px;
       display: flex;
       flex-direction: column;
-      background: rgba(255,255,255,0.03);
+      background: #F7F5F0;
     }
 
     .pm-header {
@@ -142,13 +141,13 @@
       align-items: center;
       justify-content: space-between;
       padding-bottom: 14px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid #EDE9E1;
       margin-bottom: 16px;
     }
     .pm-logo {
       font-size: 15px;
       font-weight: 800;
-      color: #35d4a9;
+      color: var(--color-teal);
     }
     .pm-status {
       display: flex;
@@ -156,13 +155,13 @@
       gap: 7px;
       font-size: 12px;
       font-weight: 700;
-      color: rgba(255,255,255,0.50);
+      color: var(--color-text-soft);
     }
     .pm-spinner {
       width: 12px; height: 12px;
       border-radius: 50%;
-      border: 2px solid rgba(53,212,169,0.20);
-      border-top-color: #35d4a9;
+      border: 2px solid rgba(13,92,70,0.20);
+      border-top-color: var(--color-teal);
       animation: spin 0.9s linear infinite;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
@@ -173,27 +172,27 @@
       gap: 12px;
       padding: 12px 14px;
       border-radius: 10px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.09);
+      background: var(--color-white);
+      border: 1px solid #E3DDD4;
       margin-bottom: 12px;
     }
     .pm-file-icon {
       width: 38px; height: 38px;
       border-radius: 8px;
-      background: rgba(255,59,48,0.14);
-      color: #FF3B30;
+      background: rgba(192,57,43,0.14);
+      color: #C0392B;
       font-size: 10px;
       font-weight: 800;
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
     }
-    .pm-file-name { font-size: 13px; font-weight: 700; color: #fff; }
-    .pm-file-meta { font-size: 11px; color: rgba(255,255,255,0.38); margin-top: 2px; font-weight: 500; }
+    .pm-file-name { font-size: 13px; font-weight: 700; color: var(--color-ink); }
+    .pm-file-meta { font-size: 11px; color: var(--color-text-soft); margin-top: 2px; font-weight: 500; }
     .pm-file-check {
       width: 24px; height: 24px;
       border-radius: 50%;
-      background: rgba(52,199,89,0.16);
-      color: #34C759;
+      background: rgba(45,125,42,0.14);
+      color: #2D7D2A;
       font-size: 12px;
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
@@ -204,12 +203,12 @@
       display: flex;
       justify-content: space-between;
       padding: 10px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid #EDE9E1;
     }
     .pm-sync-row:last-child { border-bottom: none; }
-    .pm-sync-label { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.44); }
-    .pm-sync-value { font-size: 12px; font-weight: 800; color: #fff; }
-    .pm-sync-value-green { color: #34C759; }
+    .pm-sync-label { font-size: 12px; font-weight: 600; color: var(--color-text-soft); }
+    .pm-sync-value { font-size: 12px; font-weight: 800; color: var(--color-ink); }
+    .pm-sync-value-green { color: #2D7D2A; }
 
     .pm-progress-section { margin-top: 14px; }
     .pm-progress-label {
@@ -217,20 +216,20 @@
       justify-content: space-between;
       font-size: 11px;
       font-weight: 700;
-      color: rgba(255,255,255,0.40);
+      color: var(--color-text-soft);
       margin-bottom: 6px;
     }
-    .pm-progress-label span { color: #35d4a9; }
+    .pm-progress-label span { color: var(--color-teal); }
     .pm-progress-track {
       height: 5px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.10);
+      background: #EDE9E1;
       overflow: hidden;
     }
     .pm-progress-fill {
       height: 100%;
       border-radius: inherit;
-      background: linear-gradient(90deg, #0D5C46, #35d4a9);
+      background: linear-gradient(90deg, #0D5C46, #117256);
     }
 
     /* Other integration cards (smaller) */
@@ -266,7 +265,7 @@
 
     @media (max-width: 900px) {
       .int-card-featured { grid-template-columns: 1fr; }
-      .parsley-mockup-pane { border-left: none; border-top: 1px solid rgba(255,255,255,0.08); }
+      .parsley-mockup-pane { border-left: none; border-top: 1px solid #EDE9E1; }
       .int-grid { grid-template-columns: 1fr; }
     }
   </style>
@@ -390,7 +389,7 @@
           <article class="int-card reveal">
             <div class="int-card-small">
               <span class="int-badge int-badge-custom">Custom</span>
-              <div class="int-card-glyph" style="font-size:20px;color:#35d4a9;background:rgba(53,212,169,0.10);border-color:rgba(53,212,169,0.20);">&lt;/&gt;</div>
+              <div class="int-card-glyph" style="font-size:20px;color:var(--color-teal);background:var(--color-teal-light);border-color:rgba(13,92,70,0.20);">&lt;/&gt;</div>
               <h2 class="int-card-title">Custom Imports</h2>
               <p class="int-card-desc">CSV, PDF, or system-specific exports can be scoped and built during your onboarding. If you can export the data, ChefOS can ingest it. We handle the mapping and routing logic for you.</p>
               <p class="int-card-meaning">Bring your format. We will build the bridge.</p>

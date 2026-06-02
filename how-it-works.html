@@ -12,25 +12,24 @@
   <style>
     .inner-hero {
       padding: 160px 0 120px;
-      color: #f5f5f7;
+      color: var(--color-ink);
       background:
-        radial-gradient(ellipse 80% 50% at 50% 90%, rgba(13,92,70,0.36) 0%, transparent 70%),
-        radial-gradient(ellipse 60% 30% at 50% 14%, rgba(255,255,255,0.06) 0%, transparent 60%),
-        #000;
+        radial-gradient(ellipse 80% 50% at 50% 90%, rgba(13,92,70,0.06) 0%, transparent 70%),
+        var(--color-gray-apple);
       text-align: center;
     }
-    .inner-hero .eyebrow-teal { color: #35d4a9; font-size: 17px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 20px; }
+    .inner-hero .eyebrow-teal { color: var(--color-teal); font-size: 17px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 20px; }
     .inner-hero h1 {
       margin: 0;
       font-size: clamp(52px, 7vw, 96px);
       font-weight: 800;
       line-height: 0.94;
       letter-spacing: -0.01em;
-      color: #fff;
+      color: var(--color-ink);
     }
     .inner-hero .hero-sub {
       font-size: clamp(20px, 2.5vw, 28px);
-      color: rgba(245,245,247,0.72);
+      color: var(--color-text-muted);
       font-weight: 500;
       max-width: 680px;
       margin: 20px auto 0;
@@ -40,9 +39,9 @@
     .step-section {
       padding: 120px 0;
     }
-    .step-section.bg-dark  { background: #000; color: #f5f5f7; }
-    .step-section.bg-light { background: #f5f5f7; color: #1d1d1f; }
-    .step-section.bg-white { background: #fff; color: #1d1d1f; }
+    .step-section.bg-dark  { background: var(--color-gray-apple); color: var(--color-ink); }
+    .step-section.bg-light { background: var(--color-gray-apple); color: var(--color-ink); }
+    .step-section.bg-white { background: #fff; color: var(--color-ink); }
     .step-section.bg-teal  {
       background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(255,255,255,0.14), transparent 55%), linear-gradient(160deg, #117256, #0D5C46 40%, #0A4A38);
       color: #fff;
@@ -64,7 +63,7 @@
       color: var(--color-teal);
       margin: 0 0 12px;
     }
-    .step-section.bg-dark .step-num { color: rgba(53,212,169,0.70); }
+    .step-section.bg-dark .step-num { color: var(--color-teal); }
     .step-section.bg-teal .step-num { color: rgba(255,255,255,0.30); }
 
     .step-h2 {
@@ -79,26 +78,27 @@
       font-size: clamp(17px, 2vw, 22px);
       font-weight: 500;
       line-height: 1.45;
-      color: #6e6e73;
+      color: var(--color-text-muted);
     }
-    .step-section.bg-dark .step-body { color: rgba(245,245,247,0.60); }
+    .step-section.bg-dark .step-body { color: var(--color-text-muted); }
     .step-section.bg-teal .step-body { color: rgba(255,255,255,0.72); }
 
     /* ---- Cinema mockup panel ---- */
     .step-mockup {
       min-height: 400px;
       border-radius: 34px;
-      background: radial-gradient(circle at 72% 24%, rgba(13,92,70,0.42), transparent 30%), linear-gradient(145deg, #1e1e21, #050505);
-      border: 1px solid rgba(255,255,255,0.12);
+      background: var(--color-gray-apple);
+      border: 1px solid #E3DDD4;
       padding: 28px;
       display: flex;
       flex-direction: column;
       overflow: hidden;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.10);
     }
 
     .step-section.bg-light .step-mockup,
     .step-section.bg-white .step-mockup {
-      box-shadow: 0 40px 100px rgba(0,0,0,0.18);
+      box-shadow: 0 40px 100px rgba(0,0,0,0.10);
     }
 
     /* Mockup header bar */
@@ -107,26 +107,26 @@
       align-items: center;
       justify-content: space-between;
       padding-bottom: 16px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid #EDE9E1;
       margin-bottom: 16px;
     }
-    .sm-title { font-size: 13px; font-weight: 700; color: #fff; }
+    .sm-title { font-size: 13px; font-weight: 700; color: var(--color-ink); }
     .sm-badge {
       padding: 3px 9px;
       border-radius: 999px;
       font-size: 11px;
       font-weight: 700;
     }
-    .sm-badge-teal { background: rgba(13,92,70,0.28); color: #35d4a9; }
-    .sm-badge-green { background: rgba(52,199,89,0.18); color: #34C759; }
-    .sm-badge-red   { background: rgba(255,59,48,0.18); color: #FF3B30; }
+    .sm-badge-teal { background: var(--color-teal-light); color: var(--color-teal); }
+    .sm-badge-green { background: rgba(45,125,42,0.14); color: #2D7D2A; }
+    .sm-badge-red   { background: rgba(192,57,43,0.14); color: #C0392B; }
 
     /* doc icon */
     .sm-doc-icon {
       width: 52px; height: 64px;
       border-radius: 8px;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.14);
+      background: #fff;
+      border: 1px solid #E3DDD4;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -139,9 +139,9 @@
       top: 0; right: 0;
       width: 14px; height: 14px;
       border-radius: 0 8px 0 8px;
-      background: rgba(255,255,255,0.14);
+      background: #E3DDD4;
     }
-    .sm-doc-inner { font-size: 11px; font-weight: 800; color: rgba(255,255,255,0.44); letter-spacing: 0.04em; }
+    .sm-doc-inner { font-size: 11px; font-weight: 800; color: var(--color-text-soft); letter-spacing: 0.04em; }
 
     /* row helpers */
     .sm-row {
@@ -150,12 +150,13 @@
       gap: 10px;
       padding: 8px 12px;
       border-radius: 8px;
-      background: rgba(255,255,255,0.04);
+      background: #fff;
+      border: 1px solid #EDE9E1;
       margin-bottom: 6px;
     }
     .sm-row-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
-    .sm-row-name { flex: 1; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.72); }
-    .sm-row-val { font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.40); }
+    .sm-row-name { flex: 1; font-size: 12px; font-weight: 600; color: var(--color-text-muted); }
+    .sm-row-val { font-size: 11px; font-weight: 700; color: var(--color-text-soft); }
 
     .sm-pill-row {
       display: flex;
@@ -169,11 +170,11 @@
       font-size: 11px;
       font-weight: 700;
     }
-    .sm-pill-green { background: rgba(52,199,89,0.18); color: #34C759; }
-    .sm-pill-amber { background: rgba(255,159,10,0.18); color: #FF9F0A; }
-    .sm-pill-blue  { background: rgba(0,122,255,0.18); color: #007AFF; }
-    .sm-pill-purple{ background: rgba(175,82,222,0.18); color: #AF52DE; }
-    .sm-pill-gray  { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.48); }
+    .sm-pill-green { background: rgba(45,125,42,0.14); color: #2D7D2A; }
+    .sm-pill-amber { background: rgba(180,83,9,0.14); color: #B45309; }
+    .sm-pill-blue  { background: rgba(29,78,216,0.12); color: #1D4ED8; }
+    .sm-pill-purple{ background: rgba(124,58,237,0.12); color: #7C3AED; }
+    .sm-pill-gray  { background: #EDE9E1; color: var(--color-text-soft); }
 
     /* progress bar */
     .sm-progress-row {
@@ -182,10 +183,10 @@
       gap: 10px;
       margin-top: 6px;
     }
-    .sm-progress-label { font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.44); flex-shrink: 0; }
-    .sm-progress-track { flex: 1; height: 5px; border-radius: 999px; background: rgba(255,255,255,0.10); overflow: hidden; }
-    .sm-progress-fill  { height: 100%; border-radius: inherit; background: linear-gradient(90deg, #0D5C46, #35d4a9); }
-    .sm-progress-pct { font-size: 11px; font-weight: 800; color: #35d4a9; flex-shrink: 0; }
+    .sm-progress-label { font-size: 11px; font-weight: 600; color: var(--color-text-soft); flex-shrink: 0; }
+    .sm-progress-track { flex: 1; height: 5px; border-radius: 999px; background: #EDE9E1; overflow: hidden; }
+    .sm-progress-fill  { height: 100%; border-radius: inherit; background: linear-gradient(90deg, #0D5C46, #117256); }
+    .sm-progress-pct { font-size: 11px; font-weight: 800; color: var(--color-teal); flex-shrink: 0; }
 
     /* ---- scoop dot mini ---- */
     .sm-scoop { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
@@ -199,43 +200,44 @@
       border-radius: 8px;
       margin-bottom: 4px;
     }
-    .sm-sidebar-row.active { background: rgba(13,92,70,0.22); }
-    .sm-sidebar-label { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.55); flex: 1; }
-    .sm-sidebar-row.active .sm-sidebar-label { color: #fff; }
-    .sm-sidebar-count { font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.30); }
-    .sm-sidebar-row.active .sm-sidebar-count { color: #35d4a9; }
+    .sm-sidebar-row.active { background: var(--color-teal-light); }
+    .sm-sidebar-label { font-size: 12px; font-weight: 600; color: var(--color-text-muted); flex: 1; }
+    .sm-sidebar-row.active .sm-sidebar-label { color: var(--color-teal); }
+    .sm-sidebar-count { font-size: 10px; font-weight: 700; color: var(--color-text-soft); }
+    .sm-sidebar-row.active .sm-sidebar-count { color: var(--color-teal); }
 
     /* ---- dp bars ---- */
-    .sm-dp-row { display: flex; align-items: center; gap: 8px; padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .sm-dp-row { display: flex; align-items: center; gap: 8px; padding: 7px 0; border-bottom: 1px solid #EDE9E1; }
     .sm-dp-row:last-child { border-bottom: none; }
-    .sm-dp-name { width: 70px; font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.70); flex-shrink: 0; }
-    .sm-dp-bar-wrap { flex: 1; height: 6px; border-radius: 999px; background: rgba(255,255,255,0.10); overflow: hidden; }
-    .sm-dp-fill { height: 100%; border-radius: inherit; background: linear-gradient(90deg, #0D5C46, #35d4a9); }
-    .sm-dp-fill-alert { background: linear-gradient(90deg, #FF3B30, #FF6B6B); }
-    .sm-dp-pct { width: 38px; text-align: right; font-size: 12px; font-weight: 800; color: rgba(255,255,255,0.60); flex-shrink: 0; }
-    .sm-dp-pct-alert { color: #FF3B30; }
+    .sm-dp-name { width: 70px; font-size: 12px; font-weight: 700; color: var(--color-text-muted); flex-shrink: 0; }
+    .sm-dp-bar-wrap { flex: 1; height: 6px; border-radius: 999px; background: #EDE9E1; overflow: hidden; }
+    .sm-dp-fill { height: 100%; border-radius: inherit; background: linear-gradient(90deg, #0D5C46, #117256); }
+    .sm-dp-fill-alert { background: linear-gradient(90deg, #C0392B, #E05A4D); }
+    .sm-dp-pct { width: 38px; text-align: right; font-size: 12px; font-weight: 800; color: var(--color-text-muted); flex-shrink: 0; }
+    .sm-dp-pct-alert { color: #C0392B; }
 
     /* ---- pin pad ---- */
     .sm-pin-header { text-align: center; margin-bottom: 14px; }
-    .sm-pin-sub { font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.40); text-transform: uppercase; letter-spacing: 0.06em; }
-    .sm-pin-name { font-size: 16px; font-weight: 700; color: #fff; margin-top: 4px; }
+    .sm-pin-sub { font-size: 11px; font-weight: 600; color: var(--color-text-soft); text-transform: uppercase; letter-spacing: 0.06em; }
+    .sm-pin-name { font-size: 16px; font-weight: 700; color: var(--color-ink); margin-top: 4px; }
     .sm-pin-dots { display: flex; justify-content: center; gap: 8px; margin: 10px 0; }
-    .sm-pin-dot { width: 11px; height: 11px; border-radius: 50%; background: #35d4a9; }
-    .sm-pin-dot-empty { width: 11px; height: 11px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.24); }
+    .sm-pin-dot { width: 11px; height: 11px; border-radius: 50%; background: var(--color-teal); }
+    .sm-pin-dot-empty { width: 11px; height: 11px; border-radius: 50%; border: 1.5px solid #E3DDD4; }
     .sm-pin-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
     .sm-pin-key {
       padding: 8px 4px;
       border-radius: 8px;
-      background: rgba(255,255,255,0.07);
+      background: #fff;
+      border: 1px solid #EDE9E1;
       text-align: center;
       font-size: 14px;
       font-weight: 700;
-      color: rgba(255,255,255,0.70);
+      color: var(--color-text-muted);
     }
 
     /* ---- drag-drop zone ---- */
     .sm-drop-zone {
-      border: 1.5px dashed rgba(53,212,169,0.40);
+      border: 1.5px dashed rgba(13,92,70,0.40);
       border-radius: 12px;
       padding: 16px;
       text-align: center;
@@ -244,14 +246,14 @@
     .sm-drop-icon {
       width: 36px; height: 36px;
       border-radius: 50%;
-      background: rgba(13,92,70,0.22);
-      color: #35d4a9;
+      background: var(--color-teal-light);
+      color: var(--color-teal);
       font-size: 18px;
       display: flex; align-items: center; justify-content: center;
       margin: 0 auto 8px;
     }
-    .sm-drop-label { font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.60); }
-    .sm-drop-sub { font-size: 11px; color: rgba(255,255,255,0.35); margin-top: 3px; }
+    .sm-drop-label { font-size: 12px; font-weight: 700; color: var(--color-text-muted); }
+    .sm-drop-sub { font-size: 11px; color: var(--color-text-soft); margin-top: 3px; }
 
     @media (max-width: 900px) {
       .step-layout { grid-template-columns: 1fr; gap: 40px; }
@@ -306,8 +308,8 @@
                 <span class="sm-doc-inner">PDF</span>
               </div>
               <div>
-                <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px;">Week_23_Production.pdf</div>
-                <div style="font-size:12px;color:rgba(255,255,255,0.44);font-weight:500;">Honeyplate Kitchen &mdash; 2.4 MB &mdash; May 11</div>
+                <div style="font-size:14px;font-weight:700;color:var(--color-ink);margin-bottom:4px;">Week_23_Production.pdf</div>
+                <div style="font-size:12px;color:var(--color-text-soft);font-weight:500;">Honeyplate Kitchen &mdash; 2.4 MB &mdash; May 11</div>
               </div>
             </div>
             <div class="sm-row">
@@ -335,7 +337,7 @@
               <span class="sm-row-name">Herb Chimichurri Sauce</span>
               <span class="sm-row-val">Sauce &mdash; 1.0 oz</span>
             </div>
-            <div style="margin-top:auto;padding-top:14px;font-size:11px;color:rgba(255,255,255,0.30);font-weight:600;">76 recipes across 12 meal types &mdash; ready to import</div>
+            <div style="margin-top:auto;padding-top:14px;font-size:11px;color:var(--color-text-soft);font-weight:600;">76 recipes across 12 meal types &mdash; ready to import</div>
           </div>
         </div>
       </div>
@@ -360,22 +362,22 @@
               <div class="sm-progress-track"><div class="sm-progress-fill" style="width:100%"></div></div>
               <span class="sm-progress-pct">100%</span>
             </div>
-            <div class="sm-row" style="background:rgba(52,199,89,0.10);border:1px solid rgba(52,199,89,0.20);">
-              <div class="sm-row-dot" style="background:#34C759"></div>
-              <span class="sm-row-name" style="color:#34C759;font-weight:700;">76 recipes parsed successfully</span>
+            <div class="sm-row" style="background:rgba(45,125,42,0.10);border:1px solid rgba(45,125,42,0.22);">
+              <div class="sm-row-dot" style="background:#2D7D2A"></div>
+              <span class="sm-row-name" style="color:#2D7D2A;font-weight:700;">76 recipes parsed successfully</span>
             </div>
             <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px;">
-              <div style="padding:10px;border-radius:10px;background:rgba(255,255,255,0.05);text-align:center;">
-                <div style="font-size:22px;font-weight:800;color:#fff;">76</div>
-                <div style="font-size:11px;color:rgba(255,255,255,0.40);font-weight:600;margin-top:3px;">Recipes</div>
+              <div style="padding:10px;border-radius:10px;background:#fff;border:1px solid #EDE9E1;text-align:center;">
+                <div style="font-size:22px;font-weight:800;color:var(--color-ink);">76</div>
+                <div style="font-size:11px;color:var(--color-text-soft);font-weight:600;margin-top:3px;">Recipes</div>
               </div>
-              <div style="padding:10px;border-radius:10px;background:rgba(255,255,255,0.05);text-align:center;">
-                <div style="font-size:22px;font-weight:800;color:#35d4a9;">48</div>
-                <div style="font-size:11px;color:rgba(255,255,255,0.40);font-weight:600;margin-top:3px;">Meals</div>
+              <div style="padding:10px;border-radius:10px;background:#fff;border:1px solid #EDE9E1;text-align:center;">
+                <div style="font-size:22px;font-weight:800;color:var(--color-teal);">48</div>
+                <div style="font-size:11px;color:var(--color-text-soft);font-weight:600;margin-top:3px;">Meals</div>
               </div>
-              <div style="padding:10px;border-radius:10px;background:rgba(255,255,255,0.05);text-align:center;">
-                <div style="font-size:22px;font-weight:800;color:#fff;">0</div>
-                <div style="font-size:11px;color:rgba(255,255,255,0.40);font-weight:600;margin-top:3px;">Warnings</div>
+              <div style="padding:10px;border-radius:10px;background:#fff;border:1px solid #EDE9E1;text-align:center;">
+                <div style="font-size:22px;font-weight:800;color:var(--color-ink);">0</div>
+                <div style="font-size:11px;color:var(--color-text-soft);font-weight:600;margin-top:3px;">Warnings</div>
               </div>
             </div>
           </div>
@@ -402,7 +404,7 @@
               <span class="sm-title">Station Routing &mdash; Week 23</span>
               <span class="sm-badge sm-badge-teal">Auto-sorted</span>
             </div>
-            <div style="margin-bottom:10px;font-size:11px;color:rgba(255,255,255,0.36);font-weight:600;text-transform:uppercase;letter-spacing:0.07em;">Stations assigned</div>
+            <div style="margin-bottom:10px;font-size:11px;color:var(--color-text-soft);font-weight:600;text-transform:uppercase;letter-spacing:0.07em;">Stations assigned</div>
             <div class="sm-sidebar-row active">
               <div class="sm-row-dot" style="background:#34C759"></div>
               <span class="sm-sidebar-label">Protein</span>
@@ -424,12 +426,12 @@
               <span class="sm-sidebar-count">14 recipes</span>
             </div>
             <div class="sm-sidebar-row">
-              <div class="sm-row-dot" style="background:rgba(255,255,255,0.28)"></div>
+              <div class="sm-row-dot" style="background:#B8B0A0"></div>
               <span class="sm-sidebar-label">Packing</span>
               <span class="sm-sidebar-count">10 recipes</span>
             </div>
             <div style="margin-top:12px;">
-              <div style="font-size:11px;color:rgba(255,255,255,0.36);font-weight:600;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:8px;">Routing rules active</div>
+              <div style="font-size:11px;color:var(--color-text-soft);font-weight:600;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:8px;">Routing rules active</div>
               <div class="sm-pill-row">
                 <span class="sm-pill sm-pill-green">P_ Protein</span>
                 <span class="sm-pill sm-pill-amber">C_ Cold Prep</span>
@@ -474,9 +476,9 @@
               <div class="sm-pin-key">9</div>
               <div class="sm-pin-key" style="opacity:0.3">C</div>
               <div class="sm-pin-key">0</div>
-              <div class="sm-pin-key" style="background:rgba(13,92,70,0.22);color:#35d4a9;">&#10003;</div>
+              <div class="sm-pin-key" style="background:var(--color-teal-light);border-color:transparent;color:var(--color-teal);">&#10003;</div>
             </div>
-            <div style="font-size:11px;color:rgba(255,255,255,0.30);font-weight:600;text-align:center;">Staff see only their station &mdash; managers see all</div>
+            <div style="font-size:11px;color:var(--color-text-soft);font-weight:600;text-align:center;">Staff see only their station &mdash; managers see all</div>
           </div>
           <div class="step-text">
             <div class="step-num">04</div>
@@ -514,7 +516,7 @@
             <div class="sm-dp-row">
               <span class="sm-dp-name">Sauce</span>
               <div class="sm-dp-bar-wrap"><div class="sm-dp-fill" style="width:100%"></div></div>
-              <span class="sm-dp-pct" style="color:#34C759;">Done</span>
+              <span class="sm-dp-pct" style="color:#2D7D2A;">Done</span>
             </div>
             <div class="sm-dp-row">
               <span class="sm-dp-name">Veg</span>
@@ -526,11 +528,11 @@
               <div class="sm-dp-bar-wrap"><div class="sm-dp-fill sm-dp-fill-alert" style="width:14%"></div></div>
               <span class="sm-dp-pct sm-dp-pct-alert">14%</span>
             </div>
-            <div style="margin-top:14px;padding:10px 14px;border-radius:10px;background:rgba(255,59,48,0.10);border:1px solid rgba(255,59,48,0.22);display:flex;align-items:center;gap:10px;">
-              <div style="width:22px;height:22px;border-radius:50%;background:rgba(255,59,48,0.22);color:#FF3B30;font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;">!</div>
+            <div style="margin-top:14px;padding:10px 14px;border-radius:10px;background:rgba(192,57,43,0.10);border:1px solid rgba(192,57,43,0.22);display:flex;align-items:center;gap:10px;">
+              <div style="width:22px;height:22px;border-radius:50%;background:rgba(192,57,43,0.14);color:#C0392B;font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;">!</div>
               <div>
-                <div style="font-size:12px;font-weight:700;color:#fff;">Wild Salmon Fillet &mdash; SHORT</div>
-                <div style="font-size:11px;color:rgba(255,255,255,0.44);margin-top:2px;">Flagged by Protein station &mdash; 2 min ago</div>
+                <div style="font-size:12px;font-weight:700;color:var(--color-ink);">Wild Salmon Fillet &mdash; SHORT</div>
+                <div style="font-size:11px;color:var(--color-text-soft);margin-top:2px;">Flagged by Protein station &mdash; 2 min ago</div>
               </div>
             </div>
           </div>
@@ -545,10 +547,10 @@
           <div class="step-mockup">
             <div class="sm-header">
               <span class="sm-title">Plating &mdash; Herb Chicken Bowl</span>
-              <span class="sm-badge" style="background:rgba(255,255,255,0.18);color:#fff;">Standard</span>
+              <span class="sm-badge" style="background:var(--color-teal-light);color:var(--color-teal);">Standard</span>
             </div>
             <div style="margin-bottom:10px;">
-              <div style="font-size:11px;color:rgba(255,255,255,0.40);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;">Scoop order</div>
+              <div style="font-size:11px;color:var(--color-text-soft);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;">Scoop order</div>
               <div class="sm-row" style="margin-bottom:5px;">
                 <div class="sm-scoop" style="background:#34C759"></div>
                 <span class="sm-row-name">Herb Chicken Breast</span>
@@ -565,17 +567,17 @@
                 <span class="sm-row-val">3.0 oz</span>
               </div>
               <div class="sm-row" style="margin-bottom:5px;">
-                <div class="sm-scoop" style="background:#3a3a3c;border:1px solid rgba(255,255,255,0.18)"></div>
+                <div class="sm-scoop" style="background:#B8B0A0;border:1px solid #E3DDD4"></div>
                 <span class="sm-row-name">Herb Chimichurri</span>
                 <span class="sm-row-val">1.0 oz</span>
               </div>
             </div>
-            <div style="margin-top:auto;padding-top:14px;border-top:1px solid rgba(255,255,255,0.10);display:flex;gap:8px;flex-wrap:wrap;">
-              <span style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.50);">480 cal</span>
-              <span style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.30);">&middot;</span>
-              <span style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.50);">38g protein</span>
-              <span style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.30);">&middot;</span>
-              <span style="font-size:11px;font-weight:700;color:#35d4a9;">GF &middot; DF</span>
+            <div style="margin-top:auto;padding-top:14px;border-top:1px solid #EDE9E1;display:flex;gap:8px;flex-wrap:wrap;">
+              <span style="font-size:11px;font-weight:700;color:var(--color-text-muted);">480 cal</span>
+              <span style="font-size:11px;font-weight:700;color:var(--color-text-soft);">&middot;</span>
+              <span style="font-size:11px;font-weight:700;color:var(--color-text-muted);">38g protein</span>
+              <span style="font-size:11px;font-weight:700;color:var(--color-text-soft);">&middot;</span>
+              <span style="font-size:11px;font-weight:700;color:var(--color-teal);">GF &middot; DF</span>
             </div>
           </div>
           <div class="step-text">

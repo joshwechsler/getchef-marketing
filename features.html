@@ -12,32 +12,31 @@
   <style>
     .inner-hero {
       padding: 160px 0 120px;
-      color: #f5f5f7;
+      color: var(--color-ink);
       background:
-        radial-gradient(ellipse 80% 50% at 50% 90%, rgba(13,92,70,0.36) 0%, transparent 70%),
-        radial-gradient(ellipse 60% 30% at 50% 14%, rgba(255,255,255,0.06) 0%, transparent 60%),
-        #000;
+        radial-gradient(ellipse 80% 50% at 50% 90%, rgba(13,92,70,0.06) 0%, transparent 70%),
+        var(--color-gray-apple);
       text-align: center;
     }
-    .inner-hero .eyebrow-teal { color: #35d4a9; font-size: 17px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 20px; }
+    .inner-hero .eyebrow-teal { color: var(--color-teal); font-size: 17px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 20px; }
     .inner-hero h1 {
       margin: 0;
       font-size: clamp(52px, 7vw, 96px);
       font-weight: 800;
       line-height: 0.94;
       letter-spacing: -0.01em;
-      color: #fff;
+      color: var(--color-ink);
     }
     .inner-hero .hero-sub {
       font-size: clamp(20px, 2.5vw, 28px);
-      color: rgba(245,245,247,0.72);
+      color: var(--color-text-muted);
       font-weight: 500;
       max-width: 680px;
       margin: 20px auto 0;
     }
 
     /* ---- Feature grid ---- */
-    .features-section { padding: 120px 0; background: #000; }
+    .features-section { padding: 120px 0; background: var(--color-gray-apple); }
     .feature-card-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -45,22 +44,22 @@
       margin-top: 20px;
     }
 
-    /* Dark feature card */
+    /* Light feature card */
     .fc {
       border-radius: 28px;
-      background: radial-gradient(circle at 68% 76%, rgba(13,92,70,0.42), transparent 34%), linear-gradient(150deg, #2b2b2f, #080808 58%);
-      border: 1px solid rgba(255,255,255,0.10);
+      background: radial-gradient(circle at 68% 76%, rgba(13,92,70,0.06), transparent 34%), #fff;
+      border: 1px solid #E3DDD4;
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      color: #fff;
+      color: var(--color-ink);
     }
 
     /* Mockup zone at top of card */
     .fc-mockup {
       height: 170px;
-      background: rgba(255,255,255,0.04);
-      border-bottom: 1px solid rgba(255,255,255,0.07);
+      background: var(--color-gray-apple);
+      border-bottom: 1px solid #EDE9E1;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -82,14 +81,14 @@
       font-weight: 800;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: #35d4a9;
+      color: var(--color-teal);
       margin: 0 0 10px;
     }
 
     .fc-title {
       font-size: 22px;
       font-weight: 700;
-      color: #fff;
+      color: var(--color-ink);
       margin: 0 0 12px;
       line-height: 1.1;
     }
@@ -97,7 +96,7 @@
     .fc-desc {
       font-size: 15px;
       font-weight: 500;
-      color: rgba(255,255,255,0.58);
+      color: var(--color-text-muted);
       line-height: 1.5;
       margin: 0 0 14px;
     }
@@ -105,14 +104,14 @@
     .fc-meaning {
       font-size: 14px;
       font-weight: 700;
-      color: #35d4a9;
+      color: var(--color-teal);
       font-style: italic;
       margin: auto 0 0;
     }
 
     /* --- Mockup: Production Import --- */
     .mock-upload-zone {
-      border: 1.5px dashed rgba(53,212,169,0.4);
+      border: 1.5px dashed rgba(13,92,70,0.4);
       border-radius: 10px;
       padding: 10px 14px;
       text-align: center;
@@ -120,13 +119,13 @@
     }
     .mock-upload-label {
       font-size: 11px;
-      color: rgba(255,255,255,0.44);
+      color: var(--color-text-soft);
       font-weight: 600;
     }
     .mock-upload-filename {
       font-size: 13px;
       font-weight: 700;
-      color: #fff;
+      color: var(--color-ink);
       margin-top: 3px;
     }
     .mock-progress-row {
@@ -138,18 +137,18 @@
       flex: 1;
       height: 4px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.10);
+      background: #EDE9E1;
       overflow: hidden;
     }
     .mock-progress-fill {
       height: 100%;
       border-radius: inherit;
-      background: linear-gradient(90deg, #0D5C46, #35d4a9);
+      background: linear-gradient(90deg, #0D5C46, #117256);
     }
     .mock-progress-label {
       font-size: 11px;
       font-weight: 700;
-      color: #35d4a9;
+      color: var(--color-teal);
       white-space: nowrap;
     }
     .mock-result-row {
@@ -159,19 +158,19 @@
       margin-top: 8px;
       padding: 6px 10px;
       border-radius: 8px;
-      background: rgba(52,199,89,0.12);
+      background: rgba(45,125,42,0.14);
     }
     .mock-result-icon {
       width: 18px; height: 18px;
       border-radius: 50%;
-      background: rgba(52,199,89,0.25);
-      color: #34C759;
+      background: rgba(45,125,42,0.18);
+      color: #2D7D2A;
       font-size: 10px;
       font-weight: 900;
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
     }
-    .mock-result-text { font-size: 12px; font-weight: 700; color: #34C759; }
+    .mock-result-text { font-size: 12px; font-weight: 700; color: #2D7D2A; }
 
     /* --- Mockup: Station View --- */
     .mock-station-row {
@@ -179,61 +178,61 @@
       align-items: center;
       gap: 8px;
       padding: 7px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid #EDE9E1;
     }
     .mock-station-row:last-child { border-bottom: none; }
     .mock-s-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-    .mock-s-name { flex: 1; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.80); }
+    .mock-s-name { flex: 1; font-size: 12px; font-weight: 600; color: var(--color-text-muted); }
     .mock-s-badge {
       padding: 2px 7px;
       border-radius: 999px;
       font-size: 10px;
       font-weight: 800;
     }
-    .mock-s-complete { background: rgba(52,199,89,0.18); color: #34C759; }
-    .mock-s-progress { background: rgba(255,159,10,0.18); color: #FF9F0A; }
-    .mock-s-waiting  { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.40); }
+    .mock-s-complete { background: rgba(45,125,42,0.14); color: #2D7D2A; }
+    .mock-s-progress { background: rgba(180,83,9,0.14); color: #B45309; }
+    .mock-s-waiting  { background: #F7F5F0; color: var(--color-text-soft); }
 
     /* --- Mockup: Shortage --- */
     .mock-shortage-card {
       padding: 10px 12px;
       border-radius: 10px;
-      background: rgba(255,59,48,0.10);
-      border: 1px solid rgba(255,59,48,0.26);
+      background: rgba(192,57,43,0.14);
+      border: 1px solid rgba(192,57,43,0.26);
       margin-bottom: 8px;
     }
     .mock-shortage-row { display: flex; align-items: center; gap: 10px; }
     .mock-shortage-icon {
       width: 24px; height: 24px;
       border-radius: 50%;
-      background: rgba(255,59,48,0.22);
-      color: #FF3B30;
+      background: rgba(192,57,43,0.18);
+      color: #C0392B;
       font-size: 13px;
       font-weight: 900;
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
     }
-    .mock-shortage-name { flex: 1; font-size: 12px; font-weight: 700; color: #fff; }
+    .mock-shortage-name { flex: 1; font-size: 12px; font-weight: 700; color: var(--color-ink); }
     .mock-shortage-badge {
       padding: 2px 7px;
       border-radius: 4px;
-      background: rgba(255,59,48,0.22);
-      color: #FF3B30;
+      background: rgba(192,57,43,0.18);
+      color: #C0392B;
       font-size: 10px;
       font-weight: 800;
       letter-spacing: 0.06em;
     }
-    .mock-shortage-qty { font-size: 11px; color: rgba(255,255,255,0.44); margin-top: 3px; }
+    .mock-shortage-qty { font-size: 11px; color: var(--color-text-soft); margin-top: 3px; }
     .mock-ok-row {
       display: flex;
       align-items: center;
       gap: 6px;
       padding: 6px 0 0;
       font-size: 11px;
-      color: rgba(255,255,255,0.38);
+      color: var(--color-text-soft);
       font-weight: 600;
     }
-    .mock-ok-dot { width: 6px; height: 6px; border-radius: 50%; background: #34C759; flex-shrink: 0; }
+    .mock-ok-dot { width: 6px; height: 6px; border-radius: 50%; background: #2D7D2A; flex-shrink: 0; }
 
     /* --- Mockup: Dashboard mini bars --- */
     .mock-dp-row {
@@ -241,15 +240,15 @@
       align-items: center;
       gap: 8px;
       padding: 6px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid #EDE9E1;
     }
     .mock-dp-row:last-child { border-bottom: none; }
-    .mock-dp-label { width: 56px; font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.70); flex-shrink: 0; }
-    .mock-dp-bar-wrap { flex: 1; height: 5px; border-radius: 999px; background: rgba(255,255,255,0.10); overflow: hidden; }
-    .mock-dp-fill { height: 100%; border-radius: inherit; background: linear-gradient(90deg, #0D5C46, #35d4a9); }
-    .mock-dp-fill-alert { background: linear-gradient(90deg, #FF3B30, #FF6B6B); }
-    .mock-dp-pct { width: 36px; text-align: right; font-size: 11px; font-weight: 800; color: rgba(255,255,255,0.60); flex-shrink: 0; }
-    .mock-dp-pct-alert { color: #FF3B30; }
+    .mock-dp-label { width: 56px; font-size: 11px; font-weight: 700; color: var(--color-text-muted); flex-shrink: 0; }
+    .mock-dp-bar-wrap { flex: 1; height: 5px; border-radius: 999px; background: #EDE9E1; overflow: hidden; }
+    .mock-dp-fill { height: 100%; border-radius: inherit; background: linear-gradient(90deg, #0D5C46, #117256); }
+    .mock-dp-fill-alert { background: linear-gradient(90deg, #C0392B, #E05A4F); }
+    .mock-dp-pct { width: 36px; text-align: right; font-size: 11px; font-weight: 800; color: var(--color-text-soft); flex-shrink: 0; }
+    .mock-dp-pct-alert { color: #C0392B; }
 
     /* --- Mockup: Plating dots --- */
     .mock-plate-row {
@@ -257,7 +256,7 @@
       align-items: center;
       gap: 8px;
       padding: 7px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid #EDE9E1;
     }
     .mock-plate-row:last-child { border-bottom: none; }
     .mock-scoop {
@@ -265,16 +264,16 @@
       border-radius: 50%;
       flex-shrink: 0;
     }
-    .mock-plate-name { flex: 1; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.80); }
-    .mock-plate-qty { font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.44); }
+    .mock-plate-name { flex: 1; font-size: 12px; font-weight: 600; color: var(--color-text-muted); }
+    .mock-plate-qty { font-size: 11px; font-weight: 700; color: var(--color-text-soft); }
 
     /* --- Mockup: PIN pad --- */
     .mock-pin-header {
       text-align: center;
       margin-bottom: 10px;
     }
-    .mock-pin-role { font-size: 11px; color: rgba(255,255,255,0.44); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
-    .mock-pin-label { font-size: 14px; font-weight: 700; color: #fff; margin-top: 3px; }
+    .mock-pin-role { font-size: 11px; color: var(--color-text-soft); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+    .mock-pin-label { font-size: 14px; font-weight: 700; color: var(--color-ink); margin-top: 3px; }
     .mock-pin-dots {
       display: flex;
       justify-content: center;
@@ -284,12 +283,12 @@
     .mock-pin-dot {
       width: 10px; height: 10px;
       border-radius: 50%;
-      background: #35d4a9;
+      background: var(--color-teal);
     }
     .mock-pin-dot-empty {
       width: 10px; height: 10px;
       border-radius: 50%;
-      border: 1.5px solid rgba(255,255,255,0.24);
+      border: 1.5px solid #E3DDD4;
     }
     .mock-pin-grid {
       display: grid;
@@ -299,18 +298,19 @@
     .mock-pin-key {
       padding: 6px 4px;
       border-radius: 8px;
-      background: rgba(255,255,255,0.07);
+      background: #fff;
+      border: 1px solid #EDE9E1;
       text-align: center;
       font-size: 13px;
       font-weight: 700;
-      color: rgba(255,255,255,0.70);
+      color: var(--color-text-muted);
     }
 
     /* ---- Final CTA ---- */
     .final-cta-section {
       padding: 140px 0;
       text-align: center;
-      background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(255,255,255,0.14), transparent 55%), linear-gradient(160deg, #117256, #0D5C46 40%, #0A4A38);
+      background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(255,255,255,0.10), transparent 55%), linear-gradient(160deg, #117256, #0D5C46 40%, #0A4A38);
       color: #fff;
     }
     .final-cta-section h2 {
@@ -413,7 +413,7 @@
                 <span class="mock-s-badge mock-s-progress">In Progress</span>
               </div>
               <div class="mock-station-row">
-                <div class="mock-s-dot" style="background:rgba(255,255,255,0.22)"></div>
+                <div class="mock-s-dot" style="background:#B8B0A0"></div>
                 <span class="mock-s-name">Bison Burger Patty &mdash; 4.0 oz</span>
                 <span class="mock-s-badge mock-s-waiting">Waiting</span>
               </div>
@@ -437,11 +437,11 @@
                 </div>
                 <div class="mock-shortage-qty">Need 18 lbs &mdash; Only 11 lbs on hand</div>
               </div>
-              <div class="mock-shortage-card" style="background:rgba(255,159,10,0.08);border-color:rgba(255,159,10,0.24);margin-bottom:0;">
+              <div class="mock-shortage-card" style="background:rgba(180,83,9,0.10);border-color:rgba(180,83,9,0.24);margin-bottom:0;">
                 <div class="mock-shortage-row">
-                  <div class="mock-shortage-icon" style="background:rgba(255,159,10,0.22);color:#FF9F0A;">!</div>
+                  <div class="mock-shortage-icon" style="background:rgba(180,83,9,0.18);color:#B45309;">!</div>
                   <span class="mock-shortage-name">Quinoa (cooked)</span>
-                  <span class="mock-shortage-badge" style="background:rgba(255,159,10,0.22);color:#FF9F0A;">LOW</span>
+                  <span class="mock-shortage-badge" style="background:rgba(180,83,9,0.18);color:#B45309;">LOW</span>
                 </div>
                 <div class="mock-shortage-qty">Running low &mdash; 4 lbs remaining</div>
               </div>
@@ -462,8 +462,8 @@
           <article class="fc reveal">
             <div class="fc-mockup">
               <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
-                <span style="font-size:12px;font-weight:700;color:#fff;">Production Run &mdash; Today</span>
-                <span style="font-size:10px;font-weight:700;color:#34C759;background:rgba(52,199,89,0.16);padding:2px 8px;border-radius:999px;">Live</span>
+                <span style="font-size:12px;font-weight:700;color:var(--color-ink);">Production Run &mdash; Today</span>
+                <span style="font-size:10px;font-weight:700;color:#2D7D2A;background:rgba(45,125,42,0.14);padding:2px 8px;border-radius:999px;">Live</span>
               </div>
               <div class="mock-dp-row">
                 <span class="mock-dp-label">Protein</span>
@@ -478,7 +478,7 @@
               <div class="mock-dp-row">
                 <span class="mock-dp-label">Sauce</span>
                 <div class="mock-dp-bar-wrap"><div class="mock-dp-fill" style="width:100%"></div></div>
-                <span class="mock-dp-pct" style="color:#34C759;">100%</span>
+                <span class="mock-dp-pct" style="color:#2D7D2A;">100%</span>
               </div>
               <div class="mock-dp-row">
                 <span class="mock-dp-label">Packing</span>
@@ -498,8 +498,8 @@
           <article class="fc reveal">
             <div class="fc-mockup">
               <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
-                <span style="font-size:12px;font-weight:700;color:#fff;">Herb Chicken Bowl &mdash; Standard</span>
-                <span style="font-size:10px;font-weight:700;color:#35d4a9;background:rgba(13,92,70,0.22);padding:2px 8px;border-radius:999px;">480 cal</span>
+                <span style="font-size:12px;font-weight:700;color:var(--color-ink);">Herb Chicken Bowl &mdash; Standard</span>
+                <span style="font-size:10px;font-weight:700;color:var(--color-teal);background:var(--color-teal-light);padding:2px 8px;border-radius:999px;">480 cal</span>
               </div>
               <div class="mock-plate-row">
                 <div class="mock-scoop" style="background:#34C759"></div>
@@ -507,17 +507,17 @@
                 <span class="mock-plate-qty">2.5 oz</span>
               </div>
               <div class="mock-plate-row">
-                <div class="mock-scoop" style="background:#FF9F0A"></div>
+                <div class="mock-scoop" style="background:#E08A1E"></div>
                 <span class="mock-plate-name">Roasted Sweet Potato</span>
                 <span class="mock-plate-qty">4.0 oz</span>
               </div>
               <div class="mock-plate-row">
-                <div class="mock-scoop" style="background:#007AFF"></div>
+                <div class="mock-scoop" style="background:#1D4ED8"></div>
                 <span class="mock-plate-name">Steamed Broccolini</span>
                 <span class="mock-plate-qty">3.0 oz</span>
               </div>
               <div class="mock-plate-row">
-                <div class="mock-scoop" style="background:#3a3a3c;border:1px solid rgba(255,255,255,0.15)"></div>
+                <div class="mock-scoop" style="background:#7A9A6E;border:1px solid #E3DDD4"></div>
                 <span class="mock-plate-name">Herb Chimichurri</span>
                 <span class="mock-plate-qty">1.0 oz</span>
               </div>
@@ -554,7 +554,7 @@
                 <div class="mock-pin-key">8</div>
                 <div class="mock-pin-key">9</div>
                 <div class="mock-pin-key" style="opacity:0"></div>
-                <div class="mock-pin-key" style="background:rgba(13,92,70,0.22);color:#35d4a9;">0</div>
+                <div class="mock-pin-key" style="background:var(--color-teal-light);border-color:var(--color-teal-light);color:var(--color-teal);">0</div>
                 <div class="mock-pin-key" style="opacity:0"></div>
               </div>
             </div>
