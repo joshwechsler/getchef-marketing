@@ -1994,10 +1994,11 @@ input:focus,select:focus,textarea:focus { outline: none; border-color: var(--col
     align-content: start;
     gap: 0;
     padding: 26px;
-    /* Solid, fully-opaque dark panel so the (now light) page behind the
-       open menu never bleeds through. !important guards against the
+    /* Solid, fully-opaque deep brand-teal panel (brand-900) so it reads
+       on-brand with the logo + CTA, and the light page behind the open
+       menu never bleeds through. !important guards against the
        dark->light theme sweep recolouring it. */
-    background: #0b1a15 !important;
+    background: #08382B !important;
     /* Hide reliably on iOS Safari — visibility+opacity is viewport-independent */
     visibility: hidden;
     opacity: 0;
