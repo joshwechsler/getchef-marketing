@@ -329,6 +329,36 @@
       line-height: 1.3;
     }
 
+    /* ---- Section break between feature groups ---- */
+    .fc-section-break {
+      margin: 80px 0 48px;
+      padding-top: 60px;
+      border-top: 1px solid rgba(255,255,255,0.10);
+    }
+    .fc-section-eyebrow {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: #35d4a9;
+      margin: 0 0 16px;
+    }
+    .fc-section-title {
+      font-size: clamp(40px, 5vw, 68px);
+      font-weight: 800;
+      line-height: 0.96;
+      letter-spacing: -0.01em;
+      color: #fff;
+      margin: 0 0 14px;
+    }
+    .fc-section-sub {
+      font-size: clamp(17px, 2vw, 22px);
+      font-weight: 500;
+      color: rgba(255,255,255,0.52);
+      margin: 0;
+      max-width: 600px;
+    }
+
     @media (max-width: 900px) {
       .feature-card-grid { grid-template-columns: 1fr; }
     }
@@ -555,7 +585,6 @@
                 <div class="mock-pin-key">9</div>
                 <div class="mock-pin-key" style="opacity:0"></div>
                 <div class="mock-pin-key" style="background:var(--color-teal-light);border-color:var(--color-teal-light);color:var(--color-teal);">0</div>
-                <div class="mock-pin-key" style="opacity:0"></div>
               </div>
             </div>
             <div class="fc-body">
@@ -563,6 +592,340 @@
               <h2 class="fc-title">Role-Based Access</h2>
               <p class="fc-desc">Staff log in with a PIN and see only their station. Managers get production controls, cross-station reporting, and shortage resolution. Every person sees what helps them move.</p>
               <p class="fc-meaning">Right view for every role.</p>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Section Break -->
+        <div class="fc-section-break">
+          <p class="fc-section-eyebrow">Operations Stack</p>
+          <h2 class="fc-section-title">The full kitchen system.</h2>
+          <p class="fc-section-sub">Everything from recipe to purchase order — connected, live, and in one place.</p>
+        </div>
+
+        <div class="feature-card-grid">
+
+          <!-- 07 Recipe Library -->
+          <article class="fc reveal">
+            <div class="fc-mockup">
+              <div style="display:flex;flex-direction:column;gap:6px;">
+                <!-- Row -->
+                <div style="display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.05);">
+                  <span style="flex:1;font-size:11px;font-weight:600;color:rgba(255,255,255,0.85);">Herb Chicken Breast</span>
+                  <span style="font-size:9px;font-weight:800;color:rgba(255,255,255,0.40);background:rgba(255,255,255,0.08);padding:1px 6px;border-radius:999px;">v3</span>
+                  <span style="font-size:9px;font-weight:800;color:#34C759;background:rgba(52,199,89,0.15);padding:1px 6px;border-radius:999px;">Published</span>
+                  <span style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.50);white-space:nowrap;">$2.14/srv</span>
+                </div>
+                <!-- Row -->
+                <div style="display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.05);">
+                  <span style="flex:1;font-size:11px;font-weight:600;color:rgba(255,255,255,0.85);">Turkey Meatball Mix</span>
+                  <span style="font-size:9px;font-weight:800;color:rgba(255,255,255,0.40);background:rgba(255,255,255,0.08);padding:1px 6px;border-radius:999px;">v2</span>
+                  <span style="font-size:9px;font-weight:800;color:#FF9F0A;background:rgba(255,159,10,0.15);padding:1px 6px;border-radius:999px;">DRAFT</span>
+                  <span style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.50);white-space:nowrap;">$1.76/srv</span>
+                </div>
+                <!-- Row -->
+                <div style="display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.05);">
+                  <span style="flex:1;font-size:11px;font-weight:600;color:rgba(255,255,255,0.85);">Salmon Power Bowl</span>
+                  <span style="font-size:9px;font-weight:800;color:rgba(255,255,255,0.40);background:rgba(255,255,255,0.08);padding:1px 6px;border-radius:999px;">v2</span>
+                  <span style="font-size:9px;font-weight:800;color:#34C759;background:rgba(52,199,89,0.15);padding:1px 6px;border-radius:999px;">Published</span>
+                  <span style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.50);white-space:nowrap;">$4.82/srv</span>
+                </div>
+                <!-- Row -->
+                <div style="display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.05);">
+                  <span style="flex:1;font-size:11px;font-weight:600;color:rgba(255,255,255,0.85);">Herb Chimichurri</span>
+                  <span style="font-size:9px;font-weight:800;color:rgba(255,255,255,0.40);background:rgba(255,255,255,0.08);padding:1px 6px;border-radius:999px;">v1</span>
+                  <span style="font-size:9px;font-weight:800;color:#34C759;background:rgba(52,199,89,0.15);padding:1px 6px;border-radius:999px;">Published</span>
+                  <span style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.50);white-space:nowrap;">$0.34/srv</span>
+                </div>
+              </div>
+            </div>
+            <div class="fc-body">
+              <p class="fc-number">07</p>
+              <h2 class="fc-title">Recipe Library</h2>
+              <p class="fc-desc">A versioned recipe database where every dish tracks draft, published, and archived states. Scale by portion count, nest sub-recipes, and publish to trigger automatic cost and nutrition recalculation.</p>
+              <p class="fc-meaning">One source of truth from R&amp;D to the line.</p>
+            </div>
+          </article>
+
+          <!-- 08 Ingredient & Cost Engine -->
+          <article class="fc reveal">
+            <div class="fc-mockup" style="justify-content:center;align-items:center;">
+              <div style="width:100%;max-width:240px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.10);border-radius:12px;padding:14px 16px;">
+                <div style="font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.40);margin-bottom:4px;">Ingredient</div>
+                <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:8px;">Wild Salmon Fillet</div>
+                <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:6px;">
+                  <span style="font-size:20px;font-weight:800;color:#35d4a9;">$8.42</span>
+                  <span style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.44);">/ lb</span>
+                </div>
+                <div style="font-size:11px;font-weight:700;color:#FF9F0A;margin-bottom:10px;">&#8593; from $7.90 &nbsp;&mdash;&nbsp; +6.6%</div>
+                <div style="display:flex;align-items:center;gap:6px;">
+                  <div style="width:14px;height:14px;border-radius:50%;border:2px solid #35d4a9;border-top-color:transparent;animation:spin 0.8s linear infinite;flex-shrink:0;"></div>
+                  <span style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.50);">4 recipes recalculating&hellip;</span>
+                </div>
+              </div>
+              <style>@keyframes spin { to { transform: rotate(360deg); } }</style>
+            </div>
+            <div class="fc-body">
+              <p class="fc-number">08</p>
+              <h2 class="fc-title">Ingredient &amp; Cost Engine</h2>
+              <p class="fc-desc">Full ingredient library with live pricing per supplier. Edit one cost and ChefOS propagates it to every recipe that uses that ingredient — in under 60 seconds. Cost threshold alerts fire automatically.</p>
+              <p class="fc-meaning">No stale food costs. Ever.</p>
+            </div>
+          </article>
+
+          <!-- 09 FDA Nutrition Labels -->
+          <article class="fc reveal">
+            <div class="fc-mockup" style="justify-content:center;align-items:center;">
+              <div style="background:#fff;color:#000;border-radius:6px;padding:10px 12px;width:180px;font-family:Arial,sans-serif;">
+                <div style="font-size:18px;font-weight:900;border-bottom:8px solid #000;padding-bottom:4px;margin-bottom:4px;line-height:1;">Nutrition Facts</div>
+                <div style="font-size:9px;color:#000;margin-bottom:2px;">Serving Size 12 oz (340g)</div>
+                <div style="border-bottom:4px solid #000;padding-bottom:4px;margin-bottom:4px;">
+                  <div style="font-size:9px;font-weight:700;">Calories</div>
+                  <div style="font-size:28px;font-weight:900;line-height:1;">480</div>
+                </div>
+                <div style="font-size:9px;border-bottom:1px solid #ccc;padding:2px 0;">Total Fat <strong>18g</strong></div>
+                <div style="font-size:9px;border-bottom:1px solid #ccc;padding:2px 0;">Protein <strong>42g</strong></div>
+                <div style="font-size:9px;border-bottom:4px solid #000;padding:2px 0;margin-bottom:6px;">Sodium <strong>580mg</strong></div>
+                <div style="display:inline-block;background:#0F6E56;color:#fff;font-size:9px;font-weight:800;padding:2px 6px;border-radius:4px;letter-spacing:0.06em;">GF &middot; DF</div>
+              </div>
+            </div>
+            <div class="fc-body">
+              <p class="fc-number">09</p>
+              <h2 class="fc-title">FDA Nutrition Labels</h2>
+              <p class="fc-desc">Print-ready nutrition facts panels generated from your recipe data. FDA rounding rules apply automatically at print time. Allergen flags — milk, eggs, tree nuts, gluten, and more — carry through from ingredient to label.</p>
+              <p class="fc-meaning">Label compliance without a nutritionist on retainer.</p>
+            </div>
+          </article>
+
+          <!-- 10 Inventory Management -->
+          <article class="fc reveal">
+            <div class="fc-mockup">
+              <div style="display:flex;flex-direction:column;gap:8px;">
+                <!-- Row: Wild Salmon - LOW -->
+                <div>
+                  <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;">
+                    <span style="flex:1;font-size:11px;font-weight:600;color:rgba(255,255,255,0.80);">Wild Salmon</span>
+                    <span style="font-size:10px;font-weight:600;color:rgba(255,255,255,0.44);">14 lb / 20 lb par</span>
+                    <span style="font-size:9px;font-weight:800;color:#FF3B30;background:rgba(255,59,48,0.18);padding:1px 6px;border-radius:4px;">LOW</span>
+                  </div>
+                  <div style="height:5px;border-radius:999px;background:rgba(255,255,255,0.10);overflow:hidden;">
+                    <div style="width:70%;height:100%;border-radius:999px;background:linear-gradient(90deg,#FF3B30,#FF6B6B);"></div>
+                  </div>
+                </div>
+                <!-- Row: Brown Rice - OK -->
+                <div>
+                  <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;">
+                    <span style="flex:1;font-size:11px;font-weight:600;color:rgba(255,255,255,0.80);">Brown Rice</span>
+                    <span style="font-size:10px;font-weight:600;color:rgba(255,255,255,0.44);">48 lb / 30 lb par</span>
+                    <span style="font-size:11px;font-weight:800;color:#34C759;">&#10003;</span>
+                  </div>
+                  <div style="height:5px;border-radius:999px;background:rgba(255,255,255,0.10);overflow:hidden;">
+                    <div style="width:100%;height:100%;border-radius:999px;background:linear-gradient(90deg,#0F6E56,#35d4a9);"></div>
+                  </div>
+                </div>
+                <!-- Row: Chicken Thighs - LOW -->
+                <div>
+                  <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;">
+                    <span style="flex:1;font-size:11px;font-weight:600;color:rgba(255,255,255,0.80);">Chicken Thighs</span>
+                    <span style="font-size:10px;font-weight:600;color:rgba(255,255,255,0.44);">22 lb / 40 lb par</span>
+                    <span style="font-size:9px;font-weight:800;color:#FF3B30;background:rgba(255,59,48,0.18);padding:1px 6px;border-radius:4px;">LOW</span>
+                  </div>
+                  <div style="height:5px;border-radius:999px;background:rgba(255,255,255,0.10);overflow:hidden;">
+                    <div style="width:55%;height:100%;border-radius:999px;background:linear-gradient(90deg,#FF3B30,#FF6B6B);"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="fc-body">
+              <p class="fc-number">10</p>
+              <h2 class="fc-title">Inventory Management</h2>
+              <p class="fc-desc">Stock count sheets, par levels, and waste logs — organized by location. Count from a tablet, flag items below par, and see exactly what needs ordering before you write a single PO.</p>
+              <p class="fc-meaning">Stop running out of things you counted yesterday.</p>
+            </div>
+          </article>
+
+          <!-- 11 Purchase Orders -->
+          <article class="fc reveal">
+            <div class="fc-mockup">
+              <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.10);border-radius:12px;padding:12px 14px;">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+                  <span style="font-size:12px;font-weight:700;color:#fff;">PO #1047 &middot; Sysco</span>
+                  <span style="font-size:9px;font-weight:800;color:#35d4a9;background:rgba(15,110,86,0.22);padding:2px 8px;border-radius:999px;">Open</span>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.06);">
+                  <span style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.72);">Brown Rice &nbsp;&mdash;&nbsp; 50 lb</span>
+                  <span style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.60);">$44.00</span>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.06);">
+                  <span style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.72);">Wild Salmon &nbsp;&mdash;&nbsp; 30 lb</span>
+                  <span style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.60);">$252.00</span>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:7px 0 8px;">
+                  <span style="font-size:11px;font-weight:800;color:#fff;">Total</span>
+                  <span style="font-size:12px;font-weight:800;color:#fff;">$296.00</span>
+                </div>
+                <div style="text-align:center;">
+                  <span style="display:inline-block;background:rgba(52,199,89,0.20);color:#34C759;font-size:10px;font-weight:800;padding:4px 14px;border-radius:999px;border:1px solid rgba(52,199,89,0.30);">Send PO</span>
+                </div>
+              </div>
+            </div>
+            <div class="fc-body">
+              <p class="fc-number">11</p>
+              <h2 class="fc-title">Purchase Orders</h2>
+              <p class="fc-desc">Create POs directly from production plans or order guides. Send to suppliers, track received vs ordered, and reconcile invoices without leaving the platform.</p>
+              <p class="fc-meaning">From prep list to PO in two clicks.</p>
+            </div>
+          </article>
+
+          <!-- 12 Order Guides -->
+          <article class="fc reveal">
+            <div class="fc-mockup">
+              <div style="display:flex;flex-direction:column;gap:4px;">
+                <div style="font-size:9px;font-weight:800;letter-spacing:0.10em;text-transform:uppercase;color:#35d4a9;margin-bottom:2px;">Produce</div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:5px 8px;border-radius:6px;background:rgba(255,255,255,0.05);">
+                  <span style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.80);">Broccoli</span>
+                  <span style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.44);">8 lb</span>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:5px 8px;border-radius:6px;background:rgba(255,255,255,0.05);margin-bottom:8px;">
+                  <span style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.80);">Kale</span>
+                  <span style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.44);">12 lb</span>
+                </div>
+                <div style="font-size:9px;font-weight:800;letter-spacing:0.10em;text-transform:uppercase;color:#35d4a9;margin-bottom:2px;">Protein</div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:5px 8px;border-radius:6px;background:rgba(255,255,255,0.05);">
+                  <span style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.80);">Salmon</span>
+                  <span style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.44);">24 lb</span>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:5px 8px;border-radius:6px;background:rgba(255,255,255,0.05);">
+                  <span style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.80);">Chicken</span>
+                  <span style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.44);">40 lb</span>
+                </div>
+              </div>
+            </div>
+            <div class="fc-body">
+              <p class="fc-number">12</p>
+              <h2 class="fc-title">Order Guides</h2>
+              <p class="fc-desc">Auto-generated order guides organized by supplier and category, built from your production event quantities. Edit quantities before sending — ChefOS handles the math.</p>
+              <p class="fc-meaning">Your order guide writes itself.</p>
+            </div>
+          </article>
+
+          <!-- 13 Reports & Analytics -->
+          <article class="fc reveal">
+            <div class="fc-mockup">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+                <span style="font-size:12px;font-weight:700;color:#fff;">Margin by Meal</span>
+                <span style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.40);">This month</span>
+              </div>
+              <!-- Herb Chicken Bowl 68% -->
+              <div class="mock-dp-row">
+                <span style="width:120px;font-size:11px;font-weight:600;color:rgba(255,255,255,0.70);flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">Herb Chicken Bowl</span>
+                <div class="mock-dp-bar-wrap"><div class="mock-dp-fill" style="width:68%"></div></div>
+                <span class="mock-dp-pct">68%</span>
+              </div>
+              <!-- Turkey Bowl 71% -->
+              <div class="mock-dp-row">
+                <span style="width:120px;font-size:11px;font-weight:600;color:rgba(255,255,255,0.70);flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">Turkey Bowl</span>
+                <div class="mock-dp-bar-wrap"><div class="mock-dp-fill" style="width:71%"></div></div>
+                <span class="mock-dp-pct">71%</span>
+              </div>
+              <!-- Salmon Bowl 55% - amber -->
+              <div class="mock-dp-row">
+                <span style="width:120px;font-size:11px;font-weight:600;color:rgba(255,255,255,0.70);flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">Salmon Bowl</span>
+                <div class="mock-dp-bar-wrap"><div style="width:55%;height:100%;border-radius:999px;background:linear-gradient(90deg,#c46a00,#FF9F0A);"></div></div>
+                <span class="mock-dp-pct" style="color:#FF9F0A;">55%</span>
+              </div>
+            </div>
+            <div class="fc-body">
+              <p class="fc-number">13</p>
+              <h2 class="fc-title">Reports &amp; Analytics</h2>
+              <p class="fc-desc">Cost reports, margin analysis, and production summaries across any date range. See which meals are below margin targets and which recipes are driving ingredient spend.</p>
+              <p class="fc-meaning">Know your margins before the month ends.</p>
+            </div>
+          </article>
+
+          <!-- 14 AI Kitchen Assistant -->
+          <article class="fc reveal">
+            <div class="fc-mockup" style="gap:8px;justify-content:flex-end;">
+              <!-- User bubble -->
+              <div style="align-self:flex-end;max-width:90%;background:rgba(255,255,255,0.10);border-radius:12px 12px 4px 12px;padding:8px 11px;">
+                <p style="margin:0;font-size:11px;font-weight:600;color:rgba(255,255,255,0.85);line-height:1.4;">What&rsquo;s the cost per serving for the salmon bowl?</p>
+              </div>
+              <!-- Assistant bubble -->
+              <div style="align-self:flex-start;max-width:95%;background:rgba(255,255,255,0.06);border-left:2px solid #35d4a9;border-radius:4px 12px 12px 4px;padding:8px 11px;">
+                <p style="margin:0;font-size:11px;font-weight:500;color:rgba(255,255,255,0.72);line-height:1.45;">The Salmon Power Bowl is <strong style="color:#35d4a9;">$4.82/serving</strong> with a 55% margin. The largest cost driver is wild salmon at $2.94/serving.</p>
+              </div>
+            </div>
+            <div class="fc-body">
+              <p class="fc-number">14</p>
+              <h2 class="fc-title">AI Kitchen Assistant</h2>
+              <p class="fc-desc">Ask questions about your recipes, costs, allergens, and production history in plain English. The assistant is grounded on your actual recipe data — not generic answers.</p>
+              <p class="fc-meaning">The answer is in your data. Now you can ask for it.</p>
+            </div>
+          </article>
+
+          <!-- 15 Mobile App -->
+          <article class="fc reveal">
+            <div class="fc-mockup">
+              <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.10);border-radius:12px;padding:12px 14px;">
+                <div style="font-size:12px;font-weight:700;color:#fff;margin-bottom:10px;text-align:center;">Receiving &middot; PO #1047</div>
+                <div style="text-align:center;margin-bottom:10px;">
+                  <span style="font-size:18px;letter-spacing:0.08em;color:rgba(255,255,255,0.50);display:block;">&#9612;&#9612;&#9612; &#9612;&#9612;</span>
+                  <span style="font-size:10px;font-weight:600;color:rgba(255,255,255,0.36);">Tap to scan</span>
+                </div>
+                <!-- Brown Rice row -->
+                <div style="margin-bottom:6px;">
+                  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:3px;">
+                    <span style="font-size:10px;font-weight:600;color:rgba(255,255,255,0.80);">Brown Rice</span>
+                    <span style="font-size:10px;font-weight:700;color:#34C759;">2 of 3 bags</span>
+                  </div>
+                  <div style="height:4px;border-radius:999px;background:rgba(255,255,255,0.10);overflow:hidden;">
+                    <div style="width:66%;height:100%;border-radius:999px;background:linear-gradient(90deg,#0F6E56,#35d4a9);"></div>
+                  </div>
+                </div>
+                <!-- Wild Salmon row -->
+                <div>
+                  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:3px;">
+                    <span style="font-size:10px;font-weight:600;color:rgba(255,255,255,0.80);">Wild Salmon</span>
+                    <span style="font-size:10px;font-weight:700;color:#FF3B30;">0 of 2 bags</span>
+                  </div>
+                  <div style="height:4px;border-radius:999px;background:rgba(255,255,255,0.10);overflow:hidden;">
+                    <div style="width:0%;height:100%;border-radius:999px;background:linear-gradient(90deg,#FF3B30,#FF6B6B);"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="fc-body">
+              <p class="fc-number">15</p>
+              <h2 class="fc-title">Mobile App</h2>
+              <p class="fc-desc">A native mobile app for inventory counts, receiving POs, and viewing prep lists. Scan barcodes to receive items, count stock on a tablet, and print labels from anywhere on the floor.</p>
+              <p class="fc-meaning">The clipboard is retired.</p>
+            </div>
+          </article>
+
+          <!-- 16 Multi-Location -->
+          <article class="fc reveal">
+            <div class="fc-mockup" style="justify-content:center;align-items:center;">
+              <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.10);border-radius:12px;padding:14px 16px;width:100%;max-width:240px;">
+                <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.50);margin-bottom:8px;text-align:center;">Transfer &middot; Kitchen 1 &rarr; Kitchen 2</div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.07);">
+                  <span style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.80);">Wild Rice</span>
+                  <span style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.50);">10 lb</span>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:6px 0;margin-bottom:10px;">
+                  <span style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.80);">Tahini Paste</span>
+                  <span style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.50);">4 lb</span>
+                </div>
+                <div style="text-align:center;">
+                  <span style="display:inline-block;background:rgba(52,199,89,0.20);color:#34C759;font-size:10px;font-weight:800;padding:5px 16px;border-radius:999px;border:1px solid rgba(52,199,89,0.30);">Confirm Transfer</span>
+                </div>
+              </div>
+            </div>
+            <div class="fc-body">
+              <p class="fc-number">16</p>
+              <h2 class="fc-title">Multi-Location</h2>
+              <p class="fc-desc">Run multiple kitchens from one account. Transfer stock between locations, assign production events by site, and see consolidated reports across your entire operation.</p>
+              <p class="fc-meaning">Scale without losing sight of any kitchen.</p>
             </div>
           </article>
 
