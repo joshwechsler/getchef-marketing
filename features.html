@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Features | ChefOS</title>
-  <meta name="description" content="Explore ChefOS features for production import, station work, shortages, dashboards, plating, and role-based access.">
-  <meta property="og:title" content="ChefOS Features">
-  <meta property="og:description" content="Every ChefOS feature is built to save time, reduce errors, and keep kitchens moving.">
+  <title>Features | KitchenOS</title>
+  <meta name="description" content="Explore KitchenOS features for production import, station work, shortages, dashboards, plating, and role-based access.">
+  <meta property="og:title" content="KitchenOS Features">
+  <meta property="og:description" content="Every KitchenOS feature is built to save time, reduce errors, and keep kitchens moving.">
   <meta property="og:type" content="website">
   <link rel="stylesheet" href="styles.css">
   <style>
@@ -306,6 +306,106 @@
       color: var(--color-text-muted);
     }
 
+    /* ---- Light mockup shared helpers ---- */
+    .lm-table {
+      width: 100%;
+      background: #fff;
+      border: 1px solid #E3DDD4;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .lm-th {
+      display: flex;
+      gap: 4px;
+      padding: 5px 8px;
+      background: #F7F5F0;
+      border-bottom: 1px solid #EDE9E1;
+    }
+    .lm-th-cell {
+      font-size: 9px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: #999;
+    }
+    .lm-row {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 5px 8px;
+      border-bottom: 1px solid #F2EEE8;
+    }
+    .lm-row:last-child { border-bottom: none; }
+    .lm-row-alt { background: #FAFAF8; }
+    .lm-cell { font-size: 10px; font-weight: 600; color: var(--color-ink); }
+    .lm-cell-muted { font-size: 10px; font-weight: 600; color: #888; }
+    .lm-pill {
+      display: inline-block;
+      padding: 1px 5px;
+      border-radius: 999px;
+      font-size: 8px;
+      font-weight: 800;
+    }
+    .lm-pill-green { background: rgba(45,125,42,0.12); color: #2D7D2A; }
+    .lm-pill-gray  { background: #EDEBE6; color: #777; }
+    .lm-pill-amber { background: rgba(180,83,9,0.12); color: #B45309; }
+    .lm-pill-teal  { background: var(--color-teal-light); color: var(--color-teal); }
+    .lm-pill-red   { background: rgba(192,57,43,0.12); color: #C0392B; }
+    .lm-pill-blue  { background: rgba(29,78,216,0.10); color: #1D4ED8; }
+    .lm-badge {
+      display: inline-block;
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-size: 8px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+    .lm-btn {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 10px;
+      font-weight: 700;
+      background: var(--color-teal);
+      color: #fff;
+      cursor: pointer;
+    }
+    .lm-btn-sm {
+      padding: 3px 8px;
+      font-size: 9px;
+    }
+
+    /* ---- Section break between feature groups ---- */
+    .fc-section-break {
+      margin: 80px 0 48px;
+      padding-top: 60px;
+      border-top: 1px solid #E3DDD4;
+    }
+    .fc-section-eyebrow {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--color-teal);
+      margin: 0 0 16px;
+    }
+    .fc-section-title {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: clamp(40px, 5vw, 68px);
+      font-weight: 500;
+      line-height: 0.96;
+      letter-spacing: -0.005em;
+      color: var(--color-ink);
+      margin: 0 0 14px;
+    }
+    .fc-section-sub {
+      font-size: clamp(17px, 2vw, 22px);
+      font-weight: 500;
+      color: var(--color-text-muted);
+      margin: 0;
+      max-width: 600px;
+    }
+
     /* ---- Final CTA ---- */
     .final-cta-section {
       padding: 140px 0;
@@ -329,36 +429,6 @@
       line-height: 1.3;
     }
 
-    /* ---- Section break between feature groups ---- */
-    .fc-section-break {
-      margin: 80px 0 48px;
-      padding-top: 60px;
-      border-top: 1px solid rgba(255,255,255,0.10);
-    }
-    .fc-section-eyebrow {
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.10em;
-      text-transform: uppercase;
-      color: #35d4a9;
-      margin: 0 0 16px;
-    }
-    .fc-section-title {
-      font-size: clamp(40px, 5vw, 68px);
-      font-weight: 800;
-      line-height: 0.96;
-      letter-spacing: -0.01em;
-      color: #fff;
-      margin: 0 0 14px;
-    }
-    .fc-section-sub {
-      font-size: clamp(17px, 2vw, 22px);
-      font-weight: 500;
-      color: rgba(255,255,255,0.52);
-      margin: 0;
-      max-width: 600px;
-    }
-
     @media (max-width: 900px) {
       .feature-card-grid { grid-template-columns: 1fr; }
     }
@@ -370,7 +440,7 @@
 <body>
   <nav class="site-nav" aria-label="Primary navigation">
     <div class="nav-inner">
-      <a class="brand" href="index.html">ChefOS</a>
+      <a class="brand" href="index.html">KitchenOS</a>
       <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
       <div class="nav-links">
         <a href="index.html">Overview</a>
@@ -419,7 +489,7 @@
             <div class="fc-body">
               <p class="fc-number">01</p>
               <h2 class="fc-title">Production Import</h2>
-              <p class="fc-desc">Upload your recipe software's export PDF and ChefOS reads the prep list in seconds. Prefix-based routing sends every recipe to the right station with a preview before the team starts.</p>
+              <p class="fc-desc">Upload your recipe software's export PDF and KitchenOS reads the prep list in seconds. Prefix-based routing sends every recipe to the right station with a preview before the team starts.</p>
               <p class="fc-meaning">Less admin before first fire.</p>
             </div>
           </article>
@@ -606,38 +676,56 @@
 
         <div class="feature-card-grid">
 
-          <!-- 07 Recipe Library -->
+          <!-- 07 Recipe Library — rebuilt mockup -->
           <article class="fc reveal">
-            <div class="fc-mockup">
-              <div style="display:flex;flex-direction:column;gap:6px;">
-                <!-- Row -->
-                <div style="display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.05);">
-                  <span style="flex:1;font-size:11px;font-weight:600;color:rgba(255,255,255,0.85);">Herb Chicken Breast</span>
-                  <span style="font-size:9px;font-weight:800;color:rgba(255,255,255,0.40);background:rgba(255,255,255,0.08);padding:1px 6px;border-radius:999px;">v3</span>
-                  <span style="font-size:9px;font-weight:800;color:#34C759;background:rgba(52,199,89,0.15);padding:1px 6px;border-radius:999px;">Published</span>
-                  <span style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.50);white-space:nowrap;">$2.14/srv</span>
+            <div class="fc-mockup" style="padding:14px 16px;justify-content:flex-start;">
+              <!-- table -->
+              <div style="background:#fff;border:1px solid #E3DDD4;border-radius:10px;overflow:hidden;width:100%;">
+                <!-- header -->
+                <div style="display:flex;gap:0;padding:4px 8px;background:#F7F5F0;border-bottom:1px solid #EDE9E1;">
+                  <span style="flex:2;font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:0.07em;color:#aaa;">Name</span>
+                  <span style="flex:1.4;font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:0.07em;color:#aaa;">Categories</span>
+                  <span style="width:24px;font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:#aaa;">Ver</span>
+                  <span style="width:54px;font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:#aaa;">Status</span>
+                  <span style="width:36px;text-align:right;font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:#aaa;">Cost</span>
                 </div>
-                <!-- Row -->
-                <div style="display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.05);">
-                  <span style="flex:1;font-size:11px;font-weight:600;color:rgba(255,255,255,0.85);">Turkey Meatball Mix</span>
-                  <span style="font-size:9px;font-weight:800;color:rgba(255,255,255,0.40);background:rgba(255,255,255,0.08);padding:1px 6px;border-radius:999px;">v2</span>
-                  <span style="font-size:9px;font-weight:800;color:#FF9F0A;background:rgba(255,159,10,0.15);padding:1px 6px;border-radius:999px;">DRAFT</span>
-                  <span style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.50);white-space:nowrap;">$1.76/srv</span>
+                <!-- row 1 -->
+                <div style="display:flex;align-items:center;gap:0;padding:5px 8px;border-bottom:1px solid #F2EEE8;">
+                  <span style="flex:2;font-size:10px;font-weight:600;color:var(--color-ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">Wild Salmon Power Bowl <span style="color:#B0A89C;font-size:9px;">⊞</span></span>
+                  <span style="flex:1.4;display:flex;gap:3px;flex-wrap:nowrap;overflow:hidden;">
+                    <span style="padding:1px 4px;border-radius:999px;font-size:8px;font-weight:700;background:rgba(15,110,86,0.10);color:var(--color-teal);">Protein</span>
+                    <span style="padding:1px 4px;border-radius:999px;font-size:8px;font-weight:700;background:#EDEBE6;color:#777;">Entrée</span>
+                  </span>
+                  <span style="width:24px;font-size:9px;font-weight:700;color:#888;">v3</span>
+                  <span style="width:54px;"><span style="padding:1px 5px;border-radius:999px;font-size:8px;font-weight:800;background:rgba(45,125,42,0.12);color:#2D7D2A;">Published</span></span>
+                  <span style="width:36px;text-align:right;font-size:10px;font-weight:700;color:var(--color-ink);">$4.12</span>
                 </div>
-                <!-- Row -->
-                <div style="display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.05);">
-                  <span style="flex:1;font-size:11px;font-weight:600;color:rgba(255,255,255,0.85);">Salmon Power Bowl</span>
-                  <span style="font-size:9px;font-weight:800;color:rgba(255,255,255,0.40);background:rgba(255,255,255,0.08);padding:1px 6px;border-radius:999px;">v2</span>
-                  <span style="font-size:9px;font-weight:800;color:#34C759;background:rgba(52,199,89,0.15);padding:1px 6px;border-radius:999px;">Published</span>
-                  <span style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.50);white-space:nowrap;">$4.82/srv</span>
+                <!-- row 2 -->
+                <div style="display:flex;align-items:center;gap:0;padding:5px 8px;border-bottom:1px solid #F2EEE8;background:#FAFAF8;">
+                  <span style="flex:2;font-size:10px;font-weight:600;color:var(--color-ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">Roasted Beet Salad</span>
+                  <span style="flex:1.4;display:flex;gap:3px;flex-wrap:nowrap;overflow:hidden;">
+                    <span style="padding:1px 4px;border-radius:999px;font-size:8px;font-weight:700;background:rgba(15,110,86,0.10);color:var(--color-teal);">Vegan</span>
+                    <span style="padding:1px 4px;border-radius:999px;font-size:8px;font-weight:700;background:#EDEBE6;color:#777;">Salad</span>
+                  </span>
+                  <span style="width:24px;font-size:9px;font-weight:700;color:#888;">v1</span>
+                  <span style="width:54px;"><span style="padding:1px 5px;border-radius:999px;font-size:8px;font-weight:800;background:#EDEBE6;color:#777;">Draft</span></span>
+                  <span style="width:36px;text-align:right;font-size:10px;font-weight:700;color:var(--color-ink);">$1.87</span>
                 </div>
-                <!-- Row -->
-                <div style="display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.05);">
-                  <span style="flex:1;font-size:11px;font-weight:600;color:rgba(255,255,255,0.85);">Herb Chimichurri</span>
-                  <span style="font-size:9px;font-weight:800;color:rgba(255,255,255,0.40);background:rgba(255,255,255,0.08);padding:1px 6px;border-radius:999px;">v1</span>
-                  <span style="font-size:9px;font-weight:800;color:#34C759;background:rgba(52,199,89,0.15);padding:1px 6px;border-radius:999px;">Published</span>
-                  <span style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.50);white-space:nowrap;">$0.34/srv</span>
+                <!-- row 3 -->
+                <div style="display:flex;align-items:center;gap:0;padding:5px 8px;">
+                  <span style="flex:2;font-size:10px;font-weight:600;color:var(--color-ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">Chicken Tikka <span style="color:#B0A89C;font-size:9px;">▤</span></span>
+                  <span style="flex:1.4;display:flex;gap:3px;flex-wrap:nowrap;overflow:hidden;">
+                    <span style="padding:1px 4px;border-radius:999px;font-size:8px;font-weight:700;background:rgba(15,110,86,0.10);color:var(--color-teal);">Protein</span>
+                  </span>
+                  <span style="width:24px;font-size:9px;font-weight:700;color:#888;">v2</span>
+                  <span style="width:54px;"><span style="padding:1px 5px;border-radius:999px;font-size:8px;font-weight:800;background:rgba(180,83,9,0.10);color:#B45309;">Archived</span></span>
+                  <span style="width:36px;text-align:right;font-size:10px;font-weight:700;color:var(--color-ink);">$3.55</span>
                 </div>
+              </div>
+              <!-- version diff -->
+              <div style="margin-top:7px;padding:5px 9px;background:#fff;border:1px solid #E3DDD4;border-radius:7px;display:flex;align-items:center;gap:6px;">
+                <span style="font-size:9px;font-weight:700;color:var(--color-teal);white-space:nowrap;">v2→v3</span>
+                <span style="font-size:9px;color:#888;font-weight:600;">+1 ingredient &middot; Cost +$0.38 &middot; Protein +4g</span>
               </div>
             </div>
             <div class="fc-body">
@@ -648,46 +736,97 @@
             </div>
           </article>
 
-          <!-- 08 Ingredient & Cost Engine -->
+          <!-- 08 Ingredient & Cost Engine — rebuilt mockup -->
           <article class="fc reveal">
-            <div class="fc-mockup" style="justify-content:center;align-items:center;">
-              <div style="width:100%;max-width:240px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.10);border-radius:12px;padding:14px 16px;">
-                <div style="font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.40);margin-bottom:4px;">Ingredient</div>
-                <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:8px;">Wild Salmon Fillet</div>
-                <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:6px;">
-                  <span style="font-size:20px;font-weight:800;color:#35d4a9;">$8.42</span>
-                  <span style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.44);">/ lb</span>
+            <div class="fc-mockup" style="padding:14px 16px;justify-content:flex-start;">
+              <!-- ingredient header -->
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+                <span style="font-size:12px;font-weight:700;color:var(--color-ink);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">Wild Salmon (Atlantic, Skin-On)</span>
+                <span style="padding:2px 6px;border-radius:4px;font-size:8px;font-weight:800;background:var(--color-teal-light);color:var(--color-teal);">USDA ✓</span>
+              </div>
+              <!-- dietary pills -->
+              <div style="display:flex;gap:4px;margin-bottom:8px;flex-wrap:wrap;">
+                <span style="padding:1px 6px;border-radius:999px;font-size:8px;font-weight:700;background:#FDECEA;color:#C0392B;">Not Vegan</span>
+                <span style="padding:1px 6px;border-radius:999px;font-size:8px;font-weight:700;background:#FDF3E7;color:#B45309;">Contains Fish</span>
+                <span style="padding:1px 6px;border-radius:999px;font-size:8px;font-weight:700;background:rgba(15,110,86,0.10);color:var(--color-teal);">Keto Friendly</span>
+              </div>
+              <!-- supplier table -->
+              <div style="background:#fff;border:1px solid #E3DDD4;border-radius:8px;overflow:hidden;margin-bottom:7px;">
+                <div style="padding:4px 8px;border-bottom:1px solid #F2EEE8;display:flex;align-items:center;gap:4px;">
+                  <span style="flex:1;font-size:9px;font-weight:600;color:var(--color-ink);">Seattle Fish Co</span>
+                  <span style="font-size:9px;font-weight:700;color:#888;">$14.20/lb</span>
+                  <span style="font-size:9px;color:#E0A020;">★</span>
+                  <span style="font-size:8px;font-weight:700;background:var(--color-teal-light);color:var(--color-teal);padding:1px 5px;border-radius:999px;">Preferred</span>
                 </div>
-                <div style="font-size:11px;font-weight:700;color:#FF9F0A;margin-bottom:10px;">&#8593; from $7.90 &nbsp;&mdash;&nbsp; +6.6%</div>
-                <div style="display:flex;align-items:center;gap:6px;">
-                  <div style="width:14px;height:14px;border-radius:50%;border:2px solid #35d4a9;border-top-color:transparent;animation:spin 0.8s linear infinite;flex-shrink:0;"></div>
-                  <span style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.50);">4 recipes recalculating&hellip;</span>
+                <div style="padding:4px 8px;border-bottom:1px solid #F2EEE8;display:flex;align-items:center;gap:4px;background:#FAFAF8;">
+                  <span style="flex:1;font-size:9px;font-weight:600;color:var(--color-ink);">Pacific Fresh</span>
+                  <span style="font-size:9px;font-weight:700;color:#888;">$15.80/lb</span>
+                </div>
+                <div style="padding:4px 8px;display:flex;align-items:center;gap:4px;">
+                  <span style="flex:1;font-size:9px;font-weight:600;color:var(--color-ink);">Sysco</span>
+                  <span style="font-size:9px;font-weight:700;color:#888;">$13.95/lb</span>
+                  <span style="font-size:8px;font-weight:700;background:#FFF7E6;color:#B45309;padding:1px 5px;border-radius:999px;">Auto-select ⚡</span>
                 </div>
               </div>
-              <style>@keyframes spin { to { transform: rotate(360deg); } }</style>
+              <!-- prep states -->
+              <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
+                <span style="font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:0.07em;color:#aaa;">Prep States</span>
+                <span style="font-size:9px;font-weight:600;color:#888;">Skin-On Raw: 100%</span>
+                <span style="color:#D0CAC0;font-size:9px;">·</span>
+                <span style="font-size:9px;font-weight:600;color:#888;">Skinless Fillet: 88%</span>
+                <span style="color:#D0CAC0;font-size:9px;">·</span>
+                <span style="font-size:9px;font-weight:600;color:#888;">Cubed 1in: 82%</span>
+              </div>
             </div>
             <div class="fc-body">
               <p class="fc-number">08</p>
               <h2 class="fc-title">Ingredient &amp; Cost Engine</h2>
-              <p class="fc-desc">Full ingredient library with live pricing per supplier. Edit one cost and ChefOS propagates it to every recipe that uses that ingredient — in under 60 seconds. Cost threshold alerts fire automatically.</p>
+              <p class="fc-desc">Full ingredient library with live pricing per supplier. Edit one cost and KitchenOS propagates it to every recipe that uses that ingredient — in under 60 seconds. Cost threshold alerts fire automatically.</p>
               <p class="fc-meaning">No stale food costs. Ever.</p>
             </div>
           </article>
 
-          <!-- 09 FDA Nutrition Labels -->
+          <!-- 09 FDA Nutrition Labels — rebuilt mockup -->
           <article class="fc reveal">
-            <div class="fc-mockup" style="justify-content:center;align-items:center;">
-              <div style="background:#fff;color:#000;border-radius:6px;padding:10px 12px;width:180px;font-family:Arial,sans-serif;">
-                <div style="font-size:18px;font-weight:900;border-bottom:8px solid #000;padding-bottom:4px;margin-bottom:4px;line-height:1;">Nutrition Facts</div>
-                <div style="font-size:9px;color:#000;margin-bottom:2px;">Serving Size 12 oz (340g)</div>
-                <div style="border-bottom:4px solid #000;padding-bottom:4px;margin-bottom:4px;">
-                  <div style="font-size:9px;font-weight:700;">Calories</div>
-                  <div style="font-size:28px;font-weight:900;line-height:1;">480</div>
+            <div class="fc-mockup" style="padding:12px 14px;flex-direction:row;gap:10px;align-items:flex-start;justify-content:flex-start;">
+              <!-- LEFT: template selector panel -->
+              <div style="width:110px;flex-shrink:0;display:flex;flex-direction:column;gap:5px;">
+                <div style="background:#fff;border:1px solid #E3DDD4;border-radius:7px;padding:5px 7px;">
+                  <div style="font-size:8px;font-weight:800;color:#aaa;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:3px;">Template</div>
+                  <div style="font-size:9px;font-weight:700;color:var(--color-teal);background:var(--color-teal-light);padding:2px 5px;border-radius:4px;margin-bottom:2px;">4×6 Standard</div>
+                  <div style="font-size:9px;font-weight:600;color:#888;padding:2px 0;">2×2 Small</div>
+                  <div style="font-size:9px;font-weight:600;color:#888;padding:2px 0;">Custom Deli 3×4</div>
                 </div>
-                <div style="font-size:9px;border-bottom:1px solid #ccc;padding:2px 0;">Total Fat <strong>18g</strong></div>
-                <div style="font-size:9px;border-bottom:1px solid #ccc;padding:2px 0;">Protein <strong>42g</strong></div>
-                <div style="font-size:9px;border-bottom:4px solid #000;padding:2px 0;margin-bottom:6px;">Sodium <strong>580mg</strong></div>
-                <div style="display:inline-block;background:#0F6E56;color:#fff;font-size:9px;font-weight:800;padding:2px 6px;border-radius:4px;letter-spacing:0.06em;">GF &middot; DF</div>
+                <div style="background:#fff;border:1px solid #E3DDD4;border-radius:7px;padding:5px 7px;">
+                  <div style="font-size:8px;font-weight:700;color:#aaa;margin-bottom:1px;">Best-By Date</div>
+                  <div style="font-size:8px;font-weight:600;color:#666;">Auto +5 days</div>
+                  <div style="font-size:8px;font-weight:700;color:var(--color-ink);">→ Oct 9, 2025</div>
+                </div>
+                <div style="background:#fff;border:1px solid #E3DDD4;border-radius:7px;padding:4px 7px;display:flex;align-items:center;gap:4px;">
+                  <span style="font-size:8px;font-weight:700;color:#aaa;">Print Qty</span>
+                  <span style="width:22px;text-align:center;font-size:9px;font-weight:700;color:var(--color-ink);border:1px solid #E3DDD4;border-radius:4px;padding:1px 2px;background:#fff;">3</span>
+                </div>
+                <div style="background:var(--color-teal);border-radius:6px;padding:5px 7px;text-align:center;cursor:pointer;">
+                  <span style="font-size:9px;font-weight:700;color:#fff;">Queue Print Job →</span>
+                </div>
+              </div>
+              <!-- RIGHT: nutrition panel + ingredient statement -->
+              <div style="flex:1;display:flex;flex-direction:column;gap:5px;min-width:0;">
+                <div style="background:#fff;color:#000;border-radius:6px;padding:7px 9px;font-family:Arial,sans-serif;">
+                  <div style="font-size:14px;font-weight:900;border-bottom:6px solid #000;padding-bottom:2px;margin-bottom:2px;line-height:1;">Nutrition Facts</div>
+                  <div style="font-size:7px;margin-bottom:1px;">Serving Size 12 oz (340g)</div>
+                  <div style="border-bottom:3px solid #000;padding-bottom:2px;margin-bottom:2px;">
+                    <div style="font-size:7px;font-weight:700;">Calories</div>
+                    <div style="font-size:20px;font-weight:900;line-height:1;">480</div>
+                  </div>
+                  <div style="font-size:7px;border-bottom:1px solid #ccc;padding:1px 0;">Total Fat <strong>18g</strong></div>
+                  <div style="font-size:7px;border-bottom:1px solid #ccc;padding:1px 0;">Protein <strong>42g</strong></div>
+                  <div style="font-size:7px;padding:1px 0;">Sodium <strong>580mg</strong></div>
+                </div>
+                <div style="background:#fff;border:1px solid #E3DDD4;border-radius:6px;padding:4px 7px;">
+                  <div style="font-size:7px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:2px;">Ingredient Statement</div>
+                  <div style="font-size:7.5px;font-weight:500;color:#444;line-height:1.3;">Wild salmon, olive oil, lemon juice, garlic, sea salt (descending by weight)</div>
+                </div>
               </div>
             </div>
             <div class="fc-body">
@@ -698,44 +837,38 @@
             </div>
           </article>
 
-          <!-- 10 Inventory Management -->
+          <!-- 10 Inventory Management — rebuilt mockup -->
           <article class="fc reveal">
-            <div class="fc-mockup">
-              <div style="display:flex;flex-direction:column;gap:8px;">
-                <!-- Row: Wild Salmon - LOW -->
-                <div>
-                  <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;">
-                    <span style="flex:1;font-size:11px;font-weight:600;color:rgba(255,255,255,0.80);">Wild Salmon</span>
-                    <span style="font-size:10px;font-weight:600;color:rgba(255,255,255,0.44);">14 lb / 20 lb par</span>
-                    <span style="font-size:9px;font-weight:800;color:#FF3B30;background:rgba(255,59,48,0.18);padding:1px 6px;border-radius:4px;">LOW</span>
-                  </div>
-                  <div style="height:5px;border-radius:999px;background:rgba(255,255,255,0.10);overflow:hidden;">
-                    <div style="width:70%;height:100%;border-radius:999px;background:linear-gradient(90deg,#FF3B30,#FF6B6B);"></div>
-                  </div>
+            <div class="fc-mockup" style="padding:12px 14px;justify-content:flex-start;">
+              <!-- session header -->
+              <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;">
+                <span style="flex:1;font-size:10px;font-weight:700;color:var(--color-ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">Count #24 · Protein Walk-In</span>
+                <span style="padding:2px 6px;border-radius:4px;font-size:8px;font-weight:800;background:#FEF3C7;color:#B45309;white-space:nowrap;">Awaiting Approval</span>
+                <span style="padding:2px 7px;border-radius:6px;font-size:8px;font-weight:700;background:#EDEBE6;color:#666;cursor:pointer;white-space:nowrap;">Log Waste</span>
+              </div>
+              <!-- rows -->
+              <div style="background:#fff;border:1px solid #E3DDD4;border-radius:8px;overflow:hidden;margin-bottom:7px;">
+                <div style="display:flex;align-items:center;padding:5px 8px;border-bottom:1px solid #F2EEE8;gap:6px;">
+                  <span style="flex:1;font-size:10px;font-weight:600;color:var(--color-ink);">Wild Salmon</span>
+                  <span style="font-size:9px;color:#888;">18.5 lb</span>
+                  <span style="font-size:9px;color:#aaa;">/ 20 lb</span>
+                  <span style="padding:1px 5px;border-radius:4px;font-size:8px;font-weight:800;background:#FEF3C7;color:#B45309;">-1.5 lb</span>
                 </div>
-                <!-- Row: Brown Rice - OK -->
-                <div>
-                  <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;">
-                    <span style="flex:1;font-size:11px;font-weight:600;color:rgba(255,255,255,0.80);">Brown Rice</span>
-                    <span style="font-size:10px;font-weight:600;color:rgba(255,255,255,0.44);">48 lb / 30 lb par</span>
-                    <span style="font-size:11px;font-weight:800;color:#34C759;">&#10003;</span>
-                  </div>
-                  <div style="height:5px;border-radius:999px;background:rgba(255,255,255,0.10);overflow:hidden;">
-                    <div style="width:100%;height:100%;border-radius:999px;background:linear-gradient(90deg,#0F6E56,#35d4a9);"></div>
-                  </div>
+                <div style="display:flex;align-items:center;padding:5px 8px;border-bottom:1px solid #F2EEE8;gap:6px;background:#FAFAF8;">
+                  <span style="flex:1;font-size:10px;font-weight:600;color:var(--color-ink);">Chicken Thigh</span>
+                  <span style="font-size:9px;color:#888;">32 lb</span>
+                  <span style="font-size:9px;color:#aaa;">/ 25 lb</span>
+                  <span style="padding:1px 5px;border-radius:4px;font-size:8px;font-weight:800;background:rgba(45,125,42,0.12);color:#2D7D2A;">+7 lb</span>
                 </div>
-                <!-- Row: Chicken Thighs - LOW -->
-                <div>
-                  <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;">
-                    <span style="flex:1;font-size:11px;font-weight:600;color:rgba(255,255,255,0.80);">Chicken Thighs</span>
-                    <span style="font-size:10px;font-weight:600;color:rgba(255,255,255,0.44);">22 lb / 40 lb par</span>
-                    <span style="font-size:9px;font-weight:800;color:#FF3B30;background:rgba(255,59,48,0.18);padding:1px 6px;border-radius:4px;">LOW</span>
-                  </div>
-                  <div style="height:5px;border-radius:999px;background:rgba(255,255,255,0.10);overflow:hidden;">
-                    <div style="width:55%;height:100%;border-radius:999px;background:linear-gradient(90deg,#FF3B30,#FF6B6B);"></div>
-                  </div>
+                <div style="display:flex;align-items:center;padding:5px 8px;gap:6px;">
+                  <span style="flex:1;font-size:10px;font-weight:600;color:var(--color-ink);">Olive Oil</span>
+                  <span style="font-size:9px;color:#888;">4.2 L</span>
+                  <span style="font-size:9px;color:#aaa;">/ 5 L</span>
+                  <span style="padding:1px 5px;border-radius:4px;font-size:8px;font-weight:800;background:#FEF3C7;color:#B45309;">-0.8 L</span>
                 </div>
               </div>
+              <!-- audit trail -->
+              <div style="font-size:9px;font-weight:500;color:#aaa;">Last counted by <strong style="color:#888;">Maria T</strong> · 2h ago · Main Kitchen</div>
             </div>
             <div class="fc-body">
               <p class="fc-number">10</p>
@@ -745,29 +878,47 @@
             </div>
           </article>
 
-          <!-- 11 Purchase Orders -->
+          <!-- 11 Purchase Orders — rebuilt mockup -->
           <article class="fc reveal">
-            <div class="fc-mockup">
-              <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.10);border-radius:12px;padding:12px 14px;">
-                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
-                  <span style="font-size:12px;font-weight:700;color:#fff;">PO #1047 &middot; Sysco</span>
-                  <span style="font-size:9px;font-weight:800;color:#35d4a9;background:rgba(15,110,86,0.22);padding:2px 8px;border-radius:999px;">Open</span>
+            <div class="fc-mockup" style="padding:12px 14px;justify-content:flex-start;">
+              <!-- PO card 1 -->
+              <div style="background:#fff;border:1px solid #E3DDD4;border-radius:10px;overflow:hidden;margin-bottom:7px;">
+                <div style="display:flex;align-items:center;padding:5px 8px;background:#F7F5F0;border-bottom:1px solid #EDE9E1;gap:6px;">
+                  <span style="font-size:10px;font-weight:700;color:var(--color-ink);">PO #1047 · Pacific Fresh Seafood</span>
+                  <span style="padding:1px 6px;border-radius:999px;font-size:8px;font-weight:800;background:rgba(45,125,42,0.12);color:#2D7D2A;margin-left:auto;white-space:nowrap;">Received</span>
+                  <span style="font-size:8px;font-weight:600;color:#aaa;white-space:nowrap;">Oct 4</span>
                 </div>
-                <div style="display:flex;align-items:center;justify-content:space-between;padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.06);">
-                  <span style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.72);">Brown Rice &nbsp;&mdash;&nbsp; 50 lb</span>
-                  <span style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.60);">$44.00</span>
+                <!-- sub-header -->
+                <div style="display:flex;padding:3px 8px;background:#FAFAF8;border-bottom:1px solid #F2EEE8;gap:4px;">
+                  <span style="flex:1;font-size:8px;font-weight:700;color:#aaa;text-transform:uppercase;">Item</span>
+                  <span style="width:44px;text-align:center;font-size:8px;font-weight:700;color:#aaa;text-transform:uppercase;">Ordered</span>
+                  <span style="width:44px;text-align:center;font-size:8px;font-weight:700;color:#aaa;text-transform:uppercase;">Received</span>
+                  <span style="width:44px;text-align:right;font-size:8px;font-weight:700;color:#aaa;text-transform:uppercase;">Var</span>
                 </div>
-                <div style="display:flex;align-items:center;justify-content:space-between;padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.06);">
-                  <span style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.72);">Wild Salmon &nbsp;&mdash;&nbsp; 30 lb</span>
-                  <span style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.60);">$252.00</span>
+                <div style="display:flex;align-items:center;padding:4px 8px;border-bottom:1px solid #F2EEE8;gap:4px;">
+                  <span style="flex:1;font-size:9px;font-weight:600;color:var(--color-ink);">Wild Salmon</span>
+                  <span style="width:44px;text-align:center;font-size:9px;color:#888;">30 lb</span>
+                  <span style="width:44px;text-align:center;font-size:9px;color:#888;">28 lb</span>
+                  <span style="width:44px;text-align:right;"><span style="padding:1px 4px;border-radius:4px;font-size:8px;font-weight:800;background:#FDECEA;color:#C0392B;">-2 lb</span></span>
                 </div>
-                <div style="display:flex;align-items:center;justify-content:space-between;padding:7px 0 8px;">
-                  <span style="font-size:11px;font-weight:800;color:#fff;">Total</span>
-                  <span style="font-size:12px;font-weight:800;color:#fff;">$296.00</span>
+                <div style="display:flex;align-items:center;padding:4px 8px;border-bottom:1px solid #F2EEE8;gap:4px;background:#FAFAF8;">
+                  <span style="flex:1;font-size:9px;font-weight:600;color:var(--color-ink);">Halibut Fillet</span>
+                  <span style="width:44px;text-align:center;font-size:9px;color:#888;">15 lb</span>
+                  <span style="width:44px;text-align:center;font-size:9px;color:#888;">15 lb</span>
+                  <span style="width:44px;text-align:right;"><span style="padding:1px 4px;border-radius:4px;font-size:8px;font-weight:800;background:rgba(45,125,42,0.12);color:#2D7D2A;">Exact</span></span>
                 </div>
-                <div style="text-align:center;">
-                  <span style="display:inline-block;background:rgba(52,199,89,0.20);color:#34C759;font-size:10px;font-weight:800;padding:4px 14px;border-radius:999px;border:1px solid rgba(52,199,89,0.30);">Send PO</span>
+                <div style="display:flex;align-items:center;padding:4px 8px;gap:4px;">
+                  <span style="flex:1;font-size:9px;font-weight:600;color:var(--color-ink);">Shrimp (31/40)</span>
+                  <span style="width:44px;text-align:center;font-size:9px;color:#888;">10 lb</span>
+                  <span style="width:44px;text-align:center;font-size:9px;color:#888;">11 lb</span>
+                  <span style="width:44px;text-align:right;"><span style="padding:1px 4px;border-radius:4px;font-size:8px;font-weight:800;background:rgba(29,78,216,0.10);color:#1D4ED8;">+1 lb</span></span>
                 </div>
+              </div>
+              <!-- PO card 2 condensed -->
+              <div style="background:#fff;border:1px solid #E3DDD4;border-radius:7px;padding:5px 8px;display:flex;align-items:center;gap:6px;">
+                <span style="font-size:9px;font-weight:700;color:var(--color-ink);">PO #1048 · Seattle Fish Co</span>
+                <span style="padding:1px 5px;border-radius:999px;font-size:8px;font-weight:800;background:var(--color-teal-light);color:var(--color-teal);margin-left:auto;">Open</span>
+                <span style="font-size:8px;font-weight:600;color:#aaa;white-space:nowrap;">4 items · $286.40</span>
               </div>
             </div>
             <div class="fc-body">
@@ -782,58 +933,67 @@
           <article class="fc reveal">
             <div class="fc-mockup">
               <div style="display:flex;flex-direction:column;gap:4px;">
-                <div style="font-size:9px;font-weight:800;letter-spacing:0.10em;text-transform:uppercase;color:#35d4a9;margin-bottom:2px;">Produce</div>
-                <div style="display:flex;align-items:center;justify-content:space-between;padding:5px 8px;border-radius:6px;background:rgba(255,255,255,0.05);">
-                  <span style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.80);">Broccoli</span>
-                  <span style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.44);">8 lb</span>
+                <div style="font-size:9px;font-weight:800;letter-spacing:0.10em;text-transform:uppercase;color:var(--color-teal);margin-bottom:2px;">Produce</div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:5px 8px;border-radius:6px;background:#fff;border:1px solid #E3DDD4;">
+                  <span style="font-size:11px;font-weight:600;color:var(--color-ink);">Broccoli</span>
+                  <span style="font-size:10px;font-weight:700;color:#888;">8 lb</span>
                 </div>
-                <div style="display:flex;align-items:center;justify-content:space-between;padding:5px 8px;border-radius:6px;background:rgba(255,255,255,0.05);margin-bottom:8px;">
-                  <span style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.80);">Kale</span>
-                  <span style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.44);">12 lb</span>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:5px 8px;border-radius:6px;background:#fff;border:1px solid #E3DDD4;margin-bottom:4px;">
+                  <span style="font-size:11px;font-weight:600;color:var(--color-ink);">Kale</span>
+                  <span style="font-size:10px;font-weight:700;color:#888;">12 lb</span>
                 </div>
-                <div style="font-size:9px;font-weight:800;letter-spacing:0.10em;text-transform:uppercase;color:#35d4a9;margin-bottom:2px;">Protein</div>
-                <div style="display:flex;align-items:center;justify-content:space-between;padding:5px 8px;border-radius:6px;background:rgba(255,255,255,0.05);">
-                  <span style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.80);">Salmon</span>
-                  <span style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.44);">24 lb</span>
+                <div style="font-size:9px;font-weight:800;letter-spacing:0.10em;text-transform:uppercase;color:var(--color-teal);margin-bottom:2px;">Protein</div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:5px 8px;border-radius:6px;background:#fff;border:1px solid #E3DDD4;">
+                  <span style="font-size:11px;font-weight:600;color:var(--color-ink);">Salmon</span>
+                  <span style="font-size:10px;font-weight:700;color:#888;">24 lb</span>
                 </div>
-                <div style="display:flex;align-items:center;justify-content:space-between;padding:5px 8px;border-radius:6px;background:rgba(255,255,255,0.05);">
-                  <span style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.80);">Chicken</span>
-                  <span style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.44);">40 lb</span>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:5px 8px;border-radius:6px;background:#fff;border:1px solid #E3DDD4;">
+                  <span style="font-size:11px;font-weight:600;color:var(--color-ink);">Chicken</span>
+                  <span style="font-size:10px;font-weight:700;color:#888;">40 lb</span>
                 </div>
               </div>
             </div>
             <div class="fc-body">
               <p class="fc-number">12</p>
               <h2 class="fc-title">Order Guides</h2>
-              <p class="fc-desc">Auto-generated order guides organized by supplier and category, built from your production event quantities. Edit quantities before sending — ChefOS handles the math.</p>
+              <p class="fc-desc">Auto-generated order guides organized by supplier and category, built from your production event quantities. Edit quantities before sending — KitchenOS handles the math.</p>
               <p class="fc-meaning">Your order guide writes itself.</p>
             </div>
           </article>
 
-          <!-- 13 Reports & Analytics -->
+          <!-- 13 Reports & Analytics — rebuilt mockup -->
           <article class="fc reveal">
-            <div class="fc-mockup">
-              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
-                <span style="font-size:12px;font-weight:700;color:#fff;">Margin by Meal</span>
-                <span style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.40);">This month</span>
+            <div class="fc-mockup" style="padding:12px 14px;justify-content:flex-start;">
+              <!-- tab strip -->
+              <div style="display:flex;gap:0;border-bottom:1px solid #EDE9E1;margin-bottom:8px;overflow:hidden;">
+                <span style="font-size:9px;font-weight:800;color:var(--color-teal);padding:0 8px 5px;border-bottom:2px solid var(--color-teal);white-space:nowrap;">Margin by Meal</span>
+                <span style="font-size:9px;font-weight:600;color:#aaa;padding:0 8px 5px;white-space:nowrap;">Inventory Val.</span>
+                <span style="font-size:9px;font-weight:600;color:#aaa;padding:0 8px 5px;white-space:nowrap;">Waste Summary</span>
+                <span style="font-size:9px;font-weight:600;color:var(--color-teal);padding:0 0 5px;margin-left:auto;white-space:nowrap;text-decoration:none;">Export CSV ↓</span>
               </div>
-              <!-- Herb Chicken Bowl 68% -->
-              <div class="mock-dp-row">
-                <span style="width:120px;font-size:11px;font-weight:600;color:rgba(255,255,255,0.70);flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">Herb Chicken Bowl</span>
-                <div class="mock-dp-bar-wrap"><div class="mock-dp-fill" style="width:68%"></div></div>
-                <span class="mock-dp-pct">68%</span>
+              <!-- bars -->
+              <div style="display:flex;align-items:center;gap:6px;padding:3px 0;border-bottom:1px solid #EDE9E1;">
+                <span style="width:90px;font-size:9px;font-weight:600;color:var(--color-text-muted);flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">Herb Chicken Bowl</span>
+                <div style="flex:1;height:5px;border-radius:999px;background:#EDE9E1;overflow:hidden;"><div style="width:68%;height:100%;border-radius:999px;background:linear-gradient(90deg,#0D5C46,#117256);"></div></div>
+                <span style="width:28px;text-align:right;font-size:9px;font-weight:800;color:var(--color-text-soft);">68%</span>
               </div>
-              <!-- Turkey Bowl 71% -->
-              <div class="mock-dp-row">
-                <span style="width:120px;font-size:11px;font-weight:600;color:rgba(255,255,255,0.70);flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">Turkey Bowl</span>
-                <div class="mock-dp-bar-wrap"><div class="mock-dp-fill" style="width:71%"></div></div>
-                <span class="mock-dp-pct">71%</span>
+              <div style="display:flex;align-items:center;gap:6px;padding:3px 0;border-bottom:1px solid #EDE9E1;">
+                <span style="width:90px;font-size:9px;font-weight:600;color:var(--color-text-muted);flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">Turkey Bowl</span>
+                <div style="flex:1;height:5px;border-radius:999px;background:#EDE9E1;overflow:hidden;"><div style="width:71%;height:100%;border-radius:999px;background:linear-gradient(90deg,#0D5C46,#117256);"></div></div>
+                <span style="width:28px;text-align:right;font-size:9px;font-weight:800;color:var(--color-text-soft);">71%</span>
               </div>
-              <!-- Salmon Bowl 55% - amber -->
-              <div class="mock-dp-row">
-                <span style="width:120px;font-size:11px;font-weight:600;color:rgba(255,255,255,0.70);flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">Salmon Bowl</span>
-                <div class="mock-dp-bar-wrap"><div style="width:55%;height:100%;border-radius:999px;background:linear-gradient(90deg,#c46a00,#FF9F0A);"></div></div>
-                <span class="mock-dp-pct" style="color:#FF9F0A;">55%</span>
+              <div style="display:flex;align-items:center;gap:6px;padding:3px 0;border-bottom:1px solid #EDE9E1;">
+                <span style="width:90px;font-size:9px;font-weight:600;color:var(--color-text-muted);flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">Salmon Bowl</span>
+                <div style="flex:1;height:5px;border-radius:999px;background:#EDE9E1;overflow:hidden;"><div style="width:55%;height:100%;border-radius:999px;background:linear-gradient(90deg,#c46a00,#FF9F0A);"></div></div>
+                <span style="width:28px;text-align:right;font-size:9px;font-weight:800;color:#FF9F0A;">55%</span>
+              </div>
+              <!-- stat strip -->
+              <div style="margin-top:7px;padding:4px 8px;background:#fff;border:1px solid #E3DDD4;border-radius:6px;display:flex;align-items:center;gap:6px;">
+                <span style="font-size:8px;font-weight:600;color:#888;">Avg food cost: <strong style="color:var(--color-ink);">28.4%</strong></span>
+                <span style="color:#D0CAC0;">·</span>
+                <span style="font-size:8px;font-weight:600;color:#888;">Target: 30%</span>
+                <span style="color:#D0CAC0;">·</span>
+                <span style="font-size:8px;font-weight:700;color:#2D7D2A;">✓ On track</span>
               </div>
             </div>
             <div class="fc-body">
@@ -844,16 +1004,28 @@
             </div>
           </article>
 
-          <!-- 14 AI Kitchen Assistant -->
+          <!-- 14 AI Kitchen Assistant — rebuilt mockup -->
           <article class="fc reveal">
-            <div class="fc-mockup" style="gap:8px;justify-content:flex-end;">
-              <!-- User bubble -->
-              <div style="align-self:flex-end;max-width:90%;background:rgba(255,255,255,0.10);border-radius:12px 12px 4px 12px;padding:8px 11px;">
-                <p style="margin:0;font-size:11px;font-weight:600;color:rgba(255,255,255,0.85);line-height:1.4;">What&rsquo;s the cost per serving for the salmon bowl?</p>
+            <div class="fc-mockup" style="padding:12px 14px;justify-content:flex-start;gap:6px;">
+              <!-- user bubble -->
+              <div style="align-self:flex-end;max-width:88%;background:var(--color-teal-light);border-radius:10px 10px 3px 10px;padding:6px 9px;">
+                <p style="margin:0;font-size:9.5px;font-weight:600;color:var(--color-teal);line-height:1.4;">What&rsquo;s the food cost on the salmon bowl if I swap Atlantic for Sockeye?</p>
               </div>
-              <!-- Assistant bubble -->
-              <div style="align-self:flex-start;max-width:95%;background:rgba(255,255,255,0.06);border-left:2px solid #35d4a9;border-radius:4px 12px 12px 4px;padding:8px 11px;">
-                <p style="margin:0;font-size:11px;font-weight:500;color:rgba(255,255,255,0.72);line-height:1.45;">The Salmon Power Bowl is <strong style="color:#35d4a9;">$4.82/serving</strong> with a 55% margin. The largest cost driver is wild salmon at $2.94/serving.</p>
+              <!-- typing indicator -->
+              <div style="align-self:flex-start;background:#fff;border:1px solid #E3DDD4;border-radius:3px 10px 10px 10px;padding:5px 9px;">
+                <span style="font-size:12px;color:#aaa;letter-spacing:2px;">● ● ●</span>
+              </div>
+              <!-- assistant answer -->
+              <div style="align-self:flex-start;max-width:96%;background:#fff;border:1px solid #E3DDD4;border-left:2px solid var(--color-teal);border-radius:3px 10px 10px 3px;padding:6px 9px;">
+                <p style="margin:0;font-size:9px;font-weight:500;color:var(--color-text-muted);line-height:1.45;">Switching to Sockeye at Pacific Fresh ($18.40/lb) raises food cost <strong style="color:var(--color-ink);">28.3% → 34.1%</strong> — above your 30% target. Atlantic from Sysco at $13.95 keeps you at <strong style="color:var(--color-teal);">25.7%</strong>.</p>
+              </div>
+              <!-- sources -->
+              <div style="font-size:8px;color:#aaa;font-weight:500;padding:0 2px;">
+                📄 Wild Salmon Power Bowl v3 &nbsp;·&nbsp; 📄 Pacific Fresh pricing (Oct 2025)
+              </div>
+              <!-- input bar -->
+              <div style="background:#fff;border:1px solid #E3DDD4;border-radius:7px;padding:5px 9px;font-size:9px;color:#aaa;margin-top:auto;">
+                Ask about any recipe, cost, or allergen&hellip;
               </div>
             </div>
             <div class="fc-body">
@@ -867,29 +1039,29 @@
           <!-- 15 Mobile App -->
           <article class="fc reveal">
             <div class="fc-mockup">
-              <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.10);border-radius:12px;padding:12px 14px;">
-                <div style="font-size:12px;font-weight:700;color:#fff;margin-bottom:10px;text-align:center;">Receiving &middot; PO #1047</div>
+              <div style="background:#fff;border:1px solid #E3DDD4;border-radius:12px;padding:12px 14px;">
+                <div style="font-size:12px;font-weight:700;color:var(--color-ink);margin-bottom:10px;text-align:center;">Receiving &middot; PO #1047</div>
                 <div style="text-align:center;margin-bottom:10px;">
-                  <span style="font-size:18px;letter-spacing:0.08em;color:rgba(255,255,255,0.50);display:block;">&#9612;&#9612;&#9612; &#9612;&#9612;</span>
-                  <span style="font-size:10px;font-weight:600;color:rgba(255,255,255,0.36);">Tap to scan</span>
+                  <span style="font-size:18px;letter-spacing:0.08em;color:#B0A89C;display:block;">&#9612;&#9612;&#9612; &#9612;&#9612;</span>
+                  <span style="font-size:10px;font-weight:600;color:#aaa;">Tap to scan</span>
                 </div>
                 <!-- Brown Rice row -->
                 <div style="margin-bottom:6px;">
                   <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:3px;">
-                    <span style="font-size:10px;font-weight:600;color:rgba(255,255,255,0.80);">Brown Rice</span>
-                    <span style="font-size:10px;font-weight:700;color:#34C759;">2 of 3 bags</span>
+                    <span style="font-size:10px;font-weight:600;color:var(--color-ink);">Brown Rice</span>
+                    <span style="font-size:10px;font-weight:700;color:#2D7D2A;">2 of 3 bags</span>
                   </div>
-                  <div style="height:4px;border-radius:999px;background:rgba(255,255,255,0.10);overflow:hidden;">
+                  <div style="height:4px;border-radius:999px;background:#EDE9E1;overflow:hidden;">
                     <div style="width:66%;height:100%;border-radius:999px;background:linear-gradient(90deg,#0F6E56,#35d4a9);"></div>
                   </div>
                 </div>
                 <!-- Wild Salmon row -->
                 <div>
                   <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:3px;">
-                    <span style="font-size:10px;font-weight:600;color:rgba(255,255,255,0.80);">Wild Salmon</span>
-                    <span style="font-size:10px;font-weight:700;color:#FF3B30;">0 of 2 bags</span>
+                    <span style="font-size:10px;font-weight:600;color:var(--color-ink);">Wild Salmon</span>
+                    <span style="font-size:10px;font-weight:700;color:#C0392B;">0 of 2 bags</span>
                   </div>
-                  <div style="height:4px;border-radius:999px;background:rgba(255,255,255,0.10);overflow:hidden;">
+                  <div style="height:4px;border-radius:999px;background:#EDE9E1;overflow:hidden;">
                     <div style="width:0%;height:100%;border-radius:999px;background:linear-gradient(90deg,#FF3B30,#FF6B6B);"></div>
                   </div>
                 </div>
@@ -906,18 +1078,18 @@
           <!-- 16 Multi-Location -->
           <article class="fc reveal">
             <div class="fc-mockup" style="justify-content:center;align-items:center;">
-              <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.10);border-radius:12px;padding:14px 16px;width:100%;max-width:240px;">
-                <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.50);margin-bottom:8px;text-align:center;">Transfer &middot; Kitchen 1 &rarr; Kitchen 2</div>
-                <div style="display:flex;align-items:center;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.07);">
-                  <span style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.80);">Wild Rice</span>
-                  <span style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.50);">10 lb</span>
+              <div style="background:#fff;border:1px solid #E3DDD4;border-radius:12px;padding:14px 16px;width:100%;max-width:240px;">
+                <div style="font-size:11px;font-weight:700;color:#888;margin-bottom:8px;text-align:center;">Transfer &middot; Kitchen 1 &rarr; Kitchen 2</div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:6px 0;border-bottom:1px solid #EDE9E1;">
+                  <span style="font-size:11px;font-weight:600;color:var(--color-ink);">Wild Rice</span>
+                  <span style="font-size:11px;font-weight:700;color:#888;">10 lb</span>
                 </div>
                 <div style="display:flex;align-items:center;justify-content:space-between;padding:6px 0;margin-bottom:10px;">
-                  <span style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.80);">Tahini Paste</span>
-                  <span style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.50);">4 lb</span>
+                  <span style="font-size:11px;font-weight:600;color:var(--color-ink);">Tahini Paste</span>
+                  <span style="font-size:11px;font-weight:700;color:#888;">4 lb</span>
                 </div>
                 <div style="text-align:center;">
-                  <span style="display:inline-block;background:rgba(52,199,89,0.20);color:#34C759;font-size:10px;font-weight:800;padding:5px 16px;border-radius:999px;border:1px solid rgba(52,199,89,0.30);">Confirm Transfer</span>
+                  <span style="display:inline-block;background:var(--color-teal);color:#fff;font-size:10px;font-weight:800;padding:5px 16px;border-radius:999px;">Confirm Transfer</span>
                 </div>
               </div>
             </div>
@@ -926,6 +1098,114 @@
               <h2 class="fc-title">Multi-Location</h2>
               <p class="fc-desc">Run multiple kitchens from one account. Transfer stock between locations, assign production events by site, and see consolidated reports across your entire operation.</p>
               <p class="fc-meaning">Scale without losing sight of any kitchen.</p>
+            </div>
+          </article>
+
+          <!-- 17 Waste Tracking — new card -->
+          <article class="fc reveal">
+            <div class="fc-mockup" style="padding:12px 14px;justify-content:flex-start;">
+              <!-- header with button -->
+              <div style="display:flex;align-items:center;margin-bottom:7px;">
+                <span style="font-size:11px;font-weight:700;color:var(--color-ink);">Waste Log</span>
+                <span style="margin-left:auto;padding:3px 8px;border-radius:6px;font-size:9px;font-weight:700;background:var(--color-teal);color:#fff;cursor:pointer;">Log Waste</span>
+              </div>
+              <!-- table -->
+              <div style="background:#fff;border:1px solid #E3DDD4;border-radius:8px;overflow:hidden;margin-bottom:7px;">
+                <div style="display:flex;padding:3px 8px;background:#F7F5F0;border-bottom:1px solid #EDE9E1;gap:4px;">
+                  <span style="flex:1.4;font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:#aaa;">Item</span>
+                  <span style="width:40px;font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:#aaa;">Qty</span>
+                  <span style="width:66px;font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:#aaa;">Reason</span>
+                  <span style="width:50px;font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:#aaa;">Location</span>
+                  <span style="width:36px;text-align:right;font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:#aaa;">Time</span>
+                </div>
+                <!-- row 1 -->
+                <div style="display:flex;align-items:center;padding:4px 8px;border-bottom:1px solid #F2EEE8;gap:4px;">
+                  <span style="flex:1.4;font-size:9px;font-weight:600;color:var(--color-ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">Wild Salmon</span>
+                  <span style="width:40px;font-size:9px;color:#888;">2.4 lb</span>
+                  <span style="width:66px;"><span style="padding:1px 4px;border-radius:4px;font-size:7.5px;font-weight:800;background:#EDEBE6;color:#666;">TRIM</span></span>
+                  <span style="width:50px;"><span style="padding:1px 4px;border-radius:999px;font-size:7.5px;font-weight:700;background:var(--color-teal-light);color:var(--color-teal);">Walk-In 1</span></span>
+                  <span style="width:36px;text-align:right;font-size:8px;color:#aaa;">9:14a</span>
+                </div>
+                <!-- row 2 -->
+                <div style="display:flex;align-items:center;padding:4px 8px;border-bottom:1px solid #F2EEE8;gap:4px;background:#FAFAF8;">
+                  <span style="flex:1.4;font-size:9px;font-weight:600;color:var(--color-ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">Chicken Tikka</span>
+                  <span style="width:40px;font-size:9px;color:#888;">8 srv</span>
+                  <span style="width:66px;"><span style="padding:1px 4px;border-radius:4px;font-size:7.5px;font-weight:800;background:#FEF3C7;color:#B45309;">OVERPROD.</span></span>
+                  <span style="width:50px;"><span style="padding:1px 4px;border-radius:999px;font-size:7.5px;font-weight:700;background:var(--color-teal-light);color:var(--color-teal);">Main</span></span>
+                  <span style="width:36px;text-align:right;font-size:8px;color:#aaa;">11:02a</span>
+                </div>
+                <!-- row 3 -->
+                <div style="display:flex;align-items:center;padding:4px 8px;gap:4px;">
+                  <span style="flex:1.4;font-size:9px;font-weight:600;color:var(--color-ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">Roasted Beets</span>
+                  <span style="width:40px;font-size:9px;color:#888;">1.1 lb</span>
+                  <span style="width:66px;"><span style="padding:1px 4px;border-radius:4px;font-size:7.5px;font-weight:800;background:#FDECEA;color:#C0392B;">SPOILAGE</span></span>
+                  <span style="width:50px;"><span style="padding:1px 4px;border-radius:999px;font-size:7.5px;font-weight:700;background:var(--color-teal-light);color:var(--color-teal);">Walk-In 2</span></span>
+                  <span style="width:36px;text-align:right;font-size:8px;color:#aaa;">1:38p</span>
+                </div>
+              </div>
+              <!-- summary -->
+              <div style="font-size:9px;font-weight:600;color:#888;padding:0 2px;">This week: <strong style="color:var(--color-ink);">14.2 lb</strong> &middot; <strong style="color:var(--color-ink);">$38.40</strong></div>
+            </div>
+            <div class="fc-body">
+              <p class="fc-number">17</p>
+              <h2 class="fc-title">Waste tracking.</h2>
+              <p class="fc-desc">Log spoilage, over-production, and trim waste by ingredient or finished dish. Built-in reason codes, per-location, with a full waste summary report.</p>
+              <p class="fc-meaning">Know exactly where your shrinkage is going — before it kills your margins.</p>
+            </div>
+          </article>
+
+          <!-- 18 Inventory Counts — new card -->
+          <article class="fc reveal">
+            <div class="fc-mockup" style="padding:12px 14px;justify-content:flex-start;">
+              <!-- count session header -->
+              <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;">
+                <span style="font-size:10px;font-weight:700;color:var(--color-ink);">Count #24 &middot; In Progress</span>
+                <span style="margin-left:auto;padding:3px 8px;border-radius:6px;font-size:9px;font-weight:700;background:var(--color-teal);color:#fff;cursor:pointer;white-space:nowrap;">Complete Count</span>
+              </div>
+              <!-- count rows -->
+              <div style="background:#fff;border:1px solid #E3DDD4;border-radius:8px;overflow:hidden;margin-bottom:7px;">
+                <div style="display:flex;padding:3px 8px;background:#F7F5F0;border-bottom:1px solid #EDE9E1;gap:4px;">
+                  <span style="flex:1.4;font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:#aaa;">Ingredient</span>
+                  <span style="width:48px;text-align:center;font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:#aaa;">Expected</span>
+                  <span style="width:48px;text-align:center;font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:#aaa;">Actual</span>
+                  <span style="width:44px;text-align:right;font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:#aaa;">Delta</span>
+                </div>
+                <!-- row 1 -->
+                <div style="display:flex;align-items:center;padding:5px 8px;border-bottom:1px solid #F2EEE8;gap:4px;">
+                  <span style="flex:1.4;font-size:10px;font-weight:600;color:var(--color-ink);">Wild Salmon</span>
+                  <span style="width:48px;text-align:center;font-size:9px;color:#888;">20 lb</span>
+                  <span style="width:48px;text-align:center;">
+                    <span style="display:inline-block;width:36px;padding:2px 4px;border:1px solid #E3DDD4;border-radius:4px;font-size:9px;font-weight:700;color:var(--color-ink);text-align:center;background:#fff;">22.0</span>
+                  </span>
+                  <span style="width:44px;text-align:right;"><span style="padding:1px 5px;border-radius:4px;font-size:8px;font-weight:800;background:rgba(45,125,42,0.12);color:#2D7D2A;">+2.0 lb</span></span>
+                </div>
+                <!-- row 2 -->
+                <div style="display:flex;align-items:center;padding:5px 8px;border-bottom:1px solid #F2EEE8;gap:4px;background:#FAFAF8;">
+                  <span style="flex:1.4;font-size:10px;font-weight:600;color:var(--color-ink);">Chicken Thigh</span>
+                  <span style="width:48px;text-align:center;font-size:9px;color:#888;">25 lb</span>
+                  <span style="width:48px;text-align:center;">
+                    <span style="display:inline-block;width:36px;padding:2px 4px;border:1px solid var(--color-teal);border-radius:4px;font-size:9px;font-weight:700;color:var(--color-ink);text-align:center;background:#fff;">24.5</span>
+                  </span>
+                  <span style="width:44px;text-align:right;"><span style="padding:1px 5px;border-radius:4px;font-size:8px;font-weight:800;background:#FDECEA;color:#C0392B;">-0.5 lb</span></span>
+                </div>
+                <!-- row 3 -->
+                <div style="display:flex;align-items:center;padding:5px 8px;gap:4px;">
+                  <span style="flex:1.4;font-size:10px;font-weight:600;color:var(--color-ink);">Brown Rice</span>
+                  <span style="width:48px;text-align:center;font-size:9px;color:#888;">30 lb</span>
+                  <span style="width:48px;text-align:center;">
+                    <span style="display:inline-block;width:36px;padding:2px 4px;border:1px solid #E3DDD4;border-radius:4px;font-size:9px;font-weight:700;color:var(--color-ink);text-align:center;background:#fff;">30.0</span>
+                  </span>
+                  <span style="width:44px;text-align:right;"><span style="padding:1px 5px;border-radius:4px;font-size:8px;font-weight:800;background:#EDEBE6;color:#888;">On Par</span></span>
+                </div>
+              </div>
+              <!-- status strip -->
+              <div style="font-size:9px;font-weight:600;color:#888;padding:0 2px;">12 of 15 lines filled &middot; <span style="color:#B45309;font-weight:700;">Awaiting completion</span></div>
+            </div>
+            <div class="fc-body">
+              <p class="fc-number">18</p>
+              <h2 class="fc-title">Structured count sessions.</h2>
+              <p class="fc-desc">Open a count, fill in quantities line by line, complete it, and send for manager approval. The system tracks variance vs par and keeps an audit trail of every count.</p>
+              <p class="fc-meaning">Not a printout. A managed workflow — with approvals, history, and delta reporting.</p>
             </div>
           </article>
 

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Integrations | ChefOS</title>
-  <meta name="description" content="ChefOS works with Parsley, ChefTec, and recipe software workflows for production import.">
+  <meta name="description" content="ChefOS works with Parsley, USDA FoodData Central, and recipe software workflows for production import.">
   <meta property="og:title" content="ChefOS Integrations">
   <meta property="og:description" content="Built to work with what your kitchen already uses.">
   <meta property="og:type" content="website">
@@ -53,7 +53,7 @@
       overflow: hidden;
     }
 
-    /* Featured Parsley card spans full width */
+    /* Featured cards span full width */
     .int-card-featured {
       grid-column: 1 / -1;
       display: grid;
@@ -82,6 +82,7 @@
     .int-badge-live   { background: rgba(45,125,42,0.14); color: #2D7D2A; }
     .int-badge-soon   { background: #F7F5F0; color: var(--color-text-soft); }
     .int-badge-custom { background: var(--color-teal-light); color: var(--color-teal); }
+    .int-badge-contact { background: rgba(15,110,86,0.12); color: var(--color-teal); }
 
     .int-card-glyph {
       width: 52px; height: 52px;
@@ -232,6 +233,73 @@
       background: linear-gradient(90deg, #0D5C46, #117256);
     }
 
+    /* USDA mockup pane */
+    .usda-mockup-pane {
+      border-left: 1px solid #EDE9E1;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      background: #F7F5F0;
+    }
+
+    .usda-search-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: var(--color-white);
+      border: 1px solid #E3DDD4;
+      margin-bottom: 14px;
+    }
+    .usda-search-icon { font-size: 14px; color: var(--color-text-soft); }
+    .usda-search-text { font-size: 13px; font-weight: 600; color: var(--color-ink); flex: 1; }
+    .usda-search-badge {
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--color-teal-light);
+      color: var(--color-teal);
+      font-size: 10px;
+      font-weight: 800;
+    }
+
+    .usda-result {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 12px;
+      border-radius: 9px;
+      background: var(--color-white);
+      border: 1px solid #EDE9E1;
+      margin-bottom: 6px;
+    }
+    .usda-result.selected {
+      border-color: rgba(13,92,70,0.30);
+      background: rgba(13,92,70,0.04);
+    }
+    .usda-result-name { font-size: 12px; font-weight: 700; color: var(--color-ink); flex: 1; }
+    .usda-result-meta { font-size: 11px; color: var(--color-text-soft); font-weight: 500; }
+    .usda-result-check {
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background: var(--color-teal);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .usda-nutrient-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 7px 0;
+      border-bottom: 1px solid #EDE9E1;
+    }
+    .usda-nutrient-row:last-child { border-bottom: none; }
+    .usda-nutrient-name { font-size: 11px; font-weight: 600; color: var(--color-text-soft); }
+    .usda-nutrient-val { font-size: 11px; font-weight: 800; color: var(--color-ink); }
+
     /* Other integration cards (smaller) */
     .int-card-small {
       padding: 34px 34px 34px;
@@ -239,6 +307,73 @@
 
     .int-card-small .int-card-title { font-size: 22px; }
     .int-card-small .int-card-desc  { font-size: 15px; }
+
+    /* ---- Data connections callout section ---- */
+    .data-connections-section {
+      padding: 80px 0 100px;
+      background: var(--color-gray-apple);
+      border-top: 1px solid #E3DDD4;
+    }
+
+    .data-connections-eyebrow {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--color-teal);
+      margin: 0 0 14px;
+    }
+
+    .data-connections-title {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800;
+      color: var(--color-ink);
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      margin: 0 0 52px;
+      max-width: 560px;
+    }
+
+    .data-callouts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .data-callout {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .data-callout-icon {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      background: var(--color-teal-light);
+      border: 1px solid rgba(13,92,70,0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: var(--color-teal);
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+
+    .data-callout-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--color-ink);
+      margin: 0;
+    }
+
+    .data-callout-desc {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+      margin: 0;
+    }
 
     /* ---- Final CTA ---- */
     .final-cta-section {
@@ -266,7 +401,9 @@
     @media (max-width: 900px) {
       .int-card-featured { grid-template-columns: 1fr; }
       .parsley-mockup-pane { border-left: none; border-top: 1px solid #EDE9E1; }
+      .usda-mockup-pane { border-left: none; border-top: 1px solid #EDE9E1; }
       .int-grid { grid-template-columns: 1fr; }
+      .data-callouts { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -352,6 +489,70 @@
             </div>
           </article>
 
+          <!-- USDA FoodData Central — featured, full width -->
+          <article class="int-card int-card-featured reveal">
+            <div class="int-card-body">
+              <span class="int-badge int-badge-live">Live Now</span>
+              <div class="int-card-glyph" style="font-size:13px;letter-spacing:0.02em;">USDA</div>
+              <h2 class="int-card-title">USDA FoodData Central</h2>
+              <p class="int-card-desc">Search and import from a database of over 1 million foods directly into your ingredient library. Nutrient data populates instantly — no manual entry. When you add an ingredient from the USDA database, calories, macros, and micronutrients flow straight into your recipe costing and label generation.</p>
+              <p class="int-card-meaning">One search. Complete nutrition data, immediately in your library.</p>
+            </div>
+            <div class="usda-mockup-pane">
+              <div class="pm-header">
+                <span class="pm-logo" style="font-size:13px;letter-spacing:0.03em;">USDA FoodData Central</span>
+                <span class="pm-status" style="color:#2D7D2A;font-weight:800;">&#10003; Connected</span>
+              </div>
+              <div class="usda-search-bar">
+                <span class="usda-search-icon">&#128269;</span>
+                <span class="usda-search-text">Wild Atlantic Salmon, raw</span>
+                <span class="usda-search-badge">1M+ foods</span>
+              </div>
+              <div class="usda-result selected">
+                <div style="flex:1;">
+                  <div class="usda-result-name">Wild Atlantic Salmon, raw</div>
+                  <div class="usda-result-meta">SR Legacy &middot; NDB #15076</div>
+                </div>
+                <div class="usda-result-check">&#10003;</div>
+              </div>
+              <div class="usda-result">
+                <div style="flex:1;">
+                  <div class="usda-result-name">Atlantic Salmon, farmed, raw</div>
+                  <div class="usda-result-meta">SR Legacy &middot; NDB #15077</div>
+                </div>
+              </div>
+              <div class="usda-result">
+                <div style="flex:1;">
+                  <div class="usda-result-name">Salmon, sockeye, raw</div>
+                  <div class="usda-result-meta">SR Legacy &middot; NDB #15085</div>
+                </div>
+              </div>
+              <div style="margin-top:14px;padding-top:12px;border-top:1px solid #EDE9E1;">
+                <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--color-text-soft);margin-bottom:8px;">Nutrients per 100g — imported</div>
+                <div class="usda-nutrient-row">
+                  <span class="usda-nutrient-name">Calories</span>
+                  <span class="usda-nutrient-val">142 kcal</span>
+                </div>
+                <div class="usda-nutrient-row">
+                  <span class="usda-nutrient-name">Protein</span>
+                  <span class="usda-nutrient-val">19.8 g</span>
+                </div>
+                <div class="usda-nutrient-row">
+                  <span class="usda-nutrient-name">Total Fat</span>
+                  <span class="usda-nutrient-val">6.3 g</span>
+                </div>
+                <div class="usda-nutrient-row">
+                  <span class="usda-nutrient-name">Carbohydrate</span>
+                  <span class="usda-nutrient-val">0 g</span>
+                </div>
+                <div class="usda-nutrient-row">
+                  <span class="usda-nutrient-name">Sodium</span>
+                  <span class="usda-nutrient-val">44 mg</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
           <!-- ChefTec -->
           <article class="int-card reveal">
             <div class="int-card-small">
@@ -366,22 +567,22 @@
           <!-- Recipe Software -->
           <article class="int-card reveal">
             <div class="int-card-small">
-              <span class="int-badge int-badge-soon">Coming Soon</span>
+              <span class="int-badge int-badge-contact">Contact Us</span>
               <div class="int-card-glyph" style="font-size:24px;">+</div>
               <h2 class="int-card-title">Your Recipe Software</h2>
-              <p class="int-card-desc">ChefOS can ingest structured exports from most recipe management platforms. If your software exports a consistent PDF, CSV, or data format, we can map it into the production flow.</p>
+              <p class="int-card-desc">Connect any platform that exports CSV or JSON. ChefOS imports ingredient lists, recipe costs, and nutritional data from structured exports.</p>
               <p class="int-card-meaning">Send us your export and we will tell you the path in.</p>
             </div>
           </article>
 
-          <!-- Menu Tools -->
+          <!-- Label Printer Integration -->
           <article class="int-card reveal">
             <div class="int-card-small">
-              <span class="int-badge int-badge-soon">Coming Soon</span>
-              <div class="int-card-glyph" style="font-size:22px;">M</div>
-              <h2 class="int-card-title">Menu Tools</h2>
-              <p class="int-card-desc">Send menus and sub-recipes through the same production flow. Nutritional data, allergen flags, and meal-size variants carry through to the station and plating screens.</p>
-              <p class="int-card-meaning">One source of truth from menu to packout.</p>
+              <span class="int-badge int-badge-contact">Contact Us for setup</span>
+              <div class="int-card-glyph" style="font-size:20px;">&#127991;</div>
+              <h2 class="int-card-title">Label Printer Integration</h2>
+              <p class="int-card-desc">ChefOS sends print jobs to your label printer via a queued job system. Compatible with standard thermal label printers. Each job is tracked by ID — you can see queue status and reprint from the dashboard.</p>
+              <p class="int-card-meaning">Print nutrition labels from a recipe in two clicks.</p>
             </div>
           </article>
 
@@ -395,6 +596,35 @@
               <p class="int-card-meaning">Bring your format. We will build the bridge.</p>
             </div>
           </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- DATA CONNECTIONS SECTION -->
+    <section class="data-connections-section">
+      <div class="container reveal">
+        <p class="data-connections-eyebrow">What ChefOS connects through your data</p>
+        <h2 class="data-connections-title">More than imports — a data layer for your whole kitchen.</h2>
+        <div class="data-callouts">
+
+          <div class="data-callout">
+            <div class="data-callout-icon">GL</div>
+            <h3 class="data-callout-title">GL Account fields</h3>
+            <p class="data-callout-desc">Every inventory item carries a GL account code for clean accounting exports. Cost data moves to your books without manual re-entry.</p>
+          </div>
+
+          <div class="data-callout">
+            <div class="data-callout-icon" style="font-size:22px;">&#9641;</div>
+            <h3 class="data-callout-title">Barcode scanning</h3>
+            <p class="data-callout-desc">Receive purchase orders by scanning item barcodes on the mobile app. Line items are matched and quantities recorded without typing.</p>
+          </div>
+
+          <div class="data-callout">
+            <div class="data-callout-icon" style="font-size:20px;">&lt;&#47;&gt;</div>
+            <h3 class="data-callout-title">Webhook-ready</h3>
+            <p class="data-callout-desc">Production events, cost changes, and inventory counts can push to external systems. Connect your ERP, analytics platform, or custom dashboard.</p>
+          </div>
 
         </div>
       </div>

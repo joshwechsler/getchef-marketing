@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Figtree:wght@400;500;600;700;800&display=swap');
+
 /* ============================================================
    VARIABLES & RESET
    ============================================================ */
@@ -16,7 +18,8 @@
   --scoop-green: #34C759;
   --scoop-black: #1C1C1E;
   --scoop-blue: #007AFF;
-  --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif;
+  --font: 'Figtree', -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif;
+  --font-serif: 'EB Garamond', Georgia, 'Times New Roman', serif;
   --radius-card: 28px;
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -259,10 +262,11 @@ button { cursor: pointer; font-family: inherit; }
 
 .apple-hero h1 {
   margin: 0;
+  font-family: var(--font-serif);
   font-size: clamp(58px, 9.5vw, 120px);
   line-height: 0.92;
-  font-weight: 800;
-  letter-spacing: -0.02em;
+  font-weight: 500;
+  letter-spacing: -0.01em;
   color: var(--color-ink);
 }
 
@@ -668,10 +672,11 @@ button { cursor: pointer; font-family: inherit; }
 
 .apple-copy-grid h2 {
   margin: 0;
+  font-family: var(--font-serif);
   font-size: clamp(48px, 6.5vw, 88px);
   line-height: 0.96;
-  font-weight: 800;
-  letter-spacing: -0.01em;
+  font-weight: 500;
+  letter-spacing: -0.005em;
 }
 
 .apple-copy-grid p {
@@ -726,10 +731,11 @@ button { cursor: pointer; font-family: inherit; }
 
 .apple-highlights h2 {
   margin: 0;
+  font-family: var(--font-serif);
   font-size: clamp(48px, 6.5vw, 88px);
   line-height: 0.96;
-  font-weight: 800;
-  letter-spacing: -0.01em;
+  font-weight: 500;
+  letter-spacing: -0.005em;
   color: var(--color-ink);
 }
 
@@ -1349,10 +1355,11 @@ button { cursor: pointer; font-family: inherit; }
 
 .feature-lockup h2 {
   margin: 0;
+  font-family: var(--font-serif);
   font-size: clamp(48px, 7vw, 92px);
   line-height: 0.94;
-  font-weight: 800;
-  letter-spacing: -0.01em;
+  font-weight: 500;
+  letter-spacing: -0.005em;
 }
 
 .feature-lockup span {
@@ -1796,10 +1803,11 @@ button { cursor: pointer; font-family: inherit; }
 
 .operator-section h2 {
   margin: 0;
+  font-family: var(--font-serif);
   font-size: clamp(48px, 6.5vw, 88px);
   line-height: 0.96;
-  font-weight: 800;
-  letter-spacing: -0.01em;
+  font-weight: 500;
+  letter-spacing: -0.005em;
   max-width: 920px;
 }
 
@@ -1851,10 +1859,11 @@ button { cursor: pointer; font-family: inherit; }
 
 .apple-final-cta h2 {
   margin: 0;
+  font-family: var(--font-serif);
   font-size: clamp(48px, 6.5vw, 88px);
   line-height: 0.96;
-  font-weight: 800;
-  letter-spacing: -0.01em;
+  font-weight: 500;
+  letter-spacing: -0.005em;
 }
 
 .apple-final-cta p {
@@ -1912,9 +1921,9 @@ button { cursor: pointer; font-family: inherit; }
 .section.light { color: var(--color-ink); background: #fff; }
 .section.soft { background: var(--color-gray-apple); }
 .eyebrow { margin: 0 0 14px; color: var(--color-teal); font-size: 19px; font-weight: 700; }
-.headline-xl { margin: 0; font-size: clamp(50px, 8.8vw, 112px); line-height: 0.94; font-weight: 700; }
-.headline-lg { margin: 0; font-size: clamp(44px, 6.7vw, 88px); line-height: 0.96; font-weight: 700; }
-.headline-md { margin: 0; font-size: clamp(34px, 4vw, 58px); line-height: 1.03; font-weight: 700; }
+.headline-xl { margin: 0; font-family: var(--font-serif); font-size: clamp(50px, 8.8vw, 112px); line-height: 0.94; font-weight: 500; }
+.headline-lg { margin: 0; font-family: var(--font-serif); font-size: clamp(44px, 6.7vw, 88px); line-height: 0.96; font-weight: 500; }
+.headline-md { margin: 0; font-family: var(--font-serif); font-size: clamp(34px, 4vw, 58px); line-height: 1.03; font-weight: 500; }
 .subhead { max-width: 790px; margin: 22px auto 0; font-size: clamp(22px, 3vw, 34px); line-height: 1.14; font-weight: 400; }
 .body-copy { margin: 24px 0 0; color: #6e6e73; font-size: 21px; line-height: 1.45; }
 .dark .body-copy { color: rgba(255,255,255,0.68); }
