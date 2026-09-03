@@ -265,6 +265,12 @@ navToggle?.addEventListener("click", () => {
   navToggle.setAttribute("aria-expanded", String(isOpen));
 });
 
+document.querySelector(".nav-close-btn")?.addEventListener("click", () => {
+  navLinks?.classList.remove("open");
+  document.body.classList.remove("menu-open");
+  navToggle?.setAttribute("aria-expanded", "false");
+});
+
 navLinks?.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", () => {
     navLinks.classList.remove("open");

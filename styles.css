@@ -78,6 +78,8 @@ button { cursor: pointer; font-family: inherit; }
   justify-self: start;
 }
 
+.nav-close-btn { display: none; }
+
 /* Pill capsule — center column */
 .nav-pill {
   display: flex;
@@ -2169,6 +2171,27 @@ input:focus,select:focus,textarea:focus { outline: none; border-color: var(--col
     background: transparent;
     color: var(--color-teal-light) !important;
   }
+
+  .nav-close-btn {
+    display: flex;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.14);
+    border: 1px solid rgba(255,255,255,0.18);
+    color: #fff;
+    font-size: 22px;
+    line-height: 1;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 101;
+  }
+
+  .nav-pill:not(.open) .nav-close-btn { display: none; }
 
   .nav-right .nav-cta { font-size: 12px; padding: 7px 14px; }
 
