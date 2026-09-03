@@ -11,6 +11,7 @@
   --color-teal: #0D5C46;
   --color-teal-light: #D6EAE2;
   --color-gray-apple: #FFFCE8;
+  --color-app-bg: #F2EFEA;
   --color-ink: #1C1A14;
   --color-text-muted: #4A4639;
   --color-text-soft: #6E6658;
@@ -341,8 +342,8 @@ button { cursor: pointer; font-family: inherit; }
 .screen-ui {
   overflow: hidden;
   border-radius: 20px;
-  background: var(--color-gray-apple);
-  border: 1px solid #E3DDD4;
+  background: var(--color-app-bg);
+  border: 1px solid #D8D4CC;
   display: flex;
   flex-direction: column;
 }
@@ -791,8 +792,8 @@ button { cursor: pointer; font-family: inherit; }
   flex: 1;
   margin: 0 16px 16px;
   border-radius: 18px;
-  background: var(--color-gray-apple);
-  border: 1px solid #EDE9E1;
+  background: var(--color-app-bg);
+  border: 1px solid #D8D4CC;
   overflow: hidden;
   display: flex;
   flex-direction: column;
