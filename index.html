@@ -148,7 +148,7 @@
     <section id="hero" class="apple-hero">
       <div class="apple-hero-copy reveal">
         <p class="apple-product-kicker">Kitchen Production Software</p>
-        <h1>Your kitchen.<br>Finally in sync.</h1>
+        <h1>Your kitchen.<br><em>Finally in sync.</em></h1>
         <p class="hero-sub">ChefOS turns prep lists, stations, shortages, and plating into one live production command center.</p>
         <div class="apple-hero-actions">
           <a href="contact.html">Request a demo</a>
@@ -330,7 +330,7 @@
     ================================================= -->
     <section id="problem" class="apple-intro">
       <div class="apple-copy-grid container reveal">
-        <h2>Paper doesn't move at kitchen speed.</h2>
+        <h2>Paper doesn't move<br><em>at kitchen speed.</em></h2>
         <p>Production does. ChefOS gives every station the same live truth, so managers stop chasing updates and cooks stop guessing what changed.</p>
       </div>
       <div class="apple-stat-row container reveal">
@@ -618,7 +618,7 @@
       <div class="container">
         <div class="feature-lockup reveal">
           <p class="eyebrow-teal">Plating</p>
-          <h2>The right scoop.<br>Every time.</h2>
+          <h2>The right scoop.<br><em>Every time.</em></h2>
           <span>Color-coded portions mean your packing team doesn't have to read a spec sheet during packout. They just see the scoop.</span>
         </div>
         <div class="cinema-card plating-cinema reveal">
@@ -677,7 +677,7 @@
       <div class="container">
         <div class="feature-lockup reveal">
           <p class="eyebrow-light">Manager Dashboard</p>
-          <h2>Every station.<br>One screen.</h2>
+          <h2>Every station.<br><em>One screen.</em></h2>
           <span>Progress bars. Shortage alerts. Who's on what. ChefOS turns production into a live board your managers can actually trust.</span>
         </div>
         <div class="dashboard-cinema reveal">
@@ -801,7 +801,7 @@
     ================================================= -->
     <section id="operators" class="operator-section">
       <div class="container reveal">
-        <h2>Built for kitchens where every minute has an owner.</h2>
+        <h2>Built for kitchens where<br><em>every minute has an owner.</em></h2>
         <div class="operator-grid">
           <article>
             <div class="op-icon op-icon-mealpre">🥡</div>
@@ -823,13 +823,86 @@
     </section>
 
     <!-- ================================================
+         DARK STATS SECTION
+    ================================================= -->
+    <section class="section-dark">
+      <div class="apple-inner container">
+        <p class="section-dark-label">Why kitchens switch</p>
+        <h2 class="section-dark-heading">Less chaos.<br><em>More kitchen.</em></h2>
+        <p class="section-dark-sub">ChefOS replaces the whiteboard, the group text, and the spreadsheet with one live system every station can trust.</p>
+        <div class="section-dark-stats">
+          <div>
+            <div class="dark-stat-num">4×</div>
+            <div class="dark-stat-label">faster morning briefing</div>
+          </div>
+          <div>
+            <div class="dark-stat-num">0</div>
+            <div class="dark-stat-label">prep sheets reprinted per shift</div>
+          </div>
+          <div>
+            <div class="dark-stat-num">Real-time</div>
+            <div class="dark-stat-label">shortage alerts to every station</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================
+         PARALLAX FLOAT CARDS
+    ================================================= -->
+    <section class="float-scroll-section" aria-label="Customer stories">
+      <div class="float-scroll-inner" id="floatInner">
+        <div class="float-card" id="fc1" style="top:80px;left:5%;">
+          <p class="float-card-quote">"The morning used to be pure chaos. Now the whole team knows what they're making before I even speak."</p>
+          <div class="float-card-name">Executive Chef, Meal Prep Co.</div>
+          <div class="float-card-role">500 meals/day operation</div>
+        </div>
+        <div class="float-card dark-card" id="fc2" style="top:200px;left:32%;">
+          <div class="float-card-stat">312</div>
+          <div class="float-card-stat-label">meals tracked in one shift</div>
+        </div>
+        <div class="float-card accent-card" id="fc3" style="top:60px;right:4%;">
+          <p class="float-card-quote">"Shortages used to surface at plating. Now they surface before production starts."</p>
+          <div class="float-card-name">Kitchen Manager</div>
+          <div class="float-card-role">Catering + events</div>
+        </div>
+        <div class="float-card" id="fc4" style="bottom:60px;left:20%;width:360px;">
+          <p class="float-card-quote">"Every station gets their own view. No one is reading someone else's prep list anymore."</p>
+          <div class="float-card-name">Head of Operations</div>
+          <div class="float-card-role">Food manufacturing kitchen</div>
+        </div>
+      </div>
+    </section>
+    <script>
+    (function(){
+      var cards = [
+        { el: document.getElementById('fc1'), rate: -0.12 },
+        { el: document.getElementById('fc2'), rate:  0.18 },
+        { el: document.getElementById('fc3'), rate: -0.08 },
+        { el: document.getElementById('fc4'), rate:  0.14 },
+      ];
+      function onScroll() {
+        var section = document.querySelector('.float-scroll-section');
+        if (!section) return;
+        var rect = section.getBoundingClientRect();
+        var progress = -rect.top / (window.innerHeight + rect.height);
+        cards.forEach(function(c) {
+          if (c.el) c.el.style.transform = 'translateY(' + (progress * c.rate * 600) + 'px)';
+        });
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+    </script>
+
+    <!-- ================================================
          PLATFORM OVERVIEW
     ================================================= -->
     <section id="platform" class="platform-section">
       <div class="container">
         <div class="platform-header reveal">
           <p class="eyebrow-teal">Full Platform</p>
-          <h2>More than a production tool.<br>The whole kitchen stack.</h2>
+          <h2>More than a production tool.<br><em>The whole kitchen stack.</em></h2>
           <p class="platform-sub">ChefOS connects recipes, costs, inventory, purchasing, and production into one live system. Change one ingredient price and every recipe cost updates automatically.</p>
         </div>
         <div class="platform-grid reveal">
@@ -893,7 +966,7 @@
     ================================================= -->
     <section id="cta" class="apple-final-cta">
       <div class="container center reveal">
-        <h2>Ready to run a smarter kitchen?</h2>
+        <h2>Ready to run<br><em>a smarter kitchen?</em></h2>
         <p>See ChefOS in action with a free 30-minute demo. No paperwork, no commitment.</p>
         <a class="button-cta" href="contact.html">Book a Demo</a>
       </div>

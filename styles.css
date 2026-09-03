@@ -10,7 +10,7 @@
      Matches the app's brand-700 / brand-100 / warm-50 / warm-900. */
   --color-teal: #0D5C46;
   --color-teal-light: #D6EAE2;
-  --color-gray-apple: #F7F5F0;
+  --color-gray-apple: #FFFCE8;
   --color-ink: #1C1A14;
   --color-text-muted: #4A4639;
   --color-text-soft: #6E6658;
@@ -52,17 +52,17 @@ button { cursor: pointer; font-family: inherit; }
   z-index: 100;
   height: 44px;
   color: var(--color-text-muted);
-  background: rgba(247,245,240,0.82);
+  background: rgba(255,252,232,0.88);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   backdrop-filter: saturate(180%) blur(20px);
   transition: background 0.3s var(--ease), border-color 0.3s var(--ease);
 }
 
 .site-nav.scrolled {
-  background: rgba(255,255,255,0.78);
+  background: rgba(255,252,232,0.92);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   backdrop-filter: saturate(180%) blur(20px);
-  border-bottom: 1px solid rgba(0,0,0,0.08);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
 }
 
 .nav-inner {
@@ -1977,6 +1977,154 @@ input:focus,select:focus,textarea:focus { outline: none; border-color: var(--col
 .cta-band { color: #fff; background: var(--color-teal); }
 .kitchen-meaning { margin-top: 24px; color: var(--color-teal) !important; font-style: italic; font-weight: 700; }
 
+
+/* ============================================================
+   ITALIC SERIF MIX — headings mix upright + italic like WisprFlow
+   ============================================================ */
+.apple-hero h1 em,
+.apple-highlights h2 em,
+.apple-copy-grid h2 em,
+.feature-lockup h2 em,
+.operator-section h2 em,
+.apple-final-cta h2 em,
+.headline-xl em,
+.headline-lg em,
+.headline-md em,
+.platform-header h2 em,
+.section-dark-heading em {
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* ============================================================
+   DARK FOREST GREEN CONTRAST SECTION
+   ============================================================ */
+.section-dark {
+  background: #0E2D20;
+  color: #EEE8C8;
+  padding: 140px 0;
+  position: relative;
+  overflow: hidden;
+}
+.section-dark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 60% at 70% 30%, rgba(13,92,70,0.45), transparent 65%);
+  pointer-events: none;
+}
+.section-dark-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6BAE8A;
+  margin-bottom: 28px;
+}
+.section-dark-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(44px, 6vw, 84px);
+  font-weight: 500;
+  line-height: 0.96;
+  letter-spacing: -0.01em;
+  color: #EEE8C8;
+  margin: 0 0 36px;
+}
+.section-dark-sub {
+  font-size: clamp(18px, 2.2vw, 24px);
+  line-height: 1.5;
+  color: rgba(238,232,200,0.65);
+  max-width: 560px;
+  margin: 0 0 56px;
+}
+.section-dark-stats {
+  display: flex;
+  gap: 64px;
+  flex-wrap: wrap;
+}
+.dark-stat-num {
+  font-family: var(--font-serif);
+  font-size: clamp(52px, 7vw, 96px);
+  font-weight: 400;
+  line-height: 1;
+  color: #EEE8C8;
+}
+.dark-stat-label {
+  font-size: 14px;
+  color: rgba(238,232,200,0.55);
+  margin-top: 6px;
+  font-weight: 500;
+}
+.section-dark .apple-inner { position: relative; z-index: 1; }
+
+/* ============================================================
+   PARALLAX FLOAT CARDS
+   ============================================================ */
+.float-scroll-section {
+  position: relative;
+  background: #0E2D20;
+  overflow: hidden;
+  padding: 0;
+  height: 700px;
+}
+.float-scroll-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.float-card {
+  position: absolute;
+  background: #FFFCE8;
+  border-radius: 24px;
+  padding: 36px 32px;
+  width: 320px;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.28);
+  will-change: transform;
+}
+.float-card.dark-card {
+  background: #1A4530;
+  color: #EEE8C8;
+}
+.float-card.accent-card {
+  background: var(--color-teal);
+  color: #fff;
+}
+.float-card-quote {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  line-height: 1.35;
+  font-weight: 400;
+  margin: 0 0 24px;
+  color: inherit;
+}
+.float-card-name {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: inherit;
+  opacity: 0.7;
+}
+.float-card-role {
+  font-size: 13px;
+  color: inherit;
+  opacity: 0.5;
+  margin-top: 2px;
+}
+.float-card-stat {
+  font-family: var(--font-serif);
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 1;
+  color: inherit;
+}
+.float-card-stat-label {
+  font-size: 14px;
+  opacity: 0.6;
+  margin-top: 4px;
+}
 
 /* ============================================================
    RESPONSIVE — 900px
