@@ -5,7 +5,7 @@
 
 const nav = document.querySelector(".site-nav");
 const navToggle = document.querySelector(".nav-toggle");
-const navLinks = document.querySelector(".nav-links");
+const navLinks = document.querySelector(".nav-pill");
 const contactForm = document.querySelector("[data-contact-form]");
 const formMessage = document.querySelector("[data-form-message]");
 
